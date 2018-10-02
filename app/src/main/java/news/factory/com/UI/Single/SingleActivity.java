@@ -9,9 +9,7 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import news.factory.com.MainActivity;
 import news.factory.com.Model.DataModel.BaseItem;
-import news.factory.com.Model.DataModel.Content;
 import news.factory.com.Model.DataModel.News;
 import news.factory.com.Model.Networking.NewsAPI;
 import news.factory.com.Model.Networking.ServiceGenerator;

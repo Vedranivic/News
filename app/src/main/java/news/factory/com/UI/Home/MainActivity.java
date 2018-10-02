@@ -1,17 +1,12 @@
-package news.factory.com;
+package news.factory.com.UI.Home;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 
 import news.factory.com.Model.DataModel.News;
-import news.factory.com.Model.Networking.NewsAPI;
-import news.factory.com.Model.Networking.ServiceGenerator;
+import news.factory.com.R;
 import news.factory.com.UI.Single.SingleActivity;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -22,9 +17,15 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        switchToSingle();
+    }
+
+    private void switchToSingle() {
         Intent i = new Intent(MainActivity.this,SingleActivity.class);
         i.putExtra("articleID","280146");
         i.putExtra("apiToken","PTTOKEN");
         startActivity(i);
     }
+
+
 }

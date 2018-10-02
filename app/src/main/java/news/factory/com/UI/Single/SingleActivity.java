@@ -21,7 +21,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class SingleActivity extends FragmentActivity {
+public class SingleActivity extends FragmentActivity implements Callback<News> {
 
     private int pages;
     private static final String TAG = SingleActivity.class.getSimpleName();
@@ -38,12 +38,34 @@ public class SingleActivity extends FragmentActivity {
         setContentView(R.layout.activity_single);
         ButterKnife.bind(this);
         vpSingles = (ViewPager) findViewById(R.id.vpArticles);
-        setupUI();
+        getPages();
     }
 
 
     private void setupUI() {
+        Log.d(TAG,"PAGES_NO: "+String.valueOf(pages));
         vpSingles.setAdapter(new SinglePagerAdapter(getSupportFragmentManager(),pages));
         vpSingles.setCurrentItem(0);
+    }
+
+    private void getPages() {
+        Call<News> call = ServiceGenerator.getRetrofit(this).create(NewsAPI.class)
+                .getNews("280146", "PTTOKEN","1");
+        call.enqueue(this);
+    }
+
+    @Override
+    public void onResponse(Call<News> call, Response<News> response) {
+        Log.d(TAG,"Call successfull!");
+
+        if(response.body()!=null) {
+            pages = Integer.parseInt(response.body().getPages_no());
+            setupUI();
+        }
+    }
+
+    @Override
+    public void onFailure(Call<News> call, Throwable t) {
+        Log.d(TAG,"Call failed!");
     }
 }

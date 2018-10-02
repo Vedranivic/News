@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="imageMarginTop">24dp</dimen>
+    <dimen name="imageMarginTop">16dp</dimen>
     <dimen name="imageMarginBottom">16dp</dimen>
     <dimen name="titleTextSize">26sp</dimen>
-    <dimen name="titleMarginBottom">45dp</dimen>
+    <dimen name="titleMarginBottom">16dp</dimen>
     <dimen name="titleMarginTop">45dp</dimen>
     <dimen name="titleMarginEnd">16dp</dimen>
     <dimen name="titleMarginStart">16dp</dimen>

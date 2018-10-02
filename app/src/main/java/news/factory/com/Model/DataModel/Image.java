@@ -1,6 +1,8 @@
 package news.factory.com.Model.DataModel;
 
-public class Image
+import news.factory.com.Model.Constants;
+
+public class Image implements BaseItem
 {
     private String xxl;
 
@@ -54,5 +56,10 @@ public class Image
     public String toString()
     {
         return "ClassPojo [xxl = "+xxl+", xl = "+xl+", original = "+original+", m = "+m+"]";
+    }
+
+    @Override
+    public int getViewType() {
+        return Constants.IMAGE_TYPE;
     }
 }

@@ -2,7 +2,10 @@ package news.factory.com.Model.DataModel;
 
 import java.util.List;
 
-public class News {
+import news.factory.com.Model.Constants;
+
+public class News implements BaseItem
+{
     private String pages_no;
 
     private String is_external;
@@ -595,5 +598,10 @@ public class News {
     public String toString()
     {
         return "ClassPojo [pages_no = "+pages_no+", is_external = "+is_external+", has_mp3 = "+has_mp3+", title_raw = "+title_raw+", category_url = "+category_url+", template = "+template+", mp3_url = "+mp3_url+", status = "+status+", category_id = "+category_id+", no_featured_image = "+no_featured_image+", published_at_humans = "+published_at_humans+", url = "+url+", category_color = "+category_color+", content = "+content+", shares = "+shares+", has_video = "+has_video+", hits = "+hits+", category = "+category+", updated_at = "+updated_at+", index_block_position = "+index_block_position+", has_gallery = "+has_gallery+", slug = "+slug+", breaking_news = "+breaking_news+", updated_at_atom = "+updated_at_atom+", category_analytics = "+category_analytics+", featured_image_source = "+featured_image_source+", breadcrumbs = "+breadcrumbs+", published_at_rss = "+published_at_rss+", id = "+id+", uppertitle = "+uppertitle+", author = "+author+", title = "+title+", intro_video = "+intro_video+", published_at_atom = "+published_at_atom+", created_at = "+created_at+", urlm = "+urlm+", tags = "+tags+", article_edition = "+article_edition+", featured_image_caption = "+featured_image_caption+", featured_image = "+featured_image+", index_block = "+index_block+", intro = "+intro+", published_at = "+published_at+", uppertitle_raw = "+uppertitle_raw+", upcomming = "+upcomming+", category_slug = "+category_slug+", intro_short = "+intro_short+", intro_shorter = "+intro_shorter+", subtitle = "+subtitle+"]";
+    }
+
+    @Override
+    public int getViewType() {
+        return Constants.TITLE_TYPE;
     }
 }

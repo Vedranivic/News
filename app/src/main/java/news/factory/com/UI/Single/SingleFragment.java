@@ -58,7 +58,7 @@ public class SingleFragment extends Fragment implements Callback<News> {
         }
 
         Call<News> call = ServiceGenerator.getRetrofit(getContext()).create(NewsAPI.class)
-                .getNews("280146", "PTTOKEN", page);
+                .getNews(SingleActivity.articleID, SingleActivity.apiToken, page);
         call.enqueue(this);
     }
 

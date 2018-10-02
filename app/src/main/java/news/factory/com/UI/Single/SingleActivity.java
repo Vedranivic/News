@@ -26,6 +26,9 @@ public class SingleActivity extends FragmentActivity implements Callback<News> {
     private int pages;
     private static final String TAG = SingleActivity.class.getSimpleName();
 
+    public static String articleID;
+    public static String apiToken;
+
     @BindView(R.id.vpArticles)
     ViewPager vpSingles;
 
@@ -49,9 +52,15 @@ public class SingleActivity extends FragmentActivity implements Callback<News> {
     }
 
     private void getPages() {
-        Call<News> call = ServiceGenerator.getRetrofit(this).create(NewsAPI.class)
-                .getNews("280146", "PTTOKEN","1");
-        call.enqueue(this);
+        //getting number of pages in an article (needed for ViewPager)
+        if(getIntent().getExtras()!=null) {
+            articleID = getIntent().getExtras().getString("articleID");
+            apiToken = getIntent().getExtras().getString("apiToken");
+
+            Call<News> call = ServiceGenerator.getRetrofit(this).create(NewsAPI.class)
+                    .getNews(articleID, apiToken, "1");
+            call.enqueue(this);
+        }
     }
 
     @Override

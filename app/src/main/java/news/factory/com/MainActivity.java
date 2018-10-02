@@ -23,6 +23,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Intent i = new Intent(MainActivity.this,SingleActivity.class);
+        i.putExtra("articleID","280146");
+        i.putExtra("apiToken","PTTOKEN");
         startActivity(i);
     }
 }

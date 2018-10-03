@@ -1,4 +1,4 @@
-package news.factory.com.UI.Home;
+package news.factory.com.Home;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -6,7 +6,7 @@ import android.os.Bundle;
 
 import news.factory.com.Model.DataModel.News;
 import news.factory.com.R;
-import news.factory.com.UI.Single.SingleActivity;
+import news.factory.com.Single.SingleActivity;
 
 public class MainActivity extends AppCompatActivity {
 

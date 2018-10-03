@@ -24,7 +24,7 @@ public class News implements BaseItem
 
     private String category_id;
 
-    private String no_featured_image;
+    private Boolean no_featured_image;
 
     private String published_at_humans;
 
@@ -194,12 +194,12 @@ public class News implements BaseItem
         this.category_id = category_id;
     }
 
-    public String getNo_featured_image ()
+    public Boolean getNo_featured_image ()
     {
         return no_featured_image;
     }
 
-    public void setNo_featured_image (String no_featured_image)
+    public void setNo_featured_image (Boolean no_featured_image)
     {
         this.no_featured_image = no_featured_image;
     }

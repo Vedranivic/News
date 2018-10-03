@@ -1,10 +1,10 @@
-package news.factory.com.UI.Single.Adapter;
+package news.factory.com.Single.Adapter;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 
 import java.util.List;
@@ -41,9 +41,9 @@ public class SingleRecyclerAdapter extends RecyclerView.Adapter<BaseItemViewHold
             case Constants.TEXT_TYPE:
                 return new SingleViewHolder.TextViewHolder(mInflater.inflate(R.layout.item_text,parent,false));
         }
-
-        return null;
+        return new DummyViewHolder(new View(parent.getContext()));
     }
+
 
     @SuppressWarnings("unchecked")
     @Override
@@ -57,5 +57,16 @@ public class SingleRecyclerAdapter extends RecyclerView.Adapter<BaseItemViewHold
             return items.size();
         else
             return 0;
+    }
+
+    private class DummyViewHolder extends BaseItemViewHolder{
+        public DummyViewHolder(View itemView) {
+            super(itemView);
+        }
+
+        @Override
+        public void bind(Object object) {
+
+        }
     }
 }

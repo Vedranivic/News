@@ -1,4 +1,4 @@
-package news.factory.com.UI.Single.Adapter;
+package news.factory.com.Single.Adapter;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;

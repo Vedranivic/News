@@ -1,6 +1,5 @@
-package news.factory.com.UI.Single.Adapter;
+package news.factory.com.Single.Adapter;
 
-import android.support.v7.widget.RecyclerView;
 import android.text.Html;
 import android.view.View;
 import android.widget.ImageView;
@@ -27,7 +26,6 @@ public class SingleViewHolder {
         public FeatureViewHolder(View itemView) {
             super(itemView);
             ButterKnife.bind(this,itemView);
-            ivFeatureImage = (ImageView) itemView.findViewById(R.id.ivFeature);
         }
 
         @Override
@@ -48,8 +46,6 @@ public class SingleViewHolder {
         public TitleViewHolder(View itemView) {
             super(itemView);
             ButterKnife.bind(this,itemView);
-            tvTitle = (TextView) itemView.findViewById(R.id.tvTitle);
-
         }
 
         @Override
@@ -66,8 +62,6 @@ public class SingleViewHolder {
         public TextViewHolder(View itemView) {
             super(itemView);
             ButterKnife.bind(this,itemView);
-            tvText = (TextView) itemView.findViewById(R.id.tvText);
-
         }
 
         @Override
@@ -84,8 +78,6 @@ public class SingleViewHolder {
         public ImageViewHolder(View itemView) {
             super(itemView);
             ButterKnife.bind(this,itemView);
-            ivImage = (ImageView) itemView.findViewById(R.id.ivImage);
-
         }
 
         @Override

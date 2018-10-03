@@ -44,10 +44,4 @@ public class SingleFragmentPresenter implements SingleFragmentPresenterInterface
         singleFragmentInterface.displayArticleItems(items);
     }
 
-    @Override
-    public Context getContext() {
-        return singleFragmentInterface.getContext();
-    }
-
-
 }

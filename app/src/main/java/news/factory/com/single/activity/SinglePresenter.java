@@ -22,9 +22,4 @@ public class SinglePresenter implements SinglePresenterInterface{
         singleActivityInterface.displayArticle(singleActivityInterface.getArticleID(), pagesNumber);
     }
 
-    @Override
-    public Context getContext() {
-        return singleActivityInterface.getContext();
-    }
-
 }

@@ -1,6 +1,7 @@
 package news.factory.com;
 
 import android.app.Application;
+import android.content.Context;
 
 import com.maradroid.dummyresponsegenerator.base.interactor.InteractorImpl;
 import com.maradroid.dummyresponsegenerator.utils.SharedPerfRepo;
@@ -11,5 +12,12 @@ public class App extends Application {
         super.onCreate();
         new InteractorImpl(this).generateResponses(true);
         new SharedPerfRepo(this).setDummyResponse(true);
+        appContext = this;
+    }
+
+    private static Context appContext;
+
+    public static Context provideContext(){
+        return appContext;
     }
 }

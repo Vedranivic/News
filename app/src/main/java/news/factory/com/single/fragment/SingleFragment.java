@@ -82,15 +82,6 @@ public class SingleFragment extends BaseFragment implements SingleFragmentInterf
     }
 
     @Override
-    public Context getContext() {
-        if(getActivity()!=null) {
-            return getActivity().getApplicationContext();
-        }
-        else
-            return null;
-    }
-
-    @Override
     public void onDestroy() {
         super.onDestroy();
         //call.cancel();

@@ -57,11 +57,6 @@ public class SingleActivity extends AppCompatActivity implements SingleActivityI
     }
 
     @Override
-    public Context getContext() {
-        return getApplicationContext();
-    }
-
-    @Override
     protected void onDestroy() {
         super.onDestroy();
         //call.cancel();

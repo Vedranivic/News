@@ -2,6 +2,7 @@ package news.factory.com.model;
 
 import android.util.Log;
 
+import news.factory.com.App;
 import news.factory.com.model.data_model.News;
 import news.factory.com.model.networking.NewsAPI;
 import news.factory.com.model.networking.ServiceGenerator;
@@ -28,13 +29,13 @@ public class ArticleInteractor implements Callback<News> {
     }
 
     public void makeCall(String articleID){
-        call = ServiceGenerator.getRetrofit(singlePresenterInterface.getContext()).create(NewsAPI.class)
+        call = ServiceGenerator.getRetrofit(App.provideContext()).create(NewsAPI.class)
                     .getNews(articleID,Constants.FIRST_PAGE_VALUE);
         call.enqueue(this);
     }
 
     public void makeCall(String articleID, String page){
-        call = ServiceGenerator.getRetrofit(singleFragmentPresenterInterface.getContext()).create(NewsAPI.class)
+        call = ServiceGenerator.getRetrofit(App.provideContext()).create(NewsAPI.class)
                 .getNews(articleID,page);
         call.enqueue(this);
     }

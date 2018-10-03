@@ -9,21 +9,17 @@ import android.support.v7.app.AppCompatActivity;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import news.factory.com.model.Constants;
-import news.factory.com.model.data_model.News;
 import news.factory.com.R;
 import news.factory.com.single.adapter.SinglePagerAdapter;
-import retrofit2.Call;
 
 public class SingleActivity extends AppCompatActivity implements SingleActivityInterface {
 
-    private static final String TAG = SingleActivity.class.getSimpleName();
-    private Call<News> call;
     private SinglePresenter presenter;
 
     @BindView(R.id.vpArticles)
     ViewPager vpSingles;
 
-        public static Intent openActivityInstance(Context context,String articleId) {
+    public static Intent openActivityInstance(Context context,String articleId) {
         Intent i = new Intent(context, SingleActivity.class);
         i.putExtra(Constants.ARTICLE_KEY,articleId);
         return i;
@@ -40,7 +36,7 @@ public class SingleActivity extends AppCompatActivity implements SingleActivityI
     }
 
     private void setupMVP() {
-            presenter = new SinglePresenter(this);
+        presenter = new SinglePresenter(this);
     }
 
     private void getArticle() {

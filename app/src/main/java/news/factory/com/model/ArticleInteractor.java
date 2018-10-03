@@ -1,14 +1,12 @@
 package news.factory.com.model;
 
-import android.content.Context;
 import android.util.Log;
 
 import news.factory.com.model.data_model.News;
 import news.factory.com.model.networking.NewsAPI;
 import news.factory.com.model.networking.ServiceGenerator;
-import news.factory.com.single.activity.SingleActivity;
-import news.factory.com.single.activity.SingleActivityInterface;
 import news.factory.com.single.activity.SinglePresenterInterface;
+import news.factory.com.single.fragment.SingleFragmentPresenterInterface;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -19,9 +17,14 @@ public class ArticleInteractor implements Callback<News> {
 
     private Call<News> call;
     private SinglePresenterInterface singlePresenterInterface;
+    private SingleFragmentPresenterInterface singleFragmentPresenterInterface;
 
     public ArticleInteractor(SinglePresenterInterface singlePresenterInterface) {
         this.singlePresenterInterface = singlePresenterInterface;
+    }
+
+    public ArticleInteractor(SingleFragmentPresenterInterface singleFragmentPresenterInterface) {
+        this.singleFragmentPresenterInterface = singleFragmentPresenterInterface;
     }
 
     public void makeCall(String articleID){
@@ -30,12 +33,23 @@ public class ArticleInteractor implements Callback<News> {
         call.enqueue(this);
     }
 
+    public void makeCall(String articleID, String page){
+        call = ServiceGenerator.getRetrofit(singleFragmentPresenterInterface.getContext()).create(NewsAPI.class)
+                .getNews(articleID,page);
+        call.enqueue(this);
+    }
+
     @Override
     public void onResponse(Call<News> call, Response<News> response) {
         Log.d(TAG,"Call successfull!");
 
         if(response.body()!=null) {
-            singlePresenterInterface.setArticle(Integer.parseInt(response.body().getPages_no()));
+            if(singlePresenterInterface!=null) {
+                singlePresenterInterface.setArticle(Integer.parseInt(response.body().getPages_no()));
+            }
+            if(singleFragmentPresenterInterface!=null){
+                singleFragmentPresenterInterface.setArticleItems(response.body());
+            }
         }
     }
 

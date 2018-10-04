@@ -58,4 +58,8 @@ public class ArticleInteractor implements Callback<News> {
     public void onFailure(Call<News> call, Throwable t) {
         Log.d(TAG,"Call failed!");
     }
+
+    public void cancelCall(){
+        call.cancel();
+    }
 }

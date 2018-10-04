@@ -1,6 +1,5 @@
 package news.factory.com.single.fragment;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -19,7 +18,6 @@ import news.factory.com.model.Constants;
 import news.factory.com.model.data_model.BaseItem;
 
 import news.factory.com.R;
-import news.factory.com.single.BaseFragment;
 
 import news.factory.com.single.adapter.SingleRecyclerAdapter;
 
@@ -84,13 +82,13 @@ public class SingleFragment extends BaseFragment implements SingleFragmentInterf
     @Override
     public void onDestroy() {
         super.onDestroy();
-        //call.cancel();
+        presenter.cancelCall();
     }
 
     @Override
     public void onStop() {
         super.onStop();
-        //call.cancel();
+        presenter.cancelCall();
     }
 
 }

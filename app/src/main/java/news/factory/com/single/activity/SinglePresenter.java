@@ -5,6 +5,9 @@ import android.content.Context;
 import news.factory.com.model.ArticleInteractor;
 
 public class SinglePresenter implements SinglePresenterInterface{
+
+    private ArticleInteractor articleInteractor;
+
     private SingleActivityInterface singleActivityInterface;
 
     public SinglePresenter(SingleActivityInterface singleActivityInterface) {
@@ -13,13 +16,17 @@ public class SinglePresenter implements SinglePresenterInterface{
 
     @Override
     public void getArticle() {
-        ArticleInteractor articleInteractor = new ArticleInteractor(this);
+        articleInteractor = new ArticleInteractor(this);
         articleInteractor.makeCall(singleActivityInterface.getArticleID());
     }
 
     @Override
     public void setArticle(int pagesNumber) {
         singleActivityInterface.displayArticle(singleActivityInterface.getArticleID(), pagesNumber);
+    }
+
+    public void cancelCall(){
+        articleInteractor.cancelCall();
     }
 
 }

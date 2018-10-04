@@ -59,13 +59,13 @@ public class SingleActivity extends AppCompatActivity implements SingleActivityI
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        //call.cancel();
+        presenter.cancelCall();
     }
 
     @Override
     public void onStop() {
         super.onStop();
-        //call.cancel();
+        presenter.cancelCall();
     }
 
 }

@@ -13,6 +13,8 @@ import news.factory.com.model.data_model.News;
 
 
 public class SingleFragmentPresenter implements SingleFragmentPresenterInterface {
+
+    private ArticleInteractor articleInteractor;
     private SingleFragmentInterface singleFragmentInterface;
 
     public SingleFragmentPresenter(SingleFragmentInterface singleFragmentInterface) {
@@ -21,7 +23,7 @@ public class SingleFragmentPresenter implements SingleFragmentPresenterInterface
 
     @Override
     public void getArticleItems() {
-        ArticleInteractor articleInteractor = new ArticleInteractor(this);
+        articleInteractor = new ArticleInteractor(this);
         articleInteractor.makeCall(singleFragmentInterface.getArticleID(), singleFragmentInterface.getPage());
     }
 
@@ -42,6 +44,10 @@ public class SingleFragmentPresenter implements SingleFragmentPresenterInterface
         }
 
         singleFragmentInterface.displayArticleItems(items);
+    }
+
+    public void cancelCall(){
+        articleInteractor.cancelCall();
     }
 
 }

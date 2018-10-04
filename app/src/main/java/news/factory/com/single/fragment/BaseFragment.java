@@ -1,4 +1,4 @@
-package news.factory.com.single;
+package news.factory.com.single.fragment;
 
 import android.support.v4.app.Fragment;
 

@@ -4,7 +4,7 @@
     <dimen name="imageMarginBottom">16dp</dimen>
     <dimen name="titleTextSize">26sp</dimen>
     <dimen name="titleMarginBottom">16dp</dimen>
-    <dimen name="titleMarginTop">45dp</dimen>
+    <dimen name="titleMarginTop">9dp</dimen>
     <dimen name="titleMarginEnd">16dp</dimen>
     <dimen name="titleMarginStart">16dp</dimen>
     <dimen name="textMarginStart">16dp</dimen>
@@ -12,4 +12,5 @@
     <dimen name="textMarginTop">16dp</dimen>
     <dimen name="textMarginBottom">16dp</dimen>
     <dimen name="textTextSize">14sp</dimen>
+    <dimen name="uppertitleMarginTop">8dp</dimen>
 </resources>

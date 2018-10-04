@@ -7,6 +7,8 @@ import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 
+import org.w3c.dom.Text;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import news.factory.com.base.BaseItemViewHolder;
@@ -19,10 +21,18 @@ import news.factory.com.R;
 
 public class SingleViewHolder {
 
-    public static class FeatureViewHolder extends BaseItemViewHolder<FeaturedImage> {
+    public static class FeatureViewHolder extends BaseItemViewHolder<News> {
+
+        private static final String sourceBeginningText = "Source: ";
 
         @BindView(R.id.ivFeature)
         ImageView ivFeatureImage;
+        @BindView(R.id.tvCategory)
+        TextView tvCategory;
+        @BindView(R.id.tvSource)
+        TextView tvSource;
+        @BindView(R.id.tvCaption)
+        TextView tvCaption;
 
 
         public FeatureViewHolder(View itemView) {
@@ -31,13 +41,14 @@ public class SingleViewHolder {
         }
 
         @Override
-        public void bind(FeaturedImage object) {
+        public void bind(News object) {
+            tvCategory.setText(object.getCategory());
+            tvSource.setText(sourceBeginningText + object.getFeatured_image_source());
+            tvCaption.setText(object.getFeatured_image_caption());
             Picasso.get()
-                    .load(Constants.IMAGE_BASE_URL+object.getOriginal())
+                    .load(Constants.IMAGE_BASE_URL+object.getFeatured_image().getOriginal())
                     .into(this.ivFeatureImage);
         }
-
-
     }
 
 
@@ -92,6 +103,23 @@ public class SingleViewHolder {
             Picasso.get()
                     .load(Constants.IMAGE_BASE_URL+object.getOriginal())
                     .into(this.ivImage);
+        }
+    }
+
+    public static class UpperTitleViewHolder extends BaseItemViewHolder<News>{
+
+        @BindView(R.id.tvUpperTitle)
+        TextView tvUpperTitle;
+
+
+        public UpperTitleViewHolder(View itemView) {
+            super(itemView);
+            ButterKnife.bind(this,itemView);
+        }
+
+        @Override
+        public void bind(News object) {
+            tvUpperTitle.setText(object.getUppertitle());
         }
     }
 }

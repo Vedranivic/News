@@ -1,17 +1,23 @@
-package news.factory.com.single.fragment;
+package news.factory.com.single.fragment.presenter;
 
 
 import java.util.ArrayList;
 import java.util.List;
 
+import news.factory.com.base.Constants;
 import news.factory.com.model.ArticleInteractor;
+import news.factory.com.model.ArticleInteractorImpl;
 import news.factory.com.model.ArticleListener;
 import news.factory.com.base.BaseItem;
 import news.factory.com.model.data_model.Content;
 import news.factory.com.model.data_model.News;
+import news.factory.com.single.fragment.SingleFragmentContract;
 
 
 public class SingleFragmentPresenter implements SingleFragmentContract.Presenter, ArticleListener {
+
+    private static final String textType = "text";
+    private static final String imageType = "image";
 
     private ArticleInteractor articleInteractor;
     private SingleFragmentContract.View singleFragmentView;
@@ -21,7 +27,7 @@ public class SingleFragmentPresenter implements SingleFragmentContract.Presenter
 
     public SingleFragmentPresenter(SingleFragmentContract.View singleFragmentView) {
         this.singleFragmentView = singleFragmentView;
-        articleInteractor = new ArticleInteractor();
+        articleInteractor = new ArticleInteractorImpl();
     }
 
     @Override
@@ -39,14 +45,23 @@ public class SingleFragmentPresenter implements SingleFragmentContract.Presenter
     public void onSuccess(News news) {
         List<BaseItem> items = new ArrayList<>();
         if(!news.getNo_featured_image()){
-            items.add(news.getFeatured_image());//feature image
+            items.add(new News(news.getFeatured_image(),
+                    news.getFeatured_image_caption(),
+                    news.getFeatured_image_source(),
+                    news.getCategory(),
+                    Constants.FEATURE_TYPE)
+            );                                  //feature image
         }
+
+        items.add(new News(news.getUppertitle(),Constants.UPPERTITLE_TYPE)); //uppertitle
+
+        news.setViewType(Constants.TITLE_TYPE);
         items.add(news);                        //title
         for(Content c : news.getContent()) {
-            if(c.getType().equals("text")) {
+            if(c.getType().equals(textType)) {
                 items.add(c);                   //text
             }
-            if(c.getType().equals("image")){
+            if(c.getType().equals(imageType)){
                 items.add(c.getImage());        //image
             }
         }

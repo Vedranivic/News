@@ -1,4 +1,4 @@
-package news.factory.com.single.fragment;
+package news.factory.com.single.fragment.view;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -21,6 +21,8 @@ import news.factory.com.base.BaseItem;
 import news.factory.com.R;
 
 import news.factory.com.single.adapter.SingleRecyclerAdapter;
+import news.factory.com.single.fragment.SingleFragmentContract;
+import news.factory.com.single.fragment.presenter.SingleFragmentPresenter;
 
 public class SingleFragment extends BaseFragment implements SingleFragmentContract.View {
 
@@ -41,7 +43,7 @@ public class SingleFragment extends BaseFragment implements SingleFragmentContra
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        ViewGroup viewGroup = (ViewGroup) inflater.inflate(R.layout.fragment_page, container, false);
+        ViewGroup viewGroup = (ViewGroup) inflater.inflate(R.layout.fragment_single, container, false);
         unbinder = ButterKnife.bind(this,viewGroup);
 
         setupMVP();

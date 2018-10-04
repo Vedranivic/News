@@ -20,7 +20,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".single.activity.SingleActivity"></activity>
+        <activity android:name=".single.activity.view.SingleActivity"></activity>
     </application>
 
 </manifest>

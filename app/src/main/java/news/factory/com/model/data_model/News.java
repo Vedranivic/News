@@ -7,6 +7,8 @@ import news.factory.com.base.Constants;
 
 public class News implements BaseItem
 {
+    private int ViewType;
+
     private String pages_no;
 
     private String is_external;
@@ -104,6 +106,20 @@ public class News implements BaseItem
     private String intro_shorter;
 
     private String subtitle;
+
+
+    public News (FeaturedImage featuredImage, String featured_image_caption, String featured_image_source, String category, int viewType){
+        this.featured_image = featuredImage;
+        this.featured_image_caption = featured_image_caption;
+        this.featured_image_source = featured_image_source;
+        this.category = category;
+        this.ViewType = viewType;
+    }
+
+    public News (String uppertitle, int viewType){
+        this.uppertitle = uppertitle;
+        this.ViewType = viewType;
+    }
 
     public String getPages_no ()
     {
@@ -603,6 +619,11 @@ public class News implements BaseItem
 
     @Override
     public int getViewType() {
-        return Constants.TITLE_TYPE;
+        return this.ViewType;
     }
+
+    public void setViewType(int type){
+        this.ViewType = type;
+    }
+
 }

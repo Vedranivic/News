@@ -6,7 +6,7 @@ import android.os.Bundle;
 import news.factory.com.model.data_model.News;
 import news.factory.com.R;
 import news.factory.com.base.networking.ServiceGenerator;
-import news.factory.com.single.activity.SingleActivity;
+import news.factory.com.single.activity.view.SingleActivity;
 
 public class MainActivity extends AppCompatActivity {
 

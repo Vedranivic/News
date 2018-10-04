@@ -1,4 +1,4 @@
-package news.factory.com.single.activity;
+package news.factory.com.single.activity.view;
 
 import android.content.Context;
 import android.content.Intent;
@@ -10,6 +10,8 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import news.factory.com.base.Constants;
 import news.factory.com.R;
+import news.factory.com.single.activity.SingleContract;
+import news.factory.com.single.activity.presenter.SinglePresenter;
 import news.factory.com.single.adapter.SinglePagerAdapter;
 
 public class SingleActivity extends AppCompatActivity implements SingleContract.View {

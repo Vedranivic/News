@@ -1,11 +1,13 @@
-package news.factory.com.single.activity;
+package news.factory.com.single.activity.presenter;
 
 import android.util.Log;
 
 import news.factory.com.model.ArticleInteractor;
+import news.factory.com.model.ArticleInteractorImpl;
 import news.factory.com.model.ArticleListener;
 import news.factory.com.base.Constants;
 import news.factory.com.model.data_model.News;
+import news.factory.com.single.activity.SingleContract;
 
 public class SinglePresenter implements SingleContract.Presenter, ArticleListener {
 
@@ -18,7 +20,7 @@ public class SinglePresenter implements SingleContract.Presenter, ArticleListene
 
     public SinglePresenter(SingleContract.View view) {
         this.singleView = view;
-        articleInteractor = new ArticleInteractor();
+        articleInteractor = new ArticleInteractorImpl();
     }
 
     @Override

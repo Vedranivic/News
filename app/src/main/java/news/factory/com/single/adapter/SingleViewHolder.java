@@ -122,4 +122,29 @@ public class SingleViewHolder {
             tvUpperTitle.setText(object.getUppertitle());
         }
     }
+
+    public static class PublishedViewHolder extends BaseItemViewHolder<News>{
+
+        private static final String publishedAtBeginningText = "Objavljeno:";
+
+        @BindView(R.id.tvPublished)
+        TextView tvPublished;
+        @BindView(R.id.tvAuthor)
+        TextView tvAuthor;
+        @BindView(R.id.tvShares)
+        TextView tvShares;
+
+
+        public PublishedViewHolder(View itemView) {
+            super(itemView);
+            ButterKnife.bind(this,itemView);
+        }
+
+        @Override
+        public void bind(News object) {
+            tvPublished.setText(publishedAtBeginningText + object.getPublished_at_humans());
+            tvAuthor.setText(object.getAuthor());
+            tvShares.setText(object.getShares());
+        }
+    }
 }

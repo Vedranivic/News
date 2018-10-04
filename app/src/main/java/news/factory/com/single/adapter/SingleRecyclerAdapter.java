@@ -44,6 +44,8 @@ public class SingleRecyclerAdapter extends RecyclerView.Adapter<BaseItemViewHold
                 return new SingleViewHolder.TextViewHolder(mInflater.inflate(R.layout.item_text,parent,false));
             case Constants.UPPERTITLE_TYPE:
                 return new SingleViewHolder.UpperTitleViewHolder(mInflater.inflate(R.layout.item_uppertitle,parent,false));
+            case Constants.PUBLISHED:
+                return new SingleViewHolder.PublishedViewHolder(mInflater.inflate(R.layout.item_published,parent,false));
         }
         return new DummyViewHolder(new View(parent.getContext()));
     }

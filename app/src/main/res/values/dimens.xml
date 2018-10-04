@@ -13,4 +13,8 @@
     <dimen name="textMarginBottom">16dp</dimen>
     <dimen name="textTextSize">14sp</dimen>
     <dimen name="uppertitleMarginTop">8dp</dimen>
+    <dimen name="publishedMarginTop">8dp</dimen>
+    <dimen name="publishedMarginStart">4dp</dimen>
+    <dimen name="publishedMarginBottom">8dp</dimen>
+    <dimen name="sharesMarginEnd">4dp</dimen>
 </resources>

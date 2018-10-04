@@ -13,5 +13,6 @@ public class Constants {
     public static final int IMAGE_TYPE = 300;
     public static final int TEXT_TYPE = 400;
     public static final int UPPERTITLE_TYPE = 500;
+    public static final int PUBLISHED = 600;
 
 }

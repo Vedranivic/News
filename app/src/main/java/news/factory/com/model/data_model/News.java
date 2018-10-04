@@ -121,6 +121,13 @@ public class News implements BaseItem
         this.ViewType = viewType;
     }
 
+    public News(String published_at_humans, String author, String shares, int viewType){
+        this.published_at_humans = published_at_humans;
+        this.author = author;
+        this.shares = shares;
+        this.ViewType = viewType;
+    }
+
     public String getPages_no ()
     {
         return pages_no;

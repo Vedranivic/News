@@ -55,6 +55,13 @@ public class SingleFragmentPresenter implements SingleFragmentContract.Presenter
 
         items.add(new News(news.getUppertitle(),Constants.UPPERTITLE_TYPE)); //uppertitle
 
+        items.add(new News(news.getPublished_at_humans(),                    //published
+                news.getAuthor(),
+                news.getShares(),
+                Constants.PUBLISHED
+                )
+        );
+
         news.setViewType(Constants.TITLE_TYPE);
         items.add(news);                        //title
         for(Content c : news.getContent()) {

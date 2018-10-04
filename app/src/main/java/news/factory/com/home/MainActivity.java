@@ -5,6 +5,7 @@ import android.os.Bundle;
 
 import news.factory.com.model.data_model.News;
 import news.factory.com.R;
+import news.factory.com.base.networking.ServiceGenerator;
 import news.factory.com.single.activity.SingleActivity;
 
 public class MainActivity extends AppCompatActivity {
@@ -16,15 +17,19 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        initializeRetrofit();
         switchToSingle();
     }
 
+    private void initializeRetrofit() {
+        ServiceGenerator.setRetrofit(getApplicationContext());
+    }
+
     private void switchToSingle() {
-        startActivity(SingleActivity.openActivityInstance(
+        SingleActivity.openActivityInstance(
                         MainActivity.this,
                         "280146"
-                        )
-        );
+                        );
     }
 
 

@@ -1,28 +1,44 @@
 package news.factory.com.single.activity;
 
-import android.content.Context;
+import android.util.Log;
 
 import news.factory.com.model.ArticleInteractor;
+import news.factory.com.model.ArticleListener;
+import news.factory.com.base.Constants;
+import news.factory.com.model.data_model.News;
 
-public class SinglePresenter implements SinglePresenterInterface{
+public class SinglePresenter implements SingleContract.Presenter, ArticleListener {
+
+    private static final String TAG = SinglePresenter.class.getSimpleName();
 
     private ArticleInteractor articleInteractor;
+    private SingleContract.View singleView;
+    private String articleID;
 
-    private SingleActivityInterface singleActivityInterface;
 
-    public SinglePresenter(SingleActivityInterface singleActivityInterface) {
-        this.singleActivityInterface = singleActivityInterface;
+    public SinglePresenter(SingleContract.View view) {
+        this.singleView = view;
+        articleInteractor = new ArticleInteractor();
+    }
+
+    @Override
+    public void initialize(String articleID) {
+        this.articleID = articleID;
     }
 
     @Override
     public void getArticle() {
-        articleInteractor = new ArticleInteractor(this);
-        articleInteractor.makeCall(singleActivityInterface.getArticleID());
+        articleInteractor.makeCall(articleID, Constants.FIRST_PAGE_VALUE, this);
     }
 
     @Override
-    public void setArticle(int pagesNumber) {
-        singleActivityInterface.displayArticle(singleActivityInterface.getArticleID(), pagesNumber);
+    public void onSuccess(News news) {
+        singleView.displayArticle(articleID,Integer.parseInt(news.getPages_no()));
+    }
+
+    @Override
+    public void onFailure() {
+        Log.e(TAG, "Failed getting data");
     }
 
     public void cancelCall(){

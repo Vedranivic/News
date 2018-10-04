@@ -2,7 +2,8 @@ package news.factory.com.model.data_model;
 
 import com.google.gson.annotations.SerializedName;
 
-import news.factory.com.model.Constants;
+import news.factory.com.base.BaseItem;
+import news.factory.com.base.Constants;
 
 public class FeaturedImage implements BaseItem
 {

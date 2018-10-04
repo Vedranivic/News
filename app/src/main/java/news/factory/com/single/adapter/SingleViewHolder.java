@@ -9,7 +9,8 @@ import com.squareup.picasso.Picasso;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import news.factory.com.model.Constants;
+import news.factory.com.base.BaseItemViewHolder;
+import news.factory.com.base.Constants;
 import news.factory.com.model.data_model.Content;
 import news.factory.com.model.data_model.FeaturedImage;
 import news.factory.com.model.data_model.Image;
@@ -18,10 +19,11 @@ import news.factory.com.R;
 
 public class SingleViewHolder {
 
-    public static class FeatureViewHolder extends BaseItemViewHolder<FeaturedImage>{
+    public static class FeatureViewHolder extends BaseItemViewHolder<FeaturedImage> {
 
         @BindView(R.id.ivFeature)
         ImageView ivFeatureImage;
+
 
         public FeatureViewHolder(View itemView) {
             super(itemView);
@@ -38,10 +40,12 @@ public class SingleViewHolder {
 
     }
 
+
     public static class TitleViewHolder extends BaseItemViewHolder<News>{
 
         @BindView(R.id.tvTitle)
         TextView tvTitle;
+
 
         public TitleViewHolder(View itemView) {
             super(itemView);
@@ -54,10 +58,12 @@ public class SingleViewHolder {
         }
     }
 
+
     public static class TextViewHolder extends BaseItemViewHolder<Content>{
 
         @BindView(R.id.tvText)
         TextView tvText;
+
 
         public TextViewHolder(View itemView) {
             super(itemView);
@@ -74,6 +80,7 @@ public class SingleViewHolder {
 
         @BindView(R.id.ivImage)
         ImageView ivImage;
+
 
         public ImageViewHolder(View itemView) {
             super(itemView);

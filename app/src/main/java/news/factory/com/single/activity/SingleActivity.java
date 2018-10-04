@@ -8,21 +8,22 @@ import android.support.v7.app.AppCompatActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import news.factory.com.model.Constants;
+import news.factory.com.base.Constants;
 import news.factory.com.R;
 import news.factory.com.single.adapter.SinglePagerAdapter;
 
-public class SingleActivity extends AppCompatActivity implements SingleActivityInterface {
-
-    private SinglePresenter presenter;
+public class SingleActivity extends AppCompatActivity implements SingleContract.View {
 
     @BindView(R.id.vpArticles)
     ViewPager vpSingles;
 
-    public static Intent openActivityInstance(Context context,String articleId) {
+    private SingleContract.Presenter singlePresenter;
+
+
+    public static void openActivityInstance(Context context,String articleId) {
         Intent i = new Intent(context, SingleActivity.class);
         i.putExtra(Constants.ARTICLE_KEY,articleId);
-        return i;
+        context.startActivity(i);
     }
 
     @Override
@@ -36,11 +37,12 @@ public class SingleActivity extends AppCompatActivity implements SingleActivityI
     }
 
     private void setupMVP() {
-        presenter = new SinglePresenter(this);
+        singlePresenter = new SinglePresenter(this);
+        singlePresenter.initialize(getArticleID());
     }
 
     private void getArticle() {
-        presenter.getArticle();
+        singlePresenter.getArticle();
     }
 
     @Override
@@ -59,13 +61,13 @@ public class SingleActivity extends AppCompatActivity implements SingleActivityI
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        presenter.cancelCall();
+        singlePresenter.cancelCall();
     }
 
     @Override
     public void onStop() {
         super.onStop();
-        presenter.cancelCall();
+        singlePresenter.cancelCall();
     }
 
 }

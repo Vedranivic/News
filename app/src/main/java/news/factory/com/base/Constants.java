@@ -1,4 +1,4 @@
-package news.factory.com.model;
+package news.factory.com.base;
 
 public class Constants {
     public static final String BASE_URL = "http://api.avaz.ba/api/";

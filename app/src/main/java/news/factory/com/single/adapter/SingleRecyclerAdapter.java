@@ -9,14 +9,16 @@ import android.view.ViewGroup;
 
 import java.util.List;
 
-import news.factory.com.model.Constants;
-import news.factory.com.model.data_model.BaseItem;
+import news.factory.com.base.BaseItemViewHolder;
+import news.factory.com.base.Constants;
+import news.factory.com.base.BaseItem;
 import news.factory.com.R;
 
 public class SingleRecyclerAdapter extends RecyclerView.Adapter<BaseItemViewHolder> {
 
     private List<? extends BaseItem> items;
     private LayoutInflater mInflater;
+
 
     public SingleRecyclerAdapter(List<? extends BaseItem> items, Context context) {
         this.items = items;

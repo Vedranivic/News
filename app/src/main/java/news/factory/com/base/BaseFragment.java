@@ -1,4 +1,4 @@
-package news.factory.com.single.fragment;
+package news.factory.com.base;
 
 import android.support.v4.app.Fragment;
 
@@ -11,6 +11,8 @@ public class BaseFragment extends Fragment {
     @Override
     public void onDestroy() {
         super.onDestroy();
-        unbinder.unbind();
+        if(unbinder!=null) {
+            unbinder.unbind();
+        }
     }
 }

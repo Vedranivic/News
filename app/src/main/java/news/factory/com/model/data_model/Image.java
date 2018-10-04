@@ -1,6 +1,7 @@
 package news.factory.com.model.data_model;
 
-import news.factory.com.model.Constants;
+import news.factory.com.base.BaseItem;
+import news.factory.com.base.Constants;
 
 public class Image implements BaseItem
 {

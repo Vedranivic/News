@@ -1,4 +1,4 @@
-package news.factory.com.model.networking;
+package news.factory.com.base.networking;
 
 import news.factory.com.model.data_model.News;
 import retrofit2.Call;

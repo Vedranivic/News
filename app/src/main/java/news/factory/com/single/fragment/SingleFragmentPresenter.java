@@ -1,34 +1,42 @@
 package news.factory.com.single.fragment;
 
 
-import android.content.Context;
-
 import java.util.ArrayList;
 import java.util.List;
 
 import news.factory.com.model.ArticleInteractor;
-import news.factory.com.model.data_model.BaseItem;
+import news.factory.com.model.ArticleListener;
+import news.factory.com.base.BaseItem;
 import news.factory.com.model.data_model.Content;
 import news.factory.com.model.data_model.News;
 
 
-public class SingleFragmentPresenter implements SingleFragmentPresenterInterface {
+public class SingleFragmentPresenter implements SingleFragmentContract.Presenter, ArticleListener {
 
     private ArticleInteractor articleInteractor;
-    private SingleFragmentInterface singleFragmentInterface;
+    private SingleFragmentContract.View singleFragmentView;
+    private String articleID;
+    private String page;
 
-    public SingleFragmentPresenter(SingleFragmentInterface singleFragmentInterface) {
-        this.singleFragmentInterface = singleFragmentInterface;
+
+    public SingleFragmentPresenter(SingleFragmentContract.View singleFragmentView) {
+        this.singleFragmentView = singleFragmentView;
+        articleInteractor = new ArticleInteractor();
+    }
+
+    @Override
+    public void initialize(String articleID, String page) {
+        this.articleID = articleID;
+        this.page = page;
     }
 
     @Override
     public void getArticleItems() {
-        articleInteractor = new ArticleInteractor(this);
-        articleInteractor.makeCall(singleFragmentInterface.getArticleID(), singleFragmentInterface.getPage());
+        articleInteractor.makeCall(articleID, page, this);
     }
 
     @Override
-    public void setArticleItems(News news) {
+    public void onSuccess(News news) {
         List<BaseItem> items = new ArrayList<>();
         if(!news.getNo_featured_image()){
             items.add(news.getFeatured_image());//feature image
@@ -43,11 +51,15 @@ public class SingleFragmentPresenter implements SingleFragmentPresenterInterface
             }
         }
 
-        singleFragmentInterface.displayArticleItems(items);
+        singleFragmentView.displayArticleItems(items);
+    }
+
+    @Override
+    public void onFailure() {
+
     }
 
     public void cancelCall(){
         articleInteractor.cancelCall();
     }
-
 }

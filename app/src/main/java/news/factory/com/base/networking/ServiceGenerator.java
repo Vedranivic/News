@@ -1,4 +1,4 @@
-package news.factory.com.model.networking;
+package news.factory.com.base.networking;
 
 import android.content.Context;
 
@@ -7,7 +7,7 @@ import com.maradroid.dummyresponsegenerator.utils.ConstKt;
 
 import java.io.IOException;
 
-import news.factory.com.model.Constants;
+import news.factory.com.base.Constants;
 import okhttp3.HttpUrl;
 import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
@@ -19,7 +19,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class ServiceGenerator {
     private static Retrofit retrofit;
 
-    public static Retrofit getRetrofit(Context context) {
+    public static void setRetrofit(Context context) {
         if (retrofit == null) {
             OkHttpClient okHttpClient = new OkHttpClient.Builder()
                     .addInterceptor(new Interceptor() {
@@ -40,6 +40,9 @@ public class ServiceGenerator {
                     .addConverterFactory(GsonConverterFactory.create())
                     .build();
         }
+    }
+
+    public static Retrofit getRetrofit(){
         return retrofit;
     }
 }

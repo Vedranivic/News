@@ -1,4 +1,4 @@
-package news.factory.com.model.data_model;
+package news.factory.com.base;
 
 public interface BaseItem {
     int getViewType();

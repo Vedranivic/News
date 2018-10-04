@@ -12,12 +12,5 @@ public class App extends Application {
         super.onCreate();
         new InteractorImpl(this).generateResponses(true);
         new SharedPerfRepo(this).setDummyResponse(true);
-        appContext = this;
-    }
-
-    private static Context appContext;
-
-    public static Context provideContext(){
-        return appContext;
     }
 }

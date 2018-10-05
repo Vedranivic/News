@@ -63,13 +63,15 @@ public class SingleActivity extends AppCompatActivity implements SingleContract.
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        singlePresenter.cancelCall();
+        //singlePresenter.cancelCall();
+        singlePresenter.dispose();
     }
 
     @Override
     public void onStop() {
         super.onStop();
-        singlePresenter.cancelCall();
+        //singlePresenter.cancelCall();
+        singlePresenter.dispose();
     }
 
 }

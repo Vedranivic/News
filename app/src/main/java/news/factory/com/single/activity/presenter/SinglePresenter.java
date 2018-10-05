@@ -30,7 +30,8 @@ public class SinglePresenter implements SingleContract.Presenter, ArticleListene
 
     @Override
     public void getArticle() {
-        articleInteractor.makeCall(articleID, Constants.FIRST_PAGE_VALUE, this);
+        //articleInteractor.makeCall(articleID, Constants.FIRST_PAGE_VALUE, this);
+        articleInteractor.makeCallRx(articleID, Constants.FIRST_PAGE_VALUE, this);
     }
 
     @Override
@@ -47,4 +48,8 @@ public class SinglePresenter implements SingleContract.Presenter, ArticleListene
         articleInteractor.cancelCall();
     }
 
+    @Override
+    public void dispose() {
+        articleInteractor.dispose();
+    }
 }

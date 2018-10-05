@@ -14,5 +14,6 @@ public interface SingleFragmentContract {
         void getArticleItems();
         void cancelCall();
         void initialize(String articleID, String page);
+        void dispose();
     }
 }

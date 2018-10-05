@@ -38,7 +38,8 @@ public class SingleFragmentPresenter implements SingleFragmentContract.Presenter
 
     @Override
     public void getArticleItems() {
-        articleInteractor.makeCall(articleID, page, this);
+        //articleInteractor.makeCall(articleID, page, this);
+        articleInteractor.makeCallRx(articleID, page, this);
     }
 
     @Override
@@ -90,5 +91,10 @@ public class SingleFragmentPresenter implements SingleFragmentContract.Presenter
 
     public void cancelCall(){
         articleInteractor.cancelCall();
+    }
+
+    @Override
+    public void dispose() {
+        articleInteractor.dispose();
     }
 }

@@ -86,13 +86,15 @@ public class SingleFragment extends BaseFragment implements SingleFragmentContra
     @Override
     public void onDestroy() {
         super.onDestroy();
-        singleFragmentPresenter.cancelCall();
+        //singleFragmentPresenter.cancelCall();
+        singleFragmentPresenter.dispose();
     }
 
     @Override
     public void onStop() {
         super.onStop();
-        singleFragmentPresenter.cancelCall();
+        //singleFragmentPresenter.cancelCall();
+        singleFragmentPresenter.dispose();
     }
 
 }

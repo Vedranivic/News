@@ -22,7 +22,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initializeRetrofit() {
-        ServiceGenerator.setRetrofit(getApplicationContext());
+        //ServiceGenerator.setRetrofit(getApplicationContext());
+        ServiceGenerator.setRetrofitRx(getApplicationContext());
     }
 
     private void switchToSingle() {

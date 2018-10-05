@@ -10,5 +10,6 @@ public interface SingleContract {
         void getArticle();
         void cancelCall();
         void initialize(String articleID);
+        void dispose();
     }
 }

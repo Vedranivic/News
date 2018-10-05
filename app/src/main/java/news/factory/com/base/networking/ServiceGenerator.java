@@ -14,6 +14,7 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 import retrofit2.Retrofit;
+import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ServiceGenerator {
@@ -38,6 +39,30 @@ public class ServiceGenerator {
                     .baseUrl(Constants.BASE_URL)
                     .client(okHttpClient)
                     .addConverterFactory(GsonConverterFactory.create())
+                    .build();
+        }
+    }
+
+    public static void setRetrofitRx(Context context){
+        if (retrofit == null){
+            OkHttpClient okHttpClient = new OkHttpClient.Builder()
+                    .addInterceptor(new Interceptor() {
+                        @Override
+                        public Response intercept(Chain chain) throws IOException {
+                            Request request = chain.request();
+                            HttpUrl url = request.url().newBuilder().addQueryParameter("api_token",Constants.API_TOKEN).build();
+                            request = request.newBuilder().url(url).build();
+                            return chain.proceed(request);
+                        }
+                    })
+                    .addInterceptor(new DRGInterceptor(context, ConstKt.MEDIATYPE_JSON))
+                    .build();
+
+            retrofit = new Retrofit.Builder()
+                    .baseUrl(Constants.BASE_URL)
+                    .client(okHttpClient)
+                    .addConverterFactory(GsonConverterFactory.create())
+                    .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                     .build();
         }
     }

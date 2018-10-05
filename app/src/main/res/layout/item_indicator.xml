@@ -38,6 +38,7 @@
         app:layout_constraintTop_toTopOf="@id/indicatorContainer"
         app:layout_constraintBottom_toBottomOf="@id/indicatorContainer"
         app:layout_constraintEnd_toStartOf="@id/lbSlash"
+        android:layout_marginEnd="@dimen/indicatorTextSpacing"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
@@ -62,6 +63,7 @@
         app:layout_constraintTop_toTopOf="@id/indicatorContainer"
         app:layout_constraintBottom_toBottomOf="@id/indicatorContainer"
         app:layout_constraintStart_toEndOf="@id/lbSlash"
+        android:layout_marginStart="@dimen/indicatorTextSpacing"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 

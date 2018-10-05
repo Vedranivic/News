@@ -37,6 +37,8 @@ public class SingleViewHolder {
         TextView tvSource;
         @BindView(R.id.tvCaption)
         TextView tvCaption;
+        @BindView(R.id.lbSource)
+        TextView lbSource;
 
 
         public FeatureViewHolder(View itemView) {
@@ -46,6 +48,13 @@ public class SingleViewHolder {
 
         @Override
         public void bind(News object) {
+            if(object.getFeatured_image_source().equals("")){
+                lbSource.setVisibility(View.INVISIBLE);
+                tvSource.setVisibility(View.INVISIBLE);
+            }
+            if(object.getFeatured_image_caption().equals("")){
+                tvCaption.setVisibility(View.INVISIBLE);
+            }
             tvCategory.setText(object.getCategory());
             tvSource.setText(object.getFeatured_image_source());
             tvCaption.setText(object.getFeatured_image_caption());

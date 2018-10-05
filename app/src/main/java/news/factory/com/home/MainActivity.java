@@ -11,7 +11,6 @@ import news.factory.com.single.activity.view.SingleActivity;
 public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = MainActivity.class.getSimpleName();
-    private News news;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

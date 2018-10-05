@@ -6,4 +6,7 @@
     <color name="titleTextColor">#261A1A</color>
     <color name="textTextColor">#99000000</color>
     <color name="shapeColorRed">#FFED1B24</color>
+    <color name="upperTitleTextColor">#DE000000</color>
+    <color name="lineSeparatorColor">#FFF1F2F3</color>
+    <color name="indicatorTextColor">#FFED1C24</color>
 </resources>

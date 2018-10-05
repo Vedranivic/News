@@ -1,6 +1,8 @@
 package news.factory.com.model.data_model;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import news.factory.com.base.BaseItem;
 import news.factory.com.base.Constants;
@@ -125,6 +127,12 @@ public class News implements BaseItem
         this.published_at_humans = published_at_humans;
         this.author = author;
         this.shares = shares;
+        this.ViewType = viewType;
+    }
+
+    public News(String pages_no, List<Content> content, int viewType){
+        this.pages_no = pages_no;
+        this.content = new ArrayList<Content>(content);
         this.ViewType = viewType;
     }
 

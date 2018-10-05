@@ -9,6 +9,12 @@ import com.squareup.picasso.Picasso;
 
 import org.w3c.dom.Text;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.zip.DataFormatException;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import news.factory.com.base.BaseItemViewHolder;
@@ -22,8 +28,6 @@ import news.factory.com.R;
 public class SingleViewHolder {
 
     public static class FeatureViewHolder extends BaseItemViewHolder<News> {
-
-        private static final String sourceBeginningText = "Source: ";
 
         @BindView(R.id.ivFeature)
         ImageView ivFeatureImage;
@@ -43,7 +47,7 @@ public class SingleViewHolder {
         @Override
         public void bind(News object) {
             tvCategory.setText(object.getCategory());
-            tvSource.setText(sourceBeginningText + object.getFeatured_image_source());
+            tvSource.setText(object.getFeatured_image_source());
             tvCaption.setText(object.getFeatured_image_caption());
             Picasso.get()
                     .load(Constants.IMAGE_BASE_URL+object.getFeatured_image().getOriginal())
@@ -125,8 +129,6 @@ public class SingleViewHolder {
 
     public static class PublishedViewHolder extends BaseItemViewHolder<News>{
 
-        private static final String publishedAtBeginningText = "Objavljeno:";
-
         @BindView(R.id.tvPublished)
         TextView tvPublished;
         @BindView(R.id.tvAuthor)
@@ -142,9 +144,29 @@ public class SingleViewHolder {
 
         @Override
         public void bind(News object) {
-            tvPublished.setText(publishedAtBeginningText + object.getPublished_at_humans());
+            tvPublished.setText(object.getPublished_at_humans().split(" ")[0].concat("."));
             tvAuthor.setText(object.getAuthor());
             tvShares.setText(object.getShares());
+        }
+    }
+
+    public static class IndicatorViewHolder extends BaseItemViewHolder<News>{
+
+        @BindView(R.id.tvCurrentPage)
+        TextView tvCurrentPage;
+        @BindView(R.id.tvTotalPages)
+        TextView tvTotalPages;
+
+
+        public IndicatorViewHolder(View itemView) {
+            super(itemView);
+            ButterKnife.bind(this,itemView);
+        }
+
+        @Override
+        public void bind(News object) {
+            tvTotalPages.setText(object.getPages_no());
+            tvCurrentPage.setText(object.getContent().get(0).getPage());
         }
     }
 }

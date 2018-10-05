@@ -17,4 +17,22 @@
     <dimen name="publishedMarginStart">4dp</dimen>
     <dimen name="publishedMarginBottom">8dp</dimen>
     <dimen name="sharesMarginEnd">4dp</dimen>
+    <dimen name="sourceMarginStart">4dp</dimen>
+    <dimen name="sourceMarginBottom">8dp</dimen>
+    <dimen name="lbSourceMarginStart">16dp</dimen>
+    <dimen name="lbSourceMarginBottom">8dp</dimen>
+    <dimen name="defaultTextSize">12sp</dimen>
+    <dimen name="captionMarginStart">16dp</dimen>
+    <dimen name="captionMarginBottom">16dp</dimen>
+    <dimen name="categoryMarginStart">16dp</dimen>
+    <dimen name="categoryMarginBottom">8dp</dimen>
+    <dimen name="uppertitleMarginBottom">8dp</dimen>
+    <dimen name="upperTitleTextSize">14sp</dimen>
+    <dimen name="lineSeparatorHeight">1dp</dimen>
+    <dimen name="indicatorMarginTop">16dp</dimen>
+    <dimen name="indicatorMarginBottom">16dp</dimen>
+    <dimen name="indicatorMarginStart">16dp</dimen>
+    <dimen name="indicatorMarginEnd">16dp</dimen>
+    <dimen name="indicatorTextSize">14sp</dimen>
+    <dimen name="indicatorContainerWidth">80dp</dimen>
 </resources>

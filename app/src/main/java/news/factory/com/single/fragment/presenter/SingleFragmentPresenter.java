@@ -55,7 +55,8 @@ public class SingleFragmentPresenter implements SingleFragmentContract.Presenter
 
         items.add(new News(news.getUppertitle(),Constants.UPPERTITLE_TYPE)); //uppertitle
 
-        items.add(new News(news.getPublished_at_humans(),                    //published
+        items.add(new News(
+                news.getPublished_at_humans(),                    //published
                 news.getAuthor(),
                 news.getShares(),
                 Constants.PUBLISHED
@@ -72,6 +73,12 @@ public class SingleFragmentPresenter implements SingleFragmentContract.Presenter
                 items.add(c.getImage());        //image
             }
         }
+
+        items.add(new News(                     //indicator
+                news.getPages_no(),
+                news.getContent(),
+                Constants.INDICATOR)
+        );
 
         singleFragmentView.displayArticleItems(items);
     }

@@ -14,12 +14,12 @@
         android:id="@+id/tvCaption"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="12sp"
+        android:textSize="@dimen/defaultTextSize"
         android:textColor="@android:color/white"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginStart="16dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginStart="@dimen/captionMarginStart"
+        android:layout_marginBottom="@dimen/captionMarginBottom"
         />
 
     <TextView
@@ -27,11 +27,24 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@android:color/white"
+        app:layout_constraintStart_toEndOf="@id/lbSource"
+        app:layout_constraintBottom_toTopOf="@id/tvCaption"
+        android:layout_marginStart="@dimen/sourceMarginStart"
+        android:layout_marginBottom="@dimen/sourceMarginBottom"
+        android:textSize="@dimen/defaultTextSize"
+        />
+
+    <TextView
+        android:id="@+id/lbSource"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/white"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toTopOf="@id/tvCaption"
-        android:layout_marginStart="16dp"
-        android:layout_marginBottom="8dp"
-        android:textSize="12sp"
+        android:layout_marginStart="@dimen/lbSourceMarginStart"
+        android:layout_marginBottom="@dimen/lbSourceMarginBottom"
+        android:text="@string/sourceLabelText"
+        android:textSize="@dimen/defaultTextSize"
         />
 
     <TextView
@@ -41,9 +54,9 @@
         android:textColor="@android:color/white"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toTopOf="@id/tvSource"
-        android:layout_marginStart="16dp"
-        android:layout_marginBottom="8dp"
-        android:textSize="12sp"
+        android:layout_marginStart="@dimen/categoryMarginStart"
+        android:layout_marginBottom="@dimen/categoryMarginBottom"
+        android:textSize="@dimen/defaultTextSize"
         android:background="@drawable/shape_rounded"
         />
 

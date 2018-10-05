@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -10,51 +11,98 @@
     <ImageView
         android:id="@+id/ivLineTop"
         android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="#FFF1F2F3"
+        android:layout_height="@dimen/lineSeparatorHeight"
+        android:background="@color/lineSeparatorColor"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         />
 
-    <TextView
-        android:id="@+id/tvPublished"
-        android:textSize="12sp"
-        android:textColor="#99000000"
-        android:layout_marginTop="@dimen/publishedMarginTop"
-        android:layout_marginStart="@dimen/publishedMarginStart"
-        android:layout_marginBottom="@dimen/publishedMarginBottom"
+    <ImageView
+        android:id="@+id/ivPublished"
+        android:src="@drawable/ic_access_time_black_16dp"
         app:layout_constraintTop_toBottomOf="@id/ivLineTop"
         app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="@dimen/publishedMarginTop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/lbPublished"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/textTextColor"
+        app:layout_constraintTop_toBottomOf="@id/ivLineTop"
+        app:layout_constraintStart_toEndOf="@id/ivPublished"
+        android:layout_marginStart="@dimen/publishedMarginStart"
+        android:layout_marginTop="@dimen/publishedMarginTop"
+        android:text="@string/publishedLabelText"
+        android:textSize="@dimen/defaultTextSize" />
+
+    <TextView
+        android:id="@+id/tvPublished"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/textTextColor"
+        app:layout_constraintTop_toBottomOf="@id/ivLineTop"
+        app:layout_constraintStart_toEndOf="@id/lbPublished"
+        android:layout_marginTop="@dimen/publishedMarginTop"
+        android:textSize="@dimen/defaultTextSize" />
+
+    <ImageView
+        android:id="@+id/ivAuthor"
+        android:src="@drawable/ic_account_circle_black_16dp"
+        app:layout_constraintTop_toBottomOf="@id/tvPublished"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/ivLineBottom"
+        android:layout_marginTop="@dimen/publishedMarginTop"
+        android:layout_marginBottom="@dimen/publishedMarginTop"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
     <TextView
         android:id="@+id/tvAuthor"
-        android:textSize="12sp"
-        android:textColor="#99000000"
+        android:textSize="@dimen/defaultTextSize"
+        android:textColor="@color/textTextColor"
         android:layout_marginStart="@dimen/publishedMarginStart"
+        android:layout_marginTop="@dimen/publishedMarginTop"
         android:layout_marginBottom="@dimen/publishedMarginTop"
         app:layout_constraintTop_toBottomOf="@id/tvPublished"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@id/ivAuthor"
+        app:layout_constraintBottom_toTopOf="@id/ivLineBottom"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
+
     <TextView
         android:id="@+id/tvShares"
-        android:textSize="12sp"
-        android:textColor="#99000000"
+        android:textSize="@dimen/defaultTextSize"
+        android:textColor="@color/textTextColor"
         android:layout_marginEnd="@dimen/sharesMarginEnd"
         android:layout_marginBottom="@dimen/publishedMarginTop"
+        android:layout_marginTop="@dimen/publishedMarginBottom"
+        app:layout_constraintTop_toBottomOf="@id/tvPublished"
+        app:layout_constraintEnd_toStartOf="@id/ivShare"
+        app:layout_constraintBottom_toTopOf="@id/ivLineBottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <ImageView
+        android:id="@+id/ivShare"
+        android:src="@drawable/ic_share_black_16dp"
+        android:layout_marginBottom="@dimen/publishedMarginTop"
+        android:layout_marginTop="@dimen/publishedMarginBottom"
         app:layout_constraintTop_toBottomOf="@id/tvPublished"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/ivLineBottom"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
     <ImageView
         android:id="@+id/ivLineBottom"
         android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="#FFF1F2F3"
+        android:layout_height="@dimen/lineSeparatorHeight"
+        android:background="@color/lineSeparatorColor"
+        android:layout_marginTop="@dimen/publishedMarginTop"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         />

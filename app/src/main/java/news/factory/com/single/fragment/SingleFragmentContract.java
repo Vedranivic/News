@@ -12,7 +12,6 @@ public interface SingleFragmentContract {
 
     interface Presenter{
         void getArticleItems();
-        void cancelCall();
         void initialize(String articleID, String page);
         void dispose();
     }

@@ -2,12 +2,11 @@ package news.factory.com.model.data_model;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 import news.factory.com.base.BaseItem;
-import news.factory.com.base.Constants;
+import news.factory.com.base.BaseResult;
 
-public class News implements BaseItem
+public class News extends BaseResult implements BaseItem
 {
     private int ViewType;
 

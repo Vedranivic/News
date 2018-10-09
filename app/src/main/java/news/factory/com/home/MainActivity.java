@@ -3,9 +3,8 @@ package news.factory.com.home;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-import news.factory.com.model.data_model.News;
 import news.factory.com.R;
-import news.factory.com.base.networking.ServiceGenerator;
+import news.factory.com.base.networking.APIServiceGenerator;
 import news.factory.com.single.activity.view.SingleActivity;
 
 public class MainActivity extends AppCompatActivity {
@@ -21,8 +20,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initializeRetrofit() {
-        //ServiceGenerator.setRetrofit(getApplicationContext());
-        ServiceGenerator.setRetrofitRx(getApplicationContext());
+        APIServiceGenerator.setRetrofit(getApplicationContext());
     }
 
     private void switchToSingle() {

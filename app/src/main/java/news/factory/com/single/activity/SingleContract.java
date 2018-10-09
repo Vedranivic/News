@@ -8,7 +8,6 @@ public interface SingleContract {
 
     interface Presenter{
         void getArticle();
-        void cancelCall();
         void initialize(String articleID);
         void dispose();
     }

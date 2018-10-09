@@ -1,12 +1,10 @@
 package news.factory.com.base.networking;
 
 import android.content.Context;
-
 import com.maradroid.dummyresponsegenerator.base.DRGInterceptor;
 import com.maradroid.dummyresponsegenerator.utils.ConstKt;
 
 import java.io.IOException;
-
 import news.factory.com.base.Constants;
 import okhttp3.HttpUrl;
 import okhttp3.Interceptor;
@@ -17,33 +15,12 @@ import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class ServiceGenerator {
+
+public class APIServiceGenerator {
     private static Retrofit retrofit;
+    private static NewsAPI api;
 
-    public static void setRetrofit(Context context) {
-        if (retrofit == null) {
-            OkHttpClient okHttpClient = new OkHttpClient.Builder()
-                    .addInterceptor(new Interceptor() {
-                        @Override
-                        public Response intercept(Chain chain) throws IOException {
-                            Request request = chain.request();
-                            HttpUrl url = request.url().newBuilder().addQueryParameter("api_token",Constants.API_TOKEN).build();
-                            request = request.newBuilder().url(url).build();
-                            return chain.proceed(request);
-                        }
-                    })
-                    .addInterceptor(new DRGInterceptor(context, ConstKt.MEDIATYPE_JSON))
-                    .build();
-
-            retrofit = new Retrofit.Builder()
-                    .baseUrl(Constants.BASE_URL)
-                    .client(okHttpClient)
-                    .addConverterFactory(GsonConverterFactory.create())
-                    .build();
-        }
-    }
-
-    public static void setRetrofitRx(Context context){
+    public static void setRetrofit(Context context){
         if (retrofit == null){
             OkHttpClient okHttpClient = new OkHttpClient.Builder()
                     .addInterceptor(new Interceptor() {
@@ -64,10 +41,12 @@ public class ServiceGenerator {
                     .addConverterFactory(GsonConverterFactory.create())
                     .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                     .build();
+
+            api = retrofit.create(NewsAPI.class);
         }
     }
 
-    public static Retrofit getRetrofit(){
-        return retrofit;
+    public static NewsAPI getAPI(){
+        return api;
     }
 }

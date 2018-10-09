@@ -11,10 +11,8 @@ public class SinglePagerAdapter extends FragmentStatePagerAdapter {
     private int pages;
     private String articleId;
 
-    public SinglePagerAdapter(FragmentManager fm, String articleId, int pages) {
+    public SinglePagerAdapter(FragmentManager fm){
         super(fm);
-        this.pages = pages;
-        this.articleId = articleId;
     }
 
     @Override
@@ -25,5 +23,13 @@ public class SinglePagerAdapter extends FragmentStatePagerAdapter {
     @Override
     public int getCount() {
         return this.pages;
+    }
+
+    public void setPages(int pages) {
+        this.pages = pages;
+    }
+
+    public void setArticleId(String articleId) {
+        this.articleId = articleId;
     }
 }

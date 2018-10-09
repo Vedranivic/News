@@ -20,8 +20,7 @@ public class SingleRecyclerAdapter extends RecyclerView.Adapter<BaseItemViewHold
     private LayoutInflater mInflater;
 
 
-    public SingleRecyclerAdapter(List<? extends BaseItem> items, Context context) {
-        this.items = items;
+    public SingleRecyclerAdapter(Context context) {
         this.mInflater = LayoutInflater.from(context);
     }
 
@@ -76,5 +75,9 @@ public class SingleRecyclerAdapter extends RecyclerView.Adapter<BaseItemViewHold
         public void bind(Object object) {
 
         }
+    }
+
+    public void setItems(List<? extends BaseItem> items) {
+        this.items = items;
     }
 }

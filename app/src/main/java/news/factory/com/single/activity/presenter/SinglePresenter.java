@@ -2,14 +2,15 @@ package news.factory.com.single.activity.presenter;
 
 import android.util.Log;
 
-import news.factory.com.model.ArticleInteractor;
-import news.factory.com.model.ArticleInteractorImpl;
-import news.factory.com.model.ArticleListener;
+import news.factory.com.base.BaseResult;
+import news.factory.com.model.interactors.ArticleInteractor;
+import news.factory.com.model.interactors.ArticleInteractorImpl;
+import news.factory.com.model.interactors.InteractorListener;
 import news.factory.com.base.Constants;
 import news.factory.com.model.data_model.News;
 import news.factory.com.single.activity.SingleContract;
 
-public class SinglePresenter implements SingleContract.Presenter, ArticleListener {
+public class SinglePresenter implements SingleContract.Presenter, InteractorListener {
 
     private static final String TAG = SinglePresenter.class.getSimpleName();
 
@@ -30,22 +31,21 @@ public class SinglePresenter implements SingleContract.Presenter, ArticleListene
 
     @Override
     public void getArticle() {
-        //articleInteractor.makeCall(articleID, Constants.FIRST_PAGE_VALUE, this);
-        articleInteractor.makeCallRx(articleID, Constants.FIRST_PAGE_VALUE, this);
+        articleInteractor.makeCall(articleID, Constants.FIRST_PAGE_VALUE, this);
     }
 
     @Override
-    public void onSuccess(News news) {
-        singleView.displayArticle(articleID,Integer.parseInt(news.getPages_no()));
+    public void onSuccess(BaseResult result) {
+        switch (result.getResultType()) {
+            case Constants.NEWS_TYPE:
+                News news = (News) result;
+                singleView.displayArticle(articleID, Integer.parseInt(news.getPages_no()));
+        }
     }
 
     @Override
     public void onFailure() {
         Log.e(TAG, "Failed getting data");
-    }
-
-    public void cancelCall(){
-        articleInteractor.cancelCall();
     }
 
     @Override

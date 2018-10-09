@@ -9,13 +9,9 @@ import retrofit2.http.Path;
 import retrofit2.http.Query;
 
 public interface NewsAPI {
-    @GET("clanak/{articleID}")
-    Call<News> getNews(@Path("articleID") String articleId,
-                       @Query("stranica") String page
-                       );
 
     @GET("clanak/{articleID}")
-    Single<News> getNewsRx(@Path("articleID") String articleId,
-                               @Query("stranica") String page
+    Single<News> getNews(@Path("articleID") String articleId,
+                         @Query("stranica") String page
     );
 }

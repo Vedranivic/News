@@ -30,6 +30,7 @@ public class SingleFragment extends BaseFragment implements SingleFragmentContra
     RecyclerView rvItems;
 
     private SingleFragmentContract.Presenter singleFragmentPresenter;
+    private SingleRecyclerAdapter adapter;
 
 
     public static SingleFragment newInstance(String articleId, String page) {
@@ -46,10 +47,16 @@ public class SingleFragment extends BaseFragment implements SingleFragmentContra
         ViewGroup viewGroup = (ViewGroup) inflater.inflate(R.layout.fragment_single, container, false);
         unbinder = ButterKnife.bind(this,viewGroup);
 
+        setupRecycler();
         setupMVP();
         getArticleItems();
 
         return viewGroup;
+    }
+
+    private void setupRecycler() {
+        adapter  = new SingleRecyclerAdapter(getContext());
+        rvItems.setLayoutManager(new LinearLayoutManager(getContext()));
     }
 
     private void setupMVP() {
@@ -63,8 +70,8 @@ public class SingleFragment extends BaseFragment implements SingleFragmentContra
 
     @Override
     public void displayArticleItems(List<BaseItem> items) {
-        rvItems.setLayoutManager(new LinearLayoutManager(getContext()));
-        rvItems.setAdapter(new SingleRecyclerAdapter(items,getContext()));
+        adapter.setItems(items);
+        rvItems.setAdapter(adapter);
     }
 
     public String getArticleID() {
@@ -86,14 +93,6 @@ public class SingleFragment extends BaseFragment implements SingleFragmentContra
     @Override
     public void onDestroy() {
         super.onDestroy();
-        //singleFragmentPresenter.cancelCall();
-        singleFragmentPresenter.dispose();
-    }
-
-    @Override
-    public void onStop() {
-        super.onStop();
-        //singleFragmentPresenter.cancelCall();
         singleFragmentPresenter.dispose();
     }
 

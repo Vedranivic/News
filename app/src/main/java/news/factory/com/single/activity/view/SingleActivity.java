@@ -20,6 +20,7 @@ public class SingleActivity extends AppCompatActivity implements SingleContract.
     ViewPager vpSingles;
 
     private SingleContract.Presenter singlePresenter;
+    private SinglePagerAdapter adapter;
 
 
     public static void openActivityInstance(Context context,String articleId) {
@@ -34,8 +35,13 @@ public class SingleActivity extends AppCompatActivity implements SingleContract.
         setContentView(R.layout.activity_single);
         ButterKnife.bind(this);
 
+        setupAdapter();
         setupMVP();
         getArticle();
+    }
+
+    private void setupAdapter() {
+        adapter = new SinglePagerAdapter(getSupportFragmentManager());
     }
 
     private void setupMVP() {
@@ -49,7 +55,9 @@ public class SingleActivity extends AppCompatActivity implements SingleContract.
 
     @Override
     public void displayArticle(String articleID, int pages) {
-        vpSingles.setAdapter(new SinglePagerAdapter(getSupportFragmentManager(), articleID, pages));
+        adapter.setArticleId(articleID);
+        adapter.setPages(pages);
+        vpSingles.setAdapter(adapter);
         vpSingles.setCurrentItem(0);
     }
 
@@ -63,14 +71,6 @@ public class SingleActivity extends AppCompatActivity implements SingleContract.
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        //singlePresenter.cancelCall();
-        singlePresenter.dispose();
-    }
-
-    @Override
-    public void onStop() {
-        super.onStop();
-        //singlePresenter.cancelCall();
         singlePresenter.dispose();
     }
 

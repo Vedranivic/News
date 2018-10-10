@@ -1,4 +1,4 @@
-package news.factory.com.model.interactors;
+package news.factory.com.model.interactor;
 
 import news.factory.com.base.BaseInteractor;
 

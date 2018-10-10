@@ -2,10 +2,10 @@ package news.factory.com.single.activity.presenter;
 
 import android.util.Log;
 
-import news.factory.com.base.BaseResult;
-import news.factory.com.model.interactors.ArticleInteractor;
-import news.factory.com.model.interactors.ArticleInteractorImpl;
-import news.factory.com.model.interactors.InteractorListener;
+import news.factory.com.base.ResultWrapper;
+import news.factory.com.model.interactor.ArticleInteractor;
+import news.factory.com.model.interactor.ArticleInteractorImpl;
+import news.factory.com.model.interactor.InteractorListener;
 import news.factory.com.base.Constants;
 import news.factory.com.model.data_model.News;
 import news.factory.com.single.activity.SingleContract;
@@ -35,10 +35,10 @@ public class SinglePresenter implements SingleContract.Presenter, InteractorList
     }
 
     @Override
-    public void onSuccess(BaseResult result) {
-        switch (result.getResultType()) {
+    public void onSuccess(ResultWrapper result) {
+        switch (result.getType()) {
             case Constants.NEWS_TYPE:
-                News news = (News) result;
+                News news = (News) result.getResult();
                 singleView.displayArticle(articleID, Integer.parseInt(news.getPages_no()));
         }
     }

@@ -17,11 +17,10 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 
 public class APIServiceGenerator {
-    private static Retrofit retrofit;
     private static NewsAPI api;
 
     public static void setRetrofit(Context context){
-        if (retrofit == null){
+        if (api == null){
             OkHttpClient okHttpClient = new OkHttpClient.Builder()
                     .addInterceptor(new Interceptor() {
                         @Override
@@ -35,7 +34,7 @@ public class APIServiceGenerator {
                     .addInterceptor(new DRGInterceptor(context, ConstKt.MEDIATYPE_JSON))
                     .build();
 
-            retrofit = new Retrofit.Builder()
+            Retrofit retrofit = new Retrofit.Builder()
                     .baseUrl(Constants.BASE_URL)
                     .client(okHttpClient)
                     .addConverterFactory(GsonConverterFactory.create())

@@ -16,11 +16,11 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import news.factory.com.base.BaseFragment;
 import news.factory.com.base.Constants;
-import news.factory.com.base.BaseItem;
 
 import news.factory.com.R;
 
-import news.factory.com.single.adapter.SingleRecyclerAdapter;
+import news.factory.com.base.RecyclerItemsWrapper;
+import news.factory.com.single.adapter.RecyclerAdapter;
 import news.factory.com.single.fragment.SingleFragmentContract;
 import news.factory.com.single.fragment.presenter.SingleFragmentPresenter;
 
@@ -30,7 +30,7 @@ public class SingleFragment extends BaseFragment implements SingleFragmentContra
     RecyclerView rvItems;
 
     private SingleFragmentContract.Presenter singleFragmentPresenter;
-    private SingleRecyclerAdapter adapter;
+    private RecyclerAdapter adapter;
 
 
     public static SingleFragment newInstance(String articleId, String page) {
@@ -55,8 +55,9 @@ public class SingleFragment extends BaseFragment implements SingleFragmentContra
     }
 
     private void setupRecycler() {
-        adapter  = new SingleRecyclerAdapter(getContext());
+        adapter  = new RecyclerAdapter(getContext());
         rvItems.setLayoutManager(new LinearLayoutManager(getContext()));
+        rvItems.setAdapter(adapter);
     }
 
     private void setupMVP() {
@@ -69,9 +70,8 @@ public class SingleFragment extends BaseFragment implements SingleFragmentContra
     }
 
     @Override
-    public void displayArticleItems(List<BaseItem> items) {
+    public void displayArticleItems(List<RecyclerItemsWrapper> items) {
         adapter.setItems(items);
-        rvItems.setAdapter(adapter);
     }
 
     public String getArticleID() {

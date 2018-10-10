@@ -2,12 +2,12 @@ package news.factory.com.single.fragment;
 
 import java.util.List;
 
-import news.factory.com.base.BaseItem;
+import news.factory.com.base.RecyclerItemsWrapper;
 
 public interface SingleFragmentContract {
 
     interface View{
-        void displayArticleItems(List<BaseItem> items);
+        void displayArticleItems(List<RecyclerItemsWrapper> items);
     }
 
     interface Presenter{

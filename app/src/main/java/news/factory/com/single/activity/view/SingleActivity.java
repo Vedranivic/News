@@ -42,6 +42,7 @@ public class SingleActivity extends AppCompatActivity implements SingleContract.
 
     private void setupAdapter() {
         adapter = new SinglePagerAdapter(getSupportFragmentManager());
+        vpSingles.setAdapter(adapter);
     }
 
     private void setupMVP() {
@@ -57,8 +58,6 @@ public class SingleActivity extends AppCompatActivity implements SingleContract.
     public void displayArticle(String articleID, int pages) {
         adapter.setArticleId(articleID);
         adapter.setPages(pages);
-        vpSingles.setAdapter(adapter);
-        vpSingles.setCurrentItem(0);
     }
 
     public String getArticleID(){

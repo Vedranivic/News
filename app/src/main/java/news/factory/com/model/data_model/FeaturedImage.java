@@ -2,10 +2,7 @@ package news.factory.com.model.data_model;
 
 import com.google.gson.annotations.SerializedName;
 
-import news.factory.com.base.BaseItem;
-import news.factory.com.base.Constants;
-
-public class FeaturedImage implements BaseItem
+public class FeaturedImage
 {
     private String slider;
 
@@ -133,10 +130,4 @@ public class FeaturedImage implements BaseItem
     {
         return "ClassPojo [slider = "+slider+", 3xl = "+xxxl+", s = "+s+", xxl = "+xxl+", xl = "+xl+", original = "+original+", xs = "+xs+", xxs = "+xxs+", l = "+l+", m = "+m+"]";
     }
-
-    @Override
-    public int getViewType() {
-        return Constants.FEATURE_TYPE;
-    }
-
 }

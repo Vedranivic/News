@@ -2,18 +2,17 @@ package news.factory.com.base;
 
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.observers.DisposableSingleObserver;
-import news.factory.com.model.interactors.InteractorListener;
+import news.factory.com.model.interactor.InteractorListener;
 
 public class BaseInteractorImpl implements BaseInteractor {
 
-    public CompositeDisposable disposable = new CompositeDisposable();
+    private CompositeDisposable disposable;
 
-    public DisposableSingleObserver getObserver(final InteractorListener listener, final int resultType){
-        return new DisposableSingleObserver<BaseResult>() {
+    public DisposableSingleObserver getObserver(final InteractorListener listener){
+        return new DisposableSingleObserver<ResultWrapper>() {
             @Override
-            public void onSuccess(BaseResult result) {
+            public void onSuccess(ResultWrapper result) {
                 if (result != null) {
-                    result.setResultType(resultType);
                     listener.onSuccess(result);
                 }
             }
@@ -23,6 +22,17 @@ public class BaseInteractorImpl implements BaseInteractor {
                 listener.onFailure();
             }
         };
+    }
+
+    public CompositeDisposable getDisposable(){
+        //if(disposable.isDisposed()){
+        if(disposable==null) {
+            disposable = new CompositeDisposable();
+        }
+        else if  (disposable.isDisposed()){
+            disposable = new CompositeDisposable();
+        }
+        return disposable;
     }
 
     @Override

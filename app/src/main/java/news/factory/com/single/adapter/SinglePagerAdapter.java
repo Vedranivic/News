@@ -27,9 +27,11 @@ public class SinglePagerAdapter extends FragmentStatePagerAdapter {
 
     public void setPages(int pages) {
         this.pages = pages;
+        notifyDataSetChanged();
     }
 
     public void setArticleId(String articleId) {
         this.articleId = articleId;
+        notifyDataSetChanged();
     }
 }

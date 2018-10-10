@@ -1,9 +1,6 @@
 package news.factory.com.model.data_model;
 
-import news.factory.com.base.BaseItem;
-import news.factory.com.base.Constants;
-
-public class Content implements BaseItem
+public class Content
 {
     private ImageWithSize image_with_size;
 
@@ -165,10 +162,5 @@ public class Content implements BaseItem
     public String toString()
     {
         return "ClassPojo [image_with_size = "+image_with_size+", id = "+id+", article_id = "+article_id+", order = "+order+", page = "+page+", width = "+width+", embed_src = "+embed_src+", data_raw = "+data_raw+", data = "+data+", image = "+image+", image_caption = "+image_caption+", type = "+type+", image_source = "+image_source+"]";
-    }
-
-    @Override
-    public int getViewType() {
-        return Constants.TEXT_TYPE;
     }
 }

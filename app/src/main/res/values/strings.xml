@@ -3,4 +3,7 @@
     <string name="sourceLabelText">Source:</string>
     <string name="publishedLabelText">Objavljeno:</string>
     <string name="lbSlashText">/</string>
+    <string name="MostPopularPageTitle">Najpopularnije</string>
+    <string name="MostReadPageTitle">Najčitanije</string>
+    <string name="NewestPageTitle">Najnovije</string>
 </resources>

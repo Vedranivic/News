@@ -9,18 +9,14 @@ public class Constants {
     //String constants
     public static final String ARTICLE_KEY = "articleID";
     public static final String PAGE_KEY = "PAGE";
+    public static final String CATEGORY_KEY = "CATEGORY";
     public static final String FIRST_PAGE_VALUE = "1";
-
-    //Content item type constants
-    public static final int FEATURE_TYPE = 100;
-    public static final int TITLE_TYPE = 200;
-    public static final int IMAGE_TYPE = 300;
-    public static final int TEXT_TYPE = 400;
-    public static final int UPPERTITLE_TYPE = 500;
-    public static final int PUBLISHED = 600;
-    public static final int INDICATOR = 700;
+    public static final String CATEGORY_MOSTPOPULAR = "najpopularnije";
+    public static final String CATEGORY_MOSTREAD = "najcitanije";
+    public static final String CATEGORY_NEWEST = "najnovije";
 
     //Result type constants
     public static final int NEWS_TYPE = 111;
+    public static final int CATEGORIES_TYPE = 222;
 
 }

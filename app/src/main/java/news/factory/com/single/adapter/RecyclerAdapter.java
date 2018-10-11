@@ -11,22 +11,27 @@ import java.util.List;
 
 import news.factory.com.R;
 import news.factory.com.base.BaseItemViewHolder;
+import news.factory.com.base.Constants;
 import news.factory.com.base.RecyclerItemsWrapper;
-import news.factory.com.single.view_holder.FeatureViewHolder;
-import news.factory.com.single.view_holder.ImageViewHolder;
-import news.factory.com.single.view_holder.IndicatorViewHolder;
-import news.factory.com.single.view_holder.PublishedViewHolder;
-import news.factory.com.single.view_holder.TextViewHolder;
-import news.factory.com.single.view_holder.TitleViewHolder;
-import news.factory.com.single.view_holder.UpperTitleViewHolder;
+import news.factory.com.single.view_holder.category.CategoryViewHolder;
+import news.factory.com.single.view_holder.category_item.CategoryItemViewHolder;
+import news.factory.com.single.view_holder.feature.FeatureViewHolder;
+import news.factory.com.single.view_holder.image.ImageViewHolder;
+import news.factory.com.single.view_holder.indicator.IndicatorViewHolder;
+import news.factory.com.single.view_holder.published.PublishedViewHolder;
+import news.factory.com.single.view_holder.text.TextViewHolder;
+import news.factory.com.single.view_holder.title.TitleViewHolder;
+import news.factory.com.single.view_holder.uppertitle.UpperTitleViewHolder;
 
 public class RecyclerAdapter extends RecyclerView.Adapter<BaseItemViewHolder> {
 
     private List<RecyclerItemsWrapper> items;
     private LayoutInflater mInflater;
+    private Context mContext;
 
     public RecyclerAdapter(Context context) {
         this.mInflater = LayoutInflater.from(context);
+        this.mContext = context;
     }
 
     @Override
@@ -53,9 +58,13 @@ public class RecyclerAdapter extends RecyclerView.Adapter<BaseItemViewHolder> {
                 return new PublishedViewHolder(view,items);
             case R.layout.item_indicator:
                 return new IndicatorViewHolder(view,items);
+            case R.layout.item_category:
+                return new CategoryViewHolder(view,items,mContext);
+            case R.layout.item_news:
+                return new CategoryItemViewHolder(view,items);
         }
 
-        return new DummyViewHolder(new View(parent.getContext()));
+        return new DummyViewHolder(new View(parent.getContext()),items);
     }
 
     @SuppressWarnings("unchecked")
@@ -72,20 +81,20 @@ public class RecyclerAdapter extends RecyclerView.Adapter<BaseItemViewHolder> {
             return 0;
     }
 
+    public void setItems(List<RecyclerItemsWrapper> items) {
+        this.items = items;
+        notifyDataSetChanged();
+    }
+
     private class DummyViewHolder extends BaseItemViewHolder{
-        public DummyViewHolder(View itemView) {
-            super(itemView);
+        public DummyViewHolder(View itemView,List<RecyclerItemsWrapper> items) {
+            super(itemView, items);
         }
 
         @Override
         public void bind(int position) {
 
         }
-    }
-
-    public void setItems(List<RecyclerItemsWrapper> items) {
-        this.items = items;
-        notifyDataSetChanged();
     }
 
 }

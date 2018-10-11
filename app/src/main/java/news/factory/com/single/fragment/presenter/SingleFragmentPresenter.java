@@ -10,12 +10,21 @@ import news.factory.com.R;
 import news.factory.com.base.Constants;
 import news.factory.com.base.RecyclerItemsWrapper;
 import news.factory.com.base.ResultWrapper;
+import news.factory.com.model.data_model.Category;
 import news.factory.com.model.interactor.ArticleInteractor;
 import news.factory.com.model.interactor.ArticleInteractorImpl;
 import news.factory.com.model.interactor.InteractorListener;
 import news.factory.com.model.data_model.Content;
 import news.factory.com.model.data_model.News;
 import news.factory.com.single.fragment.SingleFragmentContract;
+import news.factory.com.single.view_holder.category.CategoryDataClass;
+import news.factory.com.single.view_holder.feature.FeatureDataClass;
+import news.factory.com.single.view_holder.image.ImageDataClass;
+import news.factory.com.single.view_holder.indicator.IndicatorDataClass;
+import news.factory.com.single.view_holder.published.PublishedDataClass;
+import news.factory.com.single.view_holder.text.TextDataClass;
+import news.factory.com.single.view_holder.title.TitleDataClass;
+import news.factory.com.single.view_holder.uppertitle.UppertitleDataClass;
 
 
 public class SingleFragmentPresenter implements SingleFragmentContract.Presenter, InteractorListener {
@@ -50,32 +59,7 @@ public class SingleFragmentPresenter implements SingleFragmentContract.Presenter
     public void onSuccess(ResultWrapper result) {
         switch (result.getType()) {
             case Constants.NEWS_TYPE:
-                News news = (News) result.getResult();
-                List<RecyclerItemsWrapper> items = new ArrayList<>();
-                if (!news.getNo_featured_image()) {
-                    //feature image
-                    items.add(new RecyclerItemsWrapper(news, R.layout.item_feature_image));
-                }
-                //uppertitle
-                items.add(new RecyclerItemsWrapper(news, R.layout.item_uppertitle));
-                //published
-                items.add(new RecyclerItemsWrapper(news, R.layout.item_published));
-                //title
-                items.add(new RecyclerItemsWrapper(news,R.layout.item_title));
-                for (Content c : news.getContent()) {
-                    if (c.getType().equals(textType)) {
-                        //text
-                        items.add(new RecyclerItemsWrapper(c,R.layout.item_text));
-                    }
-                    if (c.getType().equals(imageType)) {
-                        //image
-                        items.add(new RecyclerItemsWrapper(c.getImage(), R.layout.item_image));
-                    }
-                }
-
-                items.add(new RecyclerItemsWrapper(news,R.layout.item_indicator));
-
-                singleFragmentView.displayArticleItems(items);
+                getItemList((News)result.getResult());
         }
     }
 
@@ -87,5 +71,58 @@ public class SingleFragmentPresenter implements SingleFragmentContract.Presenter
     @Override
     public void dispose() {
         articleInteractor.dispose();
+    }
+
+
+    private void getItemList(News news) {
+        List<RecyclerItemsWrapper> items = new ArrayList<>();
+        if (!news.getNo_featured_image()) {
+            //feature image
+            items.add(new RecyclerItemsWrapper(new FeatureDataClass(
+                    news.getCategory(),
+                    news.getFeatured_image_source(),
+                    news.getFeatured_image_caption(),
+                    news.getFeatured_image().getOriginal()
+                ), R.layout.item_feature_image));
+        }
+        //uppertitle
+        items.add(new RecyclerItemsWrapper(new UppertitleDataClass(
+                news.getUppertitle()
+            ), R.layout.item_uppertitle));
+        //published
+        items.add(new RecyclerItemsWrapper(new PublishedDataClass(
+                news.getPublished_at_humans(),
+                news.getAuthor(),
+                news.getShares()
+            ), R.layout.item_published));
+        //title
+        items.add(new RecyclerItemsWrapper(new TitleDataClass(
+                news.getTitle()
+            ),R.layout.item_title));
+        for (Content c : news.getContent()) {
+            if (c.getType().equals(textType)) {
+                //text
+                items.add(new RecyclerItemsWrapper(new TextDataClass(
+                        c.getData()
+                    ),R.layout.item_text));
+            }
+            if (c.getType().equals(imageType)) {
+                //image
+                items.add(new RecyclerItemsWrapper(new ImageDataClass(
+                        c.getImage().getOriginal()
+                    ), R.layout.item_image));
+            }
+        }
+        items.add(new RecyclerItemsWrapper(new IndicatorDataClass(
+                news.getContent().get(0).getPage(),
+                news.getPages_no()
+            ),R.layout.item_indicator));
+
+        items.add(new RecyclerItemsWrapper(new CategoryDataClass(
+                "0",
+                "1"
+            ), R.layout.item_category));
+
+        singleFragmentView.displayArticleItems(items);
     }
 }

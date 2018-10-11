@@ -36,4 +36,9 @@
     <dimen name="indicatorTextSize">14sp</dimen>
     <dimen name="indicatorContainerWidth">80dp</dimen>
     <dimen name="indicatorTextSpacing">4dp</dimen>
+    <dimen name="ImageThumbnailWidth">126dp</dimen>
+    <dimen name="ImageThumbnailHeight">112dp</dimen>
+    <dimen name="categoryItemMarginStart">16dp</dimen>
+    <dimen name="categoryMarginEnd">16dp</dimen>
+    <dimen name="categoryItemPadding">8dp</dimen>
 </resources>

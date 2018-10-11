@@ -1,4 +1,4 @@
-package news.factory.com.single.view_holder;
+package news.factory.com.single.view_holder.title;
 
 import android.view.View;
 import android.widget.TextView;
@@ -6,7 +6,6 @@ import android.widget.TextView;
 import java.util.List;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import news.factory.com.R;
 import news.factory.com.base.BaseItemViewHolder;
 import news.factory.com.base.RecyclerItemsWrapper;
@@ -19,14 +18,12 @@ public class TitleViewHolder extends BaseItemViewHolder {
 
 
     public TitleViewHolder(View itemView, List<RecyclerItemsWrapper> items){
-        super(itemView);
-        ButterKnife.bind(this,itemView);
-        this.items = items;
+        super(itemView, items);
     }
 
     @Override
     public void bind(int position) {
-        News news = (News) items.get(position).getItem();
-        tvTitle.setText(news.getTitle());
+        TitleDataClass title = (TitleDataClass) items.get(position).getItem();
+        tvTitle.setText(title.getTitle());
     }
 }

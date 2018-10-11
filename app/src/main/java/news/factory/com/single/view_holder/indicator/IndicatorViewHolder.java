@@ -1,4 +1,4 @@
-package news.factory.com.single.view_holder;
+package news.factory.com.single.view_holder.indicator;
 
 import android.view.View;
 import android.widget.TextView;
@@ -21,15 +21,13 @@ public class IndicatorViewHolder extends BaseItemViewHolder {
 
 
     public IndicatorViewHolder(View itemView, List<RecyclerItemsWrapper> items){
-        super(itemView);
-        ButterKnife.bind(this,itemView);
-        this.items = items;
+        super(itemView, items);
     }
 
     @Override
     public void bind(int position) {
-        News news = (News) items.get(position).getItem();
-        tvTotalPages.setText(news.getPages_no());
-        tvCurrentPage.setText(news.getContent().get(0).getPage());
+        IndicatorDataClass indicator = (IndicatorDataClass) items.get(position).getItem();
+        tvTotalPages.setText(indicator.getTotalPages());
+        tvCurrentPage.setText(indicator.getPage());
     }
 }

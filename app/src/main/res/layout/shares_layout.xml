@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/tvShares"
+        android:textSize="@dimen/defaultTextSize"
+        android:textColor="@color/textTextColor"
+        android:layout_marginEnd="@dimen/sharesMarginEnd"
+        android:layout_marginBottom="@dimen/publishedMarginTop"
+        android:layout_marginTop="@dimen/publishedMarginBottom"
+        app:layout_constraintTop_toBottomOf="@id/tvPublished"
+        app:layout_constraintEnd_toStartOf="@id/ivShare"
+        app:layout_constraintBottom_toTopOf="@id/ivLineBottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <ImageView
+        android:id="@+id/ivShare"
+        android:src="@drawable/ic_share_black_16dp"
+        android:layout_marginBottom="@dimen/publishedMarginTop"
+        android:layout_marginTop="@dimen/publishedMarginBottom"
+        app:layout_constraintTop_toBottomOf="@id/tvPublished"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/ivLineBottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+</android.support.constraint.ConstraintLayout>

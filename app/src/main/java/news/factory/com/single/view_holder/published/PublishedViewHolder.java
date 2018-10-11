@@ -1,4 +1,4 @@
-package news.factory.com.single.view_holder;
+package news.factory.com.single.view_holder.published;
 
 import android.view.View;
 import android.widget.TextView;
@@ -6,7 +6,6 @@ import android.widget.TextView;
 import java.util.List;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import news.factory.com.R;
 import news.factory.com.base.BaseItemViewHolder;
 import news.factory.com.base.RecyclerItemsWrapper;
@@ -23,16 +22,14 @@ public class PublishedViewHolder extends BaseItemViewHolder {
 
 
     public PublishedViewHolder(View itemView, List<RecyclerItemsWrapper> items){
-        super(itemView);
-        ButterKnife.bind(this,itemView);
-        this.items = items;
+        super(itemView, items);
     }
 
     @Override
     public void bind(int position) {
-        News news = (News) items.get(position).getItem();
-        tvPublished.setText(news.getPublished_at_humans().split(" ")[0].concat("."));
-        tvAuthor.setText(news.getAuthor());
-        tvShares.setText(news.getShares());
+        PublishedDataClass published = (PublishedDataClass) items.get(position).getItem();
+        tvPublished.setText(published.getPublished().split(" ")[0].concat("."));
+        tvAuthor.setText(published.getAuthor());
+        tvShares.setText(published.getShares());
     }
 }

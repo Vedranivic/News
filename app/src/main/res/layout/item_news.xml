@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:paddingTop="@dimen/categoryItemPadding"
+    android:paddingBottom="@dimen/categoryItemPadding"
+    android:layout_marginStart="@dimen/categoryItemMarginStart"
+    android:layout_marginEnd="@dimen/categoryMarginEnd">
+
+    <ImageView
+        android:id="@+id/ivThumbnail"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_width="@dimen/ImageThumbnailWidth"
+        android:layout_height="@dimen/ImageThumbnailHeight" />
+
+    <TextView
+        android:id="@+id/tvCategory"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/white"
+        app:layout_constraintStart_toEndOf="@id/ivThumbnail"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="@dimen/categoryMarginStart"
+        android:textSize="@dimen/defaultTextSize"
+        android:background="@drawable/shape_rounded"
+        />
+
+    <TextView
+        android:id="@+id/tvTitle"
+        app:layout_constraintStart_toEndOf="@id/ivThumbnail"
+        app:layout_constraintTop_toBottomOf="@id/tvCategory"
+        android:layout_marginStart="@dimen/categoryMarginStart"
+        android:layout_marginTop="@dimen/categoryMarginBottom"
+        android:textSize="@dimen/upperTitleTextSize"
+        android:textStyle="bold"
+        android:textColor="@color/upperTitleTextColor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/tvShares"
+        android:textSize="@dimen/defaultTextSize"
+        android:textColor="@color/textTextColor"
+        android:layout_marginEnd="@dimen/sharesMarginEnd"
+        android:layout_marginBottom="@dimen/publishedMarginTop"
+        android:layout_marginTop="@dimen/publishedMarginBottom"
+        app:layout_constraintEnd_toStartOf="@id/ivShare"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <ImageView
+        android:id="@+id/ivShare"
+        android:src="@drawable/ic_share_black_16dp"
+        android:layout_marginBottom="@dimen/publishedMarginTop"
+        android:layout_marginTop="@dimen/publishedMarginBottom"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+
+
+</android.support.constraint.ConstraintLayout>

@@ -1,4 +1,4 @@
-package news.factory.com.single.view_holder;
+package news.factory.com.single.view_holder.image;
 
 import android.view.View;
 import android.widget.ImageView;
@@ -8,7 +8,6 @@ import com.squareup.picasso.Picasso;
 import java.util.List;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import news.factory.com.R;
 import news.factory.com.base.BaseItemViewHolder;
 import news.factory.com.base.Constants;
@@ -22,14 +21,12 @@ public class ImageViewHolder extends BaseItemViewHolder {
 
 
     public ImageViewHolder(View itemView, List<RecyclerItemsWrapper> items){
-        super(itemView);
-        ButterKnife.bind(this,itemView);
-        this.items = items;
+        super(itemView, items);
     }
 
     @Override
     public void bind(int position) {
-        Image image = (Image) items.get(position).getItem();
+        ImageDataClass image = (ImageDataClass) items.get(position).getItem();
         Picasso.get()
                 .load(Constants.IMAGE_BASE_URL+image.getOriginal())
                 .into(this.ivImage);

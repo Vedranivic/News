@@ -1,4 +1,4 @@
-package news.factory.com.single.view_holder;
+package news.factory.com.single.view_holder.text;
 
 import android.text.Html;
 import android.view.View;
@@ -20,14 +20,12 @@ public class TextViewHolder extends BaseItemViewHolder {
 
 
     public TextViewHolder(View itemView, List<RecyclerItemsWrapper> items){
-        super(itemView);
-        ButterKnife.bind(this,itemView);
-        this.items = items;
+        super(itemView, items);
     }
 
     @Override
     public void bind(int position) {
-        Content content = (Content) items.get(position).getItem();
-        tvText.setText(Html.fromHtml(content.getData()));
+        TextDataClass text = (TextDataClass) items.get(position).getItem();
+        tvText.setText(Html.fromHtml(text.getTextData()));
     }
 }

@@ -1,4 +1,4 @@
-package news.factory.com.single.view_holder;
+package news.factory.com.single.view_holder.uppertitle;
 
 import android.view.View;
 import android.widget.TextView;
@@ -6,11 +6,10 @@ import android.widget.TextView;
 import java.util.List;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import news.factory.com.R;
 import news.factory.com.base.BaseItemViewHolder;
 import news.factory.com.base.RecyclerItemsWrapper;
-import news.factory.com.model.data_model.News;
+
 
 public class UpperTitleViewHolder extends BaseItemViewHolder {
 
@@ -19,14 +18,12 @@ public class UpperTitleViewHolder extends BaseItemViewHolder {
 
 
     public UpperTitleViewHolder(View itemView, List<RecyclerItemsWrapper> items){
-        super(itemView);
-        ButterKnife.bind(this,itemView);
-        this.items = items;
+        super(itemView, items);
     }
 
     @Override
     public void bind(int position) {
-        News news = (News) items.get(position).getItem();
-        tvUpperTitle.setText(news.getUppertitle());
+        UppertitleDataClass uppertitle = (UppertitleDataClass) items.get(position).getItem();
+        tvUpperTitle.setText(uppertitle.getUpperTitle());
     }
 }

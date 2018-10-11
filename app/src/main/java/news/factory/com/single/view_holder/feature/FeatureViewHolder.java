@@ -1,4 +1,4 @@
-package news.factory.com.single.view_holder;
+package news.factory.com.single.view_holder.feature;
 
 import android.view.View;
 import android.widget.ImageView;
@@ -9,12 +9,10 @@ import com.squareup.picasso.Picasso;
 import java.util.List;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import news.factory.com.R;
 import news.factory.com.base.BaseItemViewHolder;
 import news.factory.com.base.Constants;
 import news.factory.com.base.RecyclerItemsWrapper;
-import news.factory.com.model.data_model.News;
 
 public class FeatureViewHolder extends BaseItemViewHolder {
 
@@ -32,26 +30,24 @@ public class FeatureViewHolder extends BaseItemViewHolder {
 
 
     public FeatureViewHolder(View itemView, List<RecyclerItemsWrapper> items){
-        super(itemView);
-        ButterKnife.bind(this,itemView);
-        this.items = items;
+        super(itemView, items);
     }
 
     @Override
     public void bind(int position) {
-        News news = (News) items.get(position).getItem();
-        if(news.getFeatured_image_source().equals("")){
+        FeatureDataClass feature = (FeatureDataClass) items.get(position).getItem();
+        if(feature.getSource().equals("")){
             lbSource.setVisibility(View.INVISIBLE);
             tvSource.setVisibility(View.INVISIBLE);
         }
-        if(news.getFeatured_image_caption().equals("")){
+        if(feature.getCaption().equals("")){
             tvCaption.setVisibility(View.INVISIBLE);
         }
-        tvCategory.setText(news.getCategory());
-        tvSource.setText(news.getFeatured_image_source());
-        tvCaption.setText(news.getFeatured_image_caption());
+        tvCategory.setText(feature.getCategory());
+        tvSource.setText(feature.getSource());
+        tvCaption.setText(feature.getCaption());
         Picasso.get()
-                .load(Constants.IMAGE_BASE_URL+news.getFeatured_image().getOriginal())
+                .load(Constants.IMAGE_BASE_URL+feature.getOriginal())
                 .into(this.ivFeatureImage);
     }
 }

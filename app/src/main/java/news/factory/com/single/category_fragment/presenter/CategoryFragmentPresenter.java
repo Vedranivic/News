@@ -45,16 +45,16 @@ public class CategoryFragmentPresenter implements CategoryFragmentContract.Prese
     @Override
     public void onSuccess(ResultWrapper result) {
         Category category = (Category) result.getResult();
-        Log.d(TAG,"NAME: " + category.getName());
         List<RecyclerItemsWrapper> items = new ArrayList<>();
         for(News n : category.getArticles()){
+            Log.d("MYTAG",n.getTitle());
             items.add(new RecyclerItemsWrapper(new CategoryItemDataClass(
                     n.getFeatured_image().getOriginal(),
                     n.getCategory(),
                     n.getTitle(),
                     n.getShares()
             ), R.layout.item_news));
-            if(items.size() == 4) break;
+            //if(items.size() == 4) break;
         }
         categoryFragmentView.displayItemsByCategory(items);
     }

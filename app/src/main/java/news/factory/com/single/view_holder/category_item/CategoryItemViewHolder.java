@@ -1,5 +1,6 @@
 package news.factory.com.single.view_holder.category_item;
 
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;

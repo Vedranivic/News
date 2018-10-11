@@ -37,21 +37,22 @@ public class RecyclerAdapter extends RecyclerView.Adapter<BaseItemViewHolder> {
     @NonNull
     @Override
     public BaseItemViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = mInflater.inflate(viewType,parent,false);
         switch (viewType){
             case R.layout.item_feature_image:
-                return new FeatureViewHolder(mInflater.inflate(viewType,parent,false),items);
+                return new FeatureViewHolder(view,items);
             case R.layout.item_title:
-                return new TitleViewHolder(mInflater.inflate(viewType,parent,false),items);
+                return new TitleViewHolder(view,items);
             case R.layout.item_image:
-                return new ImageViewHolder(mInflater.inflate(viewType,parent,false),items);
+                return new ImageViewHolder(view,items);
             case R.layout.item_text:
-                return new TextViewHolder(mInflater.inflate(viewType,parent,false),items);
+                return new TextViewHolder(view,items);
             case R.layout.item_uppertitle:
-                return new UpperTitleViewHolder(mInflater.inflate(viewType,parent,false),items);
+                return new UpperTitleViewHolder(view,items);
             case R.layout.item_published:
-                return new PublishedViewHolder(mInflater.inflate(viewType,parent,false),items);
+                return new PublishedViewHolder(view,items);
             case R.layout.item_indicator:
-                return new IndicatorViewHolder(mInflater.inflate(viewType,parent,false),items);
+                return new IndicatorViewHolder(view,items);
         }
 
         return new DummyViewHolder(new View(parent.getContext()));

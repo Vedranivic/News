@@ -104,30 +104,6 @@ public class News
 
     private String subtitle;
 
-    public News(){}
-
-    public News (FeaturedImage featuredImage, String featured_image_caption, String featured_image_source, String category){
-        this.featured_image = featuredImage;
-        this.featured_image_caption = featured_image_caption;
-        this.featured_image_source = featured_image_source;
-        this.category = category;
-    }
-
-    public News (String uppertitle){
-        this.uppertitle = uppertitle;
-    }
-
-    public News(String published_at_humans, String author, String shares){
-        this.published_at_humans = published_at_humans;
-        this.author = author;
-        this.shares = shares;
-    }
-
-    public News(String pages_no, List<Content> content){
-        this.pages_no = pages_no;
-        this.content = new ArrayList<Content>(content);
-    }
-
     public String getPages_no ()
     {
         return pages_no;

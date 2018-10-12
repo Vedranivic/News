@@ -25,14 +25,6 @@ public class APIServiceGenerator {
     public static void setRetrofit(Context context){
         if (api == null){
 
-            HttpLoggingInterceptor logging = new HttpLoggingInterceptor(new HttpLoggingInterceptor.Logger() {
-                @Override
-                public void log(String message) {
-                    Log.d("OkHttp",message);
-                }
-            });
-            logging.setLevel(HttpLoggingInterceptor.Level.BODY);
-
             OkHttpClient okHttpClient = new OkHttpClient.Builder()
                     .addInterceptor(new Interceptor() {
                         @Override
@@ -40,7 +32,6 @@ public class APIServiceGenerator {
                             Request request = chain.request();
                             HttpUrl url = request.url().newBuilder().addQueryParameter("api_token",Constants.API_TOKEN).build();
                             request = request.newBuilder().url(url).build();
-                            Log.d("APISERVICE","URL: "+ request.url().toString());
                             return chain.proceed(request);
                         }
                     })

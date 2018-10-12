@@ -21,6 +21,10 @@ public class Category {
     private String page;
     private List<News> articles;
 
+    public void setArticles(List<News> articles) {
+        this.articles = articles;
+    }
+
     public String getId() {
         return id;
     }

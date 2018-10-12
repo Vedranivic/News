@@ -4,6 +4,7 @@ package news.factory.com.single.category_fragment.view;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -11,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import java.util.List;
+import java.util.Objects;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -21,7 +23,6 @@ import news.factory.com.base.RecyclerItemsWrapper;
 import news.factory.com.single.adapter.RecyclerAdapter;
 import news.factory.com.single.category_fragment.CategoryFragmentContract;
 import news.factory.com.single.category_fragment.presenter.CategoryFragmentPresenter;
-import news.factory.com.single.fragment.SingleFragmentContract;
 
 
 public class CategoryFragment extends BaseFragment implements CategoryFragmentContract.View {
@@ -57,8 +58,12 @@ public class CategoryFragment extends BaseFragment implements CategoryFragmentCo
 
     private void setupRecycler() {
         adapter  = new RecyclerAdapter(getContext());
-        rvCategoryItems.setLayoutManager(new LinearLayoutManager(getContext()));
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
+        rvCategoryItems.setLayoutManager(linearLayoutManager);
         rvCategoryItems.setAdapter(adapter);
+        rvCategoryItems.addItemDecoration(new DividerItemDecoration(
+                Objects.requireNonNull(getContext()),linearLayoutManager.getOrientation()
+        ));
     }
 
     private void setupMVP() {

@@ -54,7 +54,7 @@ public class CategoryFragmentPresenter implements CategoryFragmentContract.Prese
                     n.getTitle(),
                     n.getShares()
             ), R.layout.item_news));
-            //if(items.size() == 4) break;
+            if(items.size() == 4) break;
         }
         categoryFragmentView.displayItemsByCategory(items);
     }

@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:paddingTop="@dimen/categoryItemPadding"
-    android:paddingBottom="@dimen/categoryItemPadding"
-    android:layout_marginStart="@dimen/categoryItemMarginStart"
-    android:layout_marginEnd="@dimen/categoryMarginEnd">
+    android:paddingBottom="@dimen/categoryItemPadding">
 
     <ImageView
         android:id="@+id/ivThumbnail"
@@ -19,8 +18,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@android:color/white"
-        app:layout_constraintStart_toEndOf="@id/ivThumbnail"
-        app:layout_constraintTop_toTopOf="parent"
+        android:layout_toEndOf="@id/ivThumbnail"
+        android:layout_alignTop="@id/ivThumbnail"
         android:layout_marginStart="@dimen/categoryMarginStart"
         android:textSize="@dimen/defaultTextSize"
         android:background="@drawable/shape_rounded"
@@ -28,38 +27,30 @@
 
     <TextView
         android:id="@+id/tvTitle"
-        app:layout_constraintStart_toEndOf="@id/ivThumbnail"
-        app:layout_constraintTop_toBottomOf="@id/tvCategory"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/categoryMarginStart"
         android:layout_marginTop="@dimen/categoryMarginBottom"
+        android:ellipsize="end"
+        android:maxLines="3"
+        android:textColor="@color/upperTitleTextColor"
         android:textSize="@dimen/upperTitleTextSize"
         android:textStyle="bold"
-        android:textColor="@color/upperTitleTextColor"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_toEndOf="@id/ivThumbnail"
+        android:layout_below="@id/tvCategory"
+        tools:text="@string/dummyString" />
 
     <TextView
         android:id="@+id/tvShares"
         android:textSize="@dimen/defaultTextSize"
         android:textColor="@color/textTextColor"
-        android:layout_marginEnd="@dimen/sharesMarginEnd"
-        android:layout_marginBottom="@dimen/publishedMarginTop"
         android:layout_marginTop="@dimen/publishedMarginBottom"
-        app:layout_constraintEnd_toStartOf="@id/ivShare"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_alignBottom="@id/ivThumbnail"
+        android:layout_alignParentEnd="true"
+        android:layout_toStartOf="@id/ivShare"
+        android:drawablePadding="@dimen/sharesMarginEnd"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:drawableEnd="@drawable/ic_share_black_16dp"/>
 
-    <ImageView
-        android:id="@+id/ivShare"
-        android:src="@drawable/ic_share_black_16dp"
-        android:layout_marginBottom="@dimen/publishedMarginTop"
-        android:layout_marginTop="@dimen/publishedMarginBottom"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-
-
-
-</android.support.constraint.ConstraintLayout>
+</RelativeLayout>

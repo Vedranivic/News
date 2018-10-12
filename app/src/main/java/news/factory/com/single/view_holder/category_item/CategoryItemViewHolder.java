@@ -38,6 +38,8 @@ public class CategoryItemViewHolder extends BaseItemViewHolder {
         tvShares.setText(categoryItem.getShares());
         Picasso.get()
                 .load(Constants.IMAGE_BASE_URL+categoryItem.getImageOriginal())
+                .fit()
+                .centerCrop()
                 .into(this.ivThumbnail);
     }
 }

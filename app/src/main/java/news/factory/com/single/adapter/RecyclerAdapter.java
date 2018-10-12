@@ -2,6 +2,7 @@ package news.factory.com.single.adapter;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -12,7 +13,6 @@ import java.util.List;
 
 import news.factory.com.R;
 import news.factory.com.base.BaseItemViewHolder;
-import news.factory.com.base.Constants;
 import news.factory.com.base.RecyclerItemsWrapper;
 import news.factory.com.single.view_holder.category.CategoryViewHolder;
 import news.factory.com.single.view_holder.category_item.CategoryItemViewHolder;
@@ -29,6 +29,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<BaseItemViewHolder> {
     private List<RecyclerItemsWrapper> items;
     private LayoutInflater mInflater;
     private Context mContext;
+    private FragmentManager fragmentManager;
 
     public RecyclerAdapter(Context context) {
         this.mInflater = LayoutInflater.from(context);
@@ -60,7 +61,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<BaseItemViewHolder> {
             case R.layout.item_indicator:
                 return new IndicatorViewHolder(view,items);
             case R.layout.item_category:
-                return new CategoryViewHolder(view,items,mContext);
+                return new CategoryViewHolder(view,items,mContext, fragmentManager);
             case R.layout.item_news:
                 return new CategoryItemViewHolder(view,items);
         }
@@ -85,6 +86,10 @@ public class RecyclerAdapter extends RecyclerView.Adapter<BaseItemViewHolder> {
     public void setItems(List<RecyclerItemsWrapper> items) {
         this.items = items;
         notifyDataSetChanged();
+    }
+
+    public void setChildFragmentManager(FragmentManager childFragmentManager) {
+        fragmentManager = childFragmentManager;
     }
 
     private class DummyViewHolder extends BaseItemViewHolder{

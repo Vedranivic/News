@@ -56,6 +56,7 @@ public class SingleFragment extends BaseFragment implements SingleFragmentContra
 
     private void setupRecycler() {
         adapter  = new RecyclerAdapter(getContext());
+        adapter.setChildFragmentManager(getChildFragmentManager());
         rvItems.setLayoutManager(new LinearLayoutManager(getContext()));
         rvItems.setAdapter(adapter);
     }

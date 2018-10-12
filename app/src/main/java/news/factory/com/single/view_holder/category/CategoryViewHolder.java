@@ -1,6 +1,7 @@
 package news.factory.com.single.view_holder.category;
 
 import android.app.Activity;
+import android.app.Fragment;
 import android.content.Context;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.FragmentActivity;
@@ -15,6 +16,7 @@ import news.factory.com.R;
 import news.factory.com.base.BaseItemViewHolder;
 import news.factory.com.base.RecyclerItemsWrapper;
 import news.factory.com.single.adapter.CategoryPagerAdapter;
+import news.factory.com.single.category_fragment.view.CategoryFragment;
 
 public class CategoryViewHolder extends BaseItemViewHolder {
 
@@ -27,11 +29,11 @@ public class CategoryViewHolder extends BaseItemViewHolder {
     private Context mContext;
     private CategoryPagerAdapter adapter;
 
-    public CategoryViewHolder(View itemView, List<RecyclerItemsWrapper> items, Context context) {
+    public CategoryViewHolder(View itemView, List<RecyclerItemsWrapper> items, Context context, FragmentManager fragmentManager) {
         super(itemView, items);
 
         this.mContext = context;
-        this.fragmentManager = ((FragmentActivity) context).getSupportFragmentManager();
+        this.fragmentManager = fragmentManager;
         setupAdapter();
     }
 

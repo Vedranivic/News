@@ -12,6 +12,7 @@
         android:layout_height="match_parent"
         android:textSize="@dimen/titleTextSize"
         android:textColor="@color/titleTextColor"
+        android:fontFamily="@font/robot_slab"
         />
 
 </android.support.constraint.ConstraintLayout>

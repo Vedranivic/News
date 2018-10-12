@@ -16,6 +16,7 @@
         android:textSize="@dimen/upperTitleTextSize"
         android:textStyle="bold"
         android:textColor="@color/upperTitleTextColor"
+        android:fontFamily="@font/robot_slab"
         />
 
 </android.support.constraint.ConstraintLayout>

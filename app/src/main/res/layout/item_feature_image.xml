@@ -60,4 +60,16 @@
         android:background="@drawable/shape_rounded"
         />
 
+    <ImageView
+        android:id="@+id/ivBookmark"
+        app:layout_constraintStart_toEndOf="@id/tvCategory"
+        app:layout_constraintTop_toTopOf="@id/tvCategory"
+        app:layout_constraintBottom_toBottomOf="@id/tvCategory"
+        android:layout_marginStart="@dimen/bookmarkMarginStart"
+        android:src="@drawable/ic_bookmark_border_white_22dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+
+
 </android.support.constraint.ConstraintLayout>

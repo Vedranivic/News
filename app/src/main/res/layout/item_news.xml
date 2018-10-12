@@ -36,6 +36,7 @@
         android:textColor="@color/upperTitleTextColor"
         android:textSize="@dimen/upperTitleTextSize"
         android:textStyle="bold"
+        android:fontFamily="@font/robot_slab"
         android:layout_toEndOf="@id/ivThumbnail"
         android:layout_below="@id/tvCategory"
         tools:text="@string/dummyString" />

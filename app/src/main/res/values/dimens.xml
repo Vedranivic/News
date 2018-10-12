@@ -42,4 +42,5 @@
     <dimen name="categoryMarginEnd">16dp</dimen>
     <dimen name="categoryItemPadding">8dp</dimen>
     <dimen name="rvCategoryMarginTop">8dp</dimen>
+    <dimen name="bookmarkMarginStart">23dp</dimen>
 </resources>

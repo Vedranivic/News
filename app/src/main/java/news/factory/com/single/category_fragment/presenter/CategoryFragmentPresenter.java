@@ -47,7 +47,6 @@ public class CategoryFragmentPresenter implements CategoryFragmentContract.Prese
         Category category = (Category) result.getResult();
         List<RecyclerItemsWrapper> items = new ArrayList<>();
         for(News n : category.getArticles()){
-            Log.d("MYTAG",n.getTitle());
             items.add(new RecyclerItemsWrapper(new CategoryItemDataClass(
                     n.getFeatured_image().getOriginal(),
                     n.getCategory(),

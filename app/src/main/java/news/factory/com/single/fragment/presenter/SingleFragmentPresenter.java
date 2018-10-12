@@ -10,7 +10,6 @@ import news.factory.com.R;
 import news.factory.com.base.Constants;
 import news.factory.com.base.RecyclerItemsWrapper;
 import news.factory.com.base.ResultWrapper;
-import news.factory.com.model.data_model.Category;
 import news.factory.com.model.interactor.ArticleInteractor;
 import news.factory.com.model.interactor.ArticleInteractorImpl;
 import news.factory.com.model.interactor.InteractorListener;

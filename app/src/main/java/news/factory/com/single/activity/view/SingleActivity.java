@@ -6,10 +6,17 @@ import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 
+import javax.inject.Inject;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import dagger.internal.GwtIncompatible;
+import news.factory.com.App;
 import news.factory.com.base.Constants;
 import news.factory.com.R;
+import news.factory.com.base.dependency_injection.AppComponent;
+import news.factory.com.base.dependency_injection.AppModule;
+import news.factory.com.base.dependency_injection.DaggerAppComponent;
 import news.factory.com.single.activity.SingleContract;
 import news.factory.com.single.activity.presenter.SinglePresenter;
 import news.factory.com.single.adapter.SinglePagerAdapter;
@@ -19,8 +26,11 @@ public class SingleActivity extends AppCompatActivity implements SingleContract.
     @BindView(R.id.vpArticles)
     ViewPager vpSingles;
 
-    private SingleContract.Presenter singlePresenter;
-    private SinglePagerAdapter adapter;
+    @Inject
+    public SingleContract.Presenter singlePresenter;
+
+    @Inject
+    public SinglePagerAdapter adapter;
 
 
     public static void openActivityInstance(Context context,String articleId) {
@@ -41,12 +51,12 @@ public class SingleActivity extends AppCompatActivity implements SingleContract.
     }
 
     private void setupAdapter() {
-        adapter = new SinglePagerAdapter(getSupportFragmentManager());
+        //adapter = new SinglePagerAdapter(getSupportFragmentManager());
         vpSingles.setAdapter(adapter);
     }
 
     private void setupMVP() {
-        singlePresenter = new SinglePresenter(this);
+        //singlePresenter = new SinglePresenter(this);
         singlePresenter.initialize(getArticleID());
     }
 

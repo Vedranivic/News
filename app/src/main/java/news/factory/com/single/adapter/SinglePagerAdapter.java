@@ -4,6 +4,8 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
+import javax.inject.Inject;
+
 import news.factory.com.single.fragment.view.SingleFragment;
 
 public class SinglePagerAdapter extends FragmentStatePagerAdapter {
@@ -11,6 +13,7 @@ public class SinglePagerAdapter extends FragmentStatePagerAdapter {
     private int pages;
     private String articleId;
 
+    @Inject
     public SinglePagerAdapter(FragmentManager fm){
         super(fm);
     }

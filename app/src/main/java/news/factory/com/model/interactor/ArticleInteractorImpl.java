@@ -2,6 +2,8 @@ package news.factory.com.model.interactor;
 
 import android.annotation.SuppressLint;
 
+import javax.inject.Inject;
+
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
 import news.factory.com.base.BaseInteractorImpl;
@@ -14,6 +16,8 @@ public class ArticleInteractorImpl extends BaseInteractorImpl implements Article
 
     private static final String TAG = ArticleInteractorImpl.class.getSimpleName();
 
+    public ArticleInteractorImpl() {
+    }
 
     @SuppressLint("CheckResult")
     @SuppressWarnings("unchecked")

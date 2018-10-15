@@ -6,12 +6,16 @@
 
     <android.support.design.widget.TabLayout
         android:id="@+id/tabSlider"
+        app:tabGravity="fill"
         app:tabSelectedTextColor="@color/titleTextColor"
         app:tabTextColor="@color/tabUnselectedTextColor"
         style="@style/Widget.Design.TabLayout"
         app:tabTextAppearance="@style/categoryTabTextStyle"
         app:tabIndicatorColor="@color/indicatorColor"
         app:tabIndicatorHeight="@dimen/categoryIndicatorHeight"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 

@@ -2,9 +2,10 @@ package news.factory.com.single.activity.presenter;
 
 import android.util.Log;
 
+import javax.inject.Inject;
+
 import news.factory.com.base.ResultWrapper;
 import news.factory.com.model.interactor.ArticleInteractor;
-import news.factory.com.model.interactor.ArticleInteractorImpl;
 import news.factory.com.model.interactor.InteractorListener;
 import news.factory.com.base.Constants;
 import news.factory.com.model.data_model.News;
@@ -14,14 +15,17 @@ public class SinglePresenter implements SingleContract.Presenter, InteractorList
 
     private static final String TAG = SinglePresenter.class.getSimpleName();
 
-    private ArticleInteractor articleInteractor;
-    private SingleContract.View singleView;
+    @Inject
+    public ArticleInteractor articleInteractor;
+
+    public SingleContract.View singleView;
+
     private String articleID;
 
-
+    @Inject
     public SinglePresenter(SingleContract.View view) {
         this.singleView = view;
-        articleInteractor = new ArticleInteractorImpl();
+        //articleInteractor = new ArticleInteractorImpl();
     }
 
     @Override

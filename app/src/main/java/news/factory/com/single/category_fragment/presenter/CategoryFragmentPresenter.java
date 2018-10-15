@@ -41,7 +41,6 @@ public class CategoryFragmentPresenter implements CategoryFragmentContract.Prese
         this.page = page;
     }
 
-
     @Override
     public void onSuccess(ResultWrapper result) {
         Category category = (Category) result.getResult();

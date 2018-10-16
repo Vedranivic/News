@@ -8,11 +8,16 @@ import android.view.View;
 
 import java.util.List;
 
+
+import javax.inject.Inject;
+
 import butterknife.BindView;
+import news.factory.com.App;
 import news.factory.com.R;
 import news.factory.com.base.BaseItemViewHolder;
 import news.factory.com.base.RecyclerItemsWrapper;
 import news.factory.com.single.adapter.CategoryPagerAdapter;
+
 
 public class CategoryViewHolder extends BaseItemViewHolder {
 
@@ -23,18 +28,24 @@ public class CategoryViewHolder extends BaseItemViewHolder {
 
     private FragmentManager fragmentManager;
     private Context mContext;
-    private CategoryPagerAdapter adapter;
+    @Inject
+    public CategoryPagerAdapter adapter;
+
 
     public CategoryViewHolder(View itemView, List<RecyclerItemsWrapper> items, Context context, FragmentManager fragmentManager) {
         super(itemView, items);
 
         this.mContext = context;
         this.fragmentManager = fragmentManager;
+
+        App.getComponent()
+                .plus(new CategoryViewHolderModule(fragmentManager, mContext))
+                .inject(this);
         setupAdapter();
     }
 
     private void setupAdapter() {
-        adapter = new CategoryPagerAdapter(fragmentManager, mContext);
+        //adapter = new CategoryPagerAdapter(fragmentManager, mContext);
         tabSlider.setupWithViewPager(vpCategory);
         vpCategory.setAdapter(adapter);
     }

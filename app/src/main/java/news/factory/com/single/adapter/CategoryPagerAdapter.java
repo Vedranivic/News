@@ -6,6 +6,8 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
+import javax.inject.Inject;
+
 import news.factory.com.R;
 import news.factory.com.base.Constants;
 import news.factory.com.single.category_fragment.view.CategoryFragment;
@@ -14,8 +16,10 @@ public class CategoryPagerAdapter extends FragmentStatePagerAdapter {
 
     private String id;
     private String page;
-    private Context mContext;
+    @Inject
+    public Context mContext;
 
+    @Inject
     public CategoryPagerAdapter(FragmentManager fm, Context context) {
         super(fm);
         this.mContext = context;

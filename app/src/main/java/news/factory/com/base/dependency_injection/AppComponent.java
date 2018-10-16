@@ -12,10 +12,10 @@ import news.factory.com.single.activity.SingleActivityComponent;
 import news.factory.com.single.activity.SingleActivityModule;
 import news.factory.com.single.category_fragment.CategoryFragmentComponent;
 import news.factory.com.single.category_fragment.CategoryFragmentModule;
-import news.factory.com.single.category_fragment.view.CategoryFragment;
 import news.factory.com.single.fragment.SingleFragmentComponent;
 import news.factory.com.single.fragment.SingleFragmentModule;
-import news.factory.com.single.fragment.view.SingleFragment;
+import news.factory.com.single.view_holder.category.CategoryViewHolderComponent;
+import news.factory.com.single.view_holder.category.CategoryViewHolderModule;
 
 
 @Singleton
@@ -32,4 +32,7 @@ public interface AppComponent {
     SingleFragmentComponent plus(SingleFragmentModule module);
 
     CategoryFragmentComponent plus(CategoryFragmentModule module);
+
+    CategoryViewHolderComponent plus(CategoryViewHolderModule module);
+
 }

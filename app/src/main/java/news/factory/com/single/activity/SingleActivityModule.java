@@ -8,19 +8,11 @@ import news.factory.com.base.dependency_injection.PerActivityScope;
 import news.factory.com.model.interactor.ArticleInteractor;
 import news.factory.com.model.interactor.ArticleInteractorImpl;
 import news.factory.com.single.activity.presenter.SinglePresenter;
+import news.factory.com.single.activity.view.SingleActivity;
 import news.factory.com.single.adapter.SinglePagerAdapter;
 
 @Module
 public class SingleActivityModule {
-
-    private final SingleContract.View singleView;
-
-    private final FragmentManager singleViewFragmentManager;
-
-    public SingleActivityModule(SingleContract.View singleView, FragmentManager singleViewFragmentManager) {
-        this.singleView = singleView;
-        this.singleViewFragmentManager = singleViewFragmentManager;
-    }
 
     @Provides
     @PerActivityScope
@@ -36,14 +28,14 @@ public class SingleActivityModule {
 
     @Provides
     @PerActivityScope
-    public SingleContract.View provideSingleView(){
-        return singleView;
+    public SingleContract.View provideSingleView(SingleActivity singleActivity){
+        return singleActivity;
     }
 
     @Provides
     @PerActivityScope
-    public FragmentManager provideFragmentManager(){
-        return singleViewFragmentManager;
+    public FragmentManager provideFragmentManager(SingleActivity singleActivity){
+        return singleActivity.getSupportFragmentManager();
     }
 
     @Provides

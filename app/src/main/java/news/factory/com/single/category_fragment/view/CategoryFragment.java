@@ -19,15 +19,12 @@ import javax.inject.Inject;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import dagger.android.support.AndroidSupportInjection;
-import news.factory.com.App;
 import news.factory.com.R;
 import news.factory.com.base.BaseFragment;
 import news.factory.com.base.Constants;
 import news.factory.com.base.RecyclerItemsWrapper;
 import news.factory.com.single.adapter.RecyclerAdapter;
 import news.factory.com.single.category_fragment.CategoryFragmentContract;
-import news.factory.com.single.category_fragment.CategoryFragmentModule;
-import news.factory.com.single.category_fragment.presenter.CategoryFragmentPresenter;
 
 
 public class CategoryFragment extends BaseFragment implements CategoryFragmentContract.View {

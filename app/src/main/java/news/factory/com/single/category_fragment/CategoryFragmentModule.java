@@ -9,19 +9,12 @@ import news.factory.com.model.interactor.CategoryInteractor;
 import news.factory.com.model.interactor.CategoryInteractorImpl;
 import news.factory.com.single.adapter.RecyclerAdapter;
 import news.factory.com.single.category_fragment.presenter.CategoryFragmentPresenter;
+import news.factory.com.single.category_fragment.view.CategoryFragment;
 
 
 @Module
 public class CategoryFragmentModule {
 
-    private final CategoryFragmentContract.View categoryFragmentView;
-
-    private final Context categoryFragmentContext;
-
-    public CategoryFragmentModule(CategoryFragmentContract.View categoryFragmentView, Context categoryFragmentContext) {
-        this.categoryFragmentView = categoryFragmentView;
-        this.categoryFragmentContext = categoryFragmentContext;
-    }
 
     @Provides
     @PerFragmentScope
@@ -31,8 +24,8 @@ public class CategoryFragmentModule {
 
     @Provides
     @PerFragmentScope
-    public CategoryFragmentContract.View provideCategoryFragmentView(){
-        return categoryFragmentView;
+    public CategoryFragmentContract.View provideCategoryFragmentView(CategoryFragment categoryFragment){
+        return categoryFragment;
     }
 
     @Provides
@@ -49,8 +42,8 @@ public class CategoryFragmentModule {
 
     @Provides
     @PerFragmentScope
-    public Context provideContext(){
-        return categoryFragmentContext;
+    public Context provideContext(CategoryFragment categoryFragment){
+        return categoryFragment.getContext();
     }
 
 }

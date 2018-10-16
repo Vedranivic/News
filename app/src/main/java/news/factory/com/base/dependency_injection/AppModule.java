@@ -1,9 +1,11 @@
 package news.factory.com.base.dependency_injection;
 
 
+import android.app.Application;
 import android.content.Context;
 
 import javax.inject.Named;
+import javax.inject.Singleton;
 
 import dagger.Module;
 import dagger.Provides;
@@ -12,16 +14,16 @@ import dagger.Provides;
 @Module
 public class AppModule {
 
-    private Context mContext;
+    private Application applicationContext;
 
-    public AppModule(Context mContext) {
-        this.mContext = mContext;
+    public AppModule(Application applicationContext) {
+        this.applicationContext = applicationContext;
     }
 
     @Provides
-    @ApplicationScope
+    @Singleton
     @Named("ApplicationContext")
-    public Context getContext() {
-        return mContext;
+    public Application getApplicationContext() {
+        return applicationContext;
     }
 }

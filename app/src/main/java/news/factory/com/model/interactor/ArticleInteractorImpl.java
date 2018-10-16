@@ -6,6 +6,7 @@ import javax.inject.Inject;
 
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
+import news.factory.com.App;
 import news.factory.com.base.BaseInteractorImpl;
 import news.factory.com.base.Constants;
 import news.factory.com.base.ResultWrapper;
@@ -16,6 +17,7 @@ public class ArticleInteractorImpl extends BaseInteractorImpl implements Article
 
     private static final String TAG = ArticleInteractorImpl.class.getSimpleName();
 
+    @Inject
     public ArticleInteractorImpl() {
     }
 
@@ -24,7 +26,7 @@ public class ArticleInteractorImpl extends BaseInteractorImpl implements Article
     @Override
     public void makeCall(String articleID, String page, final InteractorListener listener) {
 
-        getDisposable().add(APIServiceGenerator.getAPI().getNews(articleID,page)
+        getDisposable().add(App.getComponent().getNewsAPI().getNews(articleID,page)
                 .map(news -> new ResultWrapper(news, Constants.NEWS_TYPE))
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())

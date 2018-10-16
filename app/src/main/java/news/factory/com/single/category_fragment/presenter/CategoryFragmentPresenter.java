@@ -5,6 +5,8 @@ import android.util.Log;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.inject.Inject;
+
 import news.factory.com.R;
 import news.factory.com.base.RecyclerItemsWrapper;
 import news.factory.com.base.ResultWrapper;
@@ -20,14 +22,17 @@ public class CategoryFragmentPresenter implements CategoryFragmentContract.Prese
 
     private static final String TAG = CategoryFragmentPresenter.class.getSimpleName();
 
-    private CategoryInteractor categoryInteractor;
-    private CategoryFragmentContract.View categoryFragmentView;
+    @Inject
+    public CategoryInteractor categoryInteractor;
+    @Inject
+    public CategoryFragmentContract.View categoryFragmentView;
     private String id;
     private String page;
 
-    public CategoryFragmentPresenter(CategoryFragmentContract.View categoryFragmentView){
+    @Inject
+    public CategoryFragmentPresenter(CategoryFragmentContract.View categoryFragmentView, CategoryInteractor categoryInteractor){
         this.categoryFragmentView = categoryFragmentView;
-        this.categoryInteractor = new CategoryInteractorImpl();
+        this.categoryInteractor = categoryInteractor;
     }
 
     @Override

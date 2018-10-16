@@ -12,16 +12,21 @@ import android.view.ViewGroup;
 
 import java.util.List;
 
+import javax.inject.Inject;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import news.factory.com.App;
 import news.factory.com.base.BaseFragment;
 import news.factory.com.base.Constants;
 
 import news.factory.com.R;
 
 import news.factory.com.base.RecyclerItemsWrapper;
+import news.factory.com.single.activity.SingleActivityModule;
 import news.factory.com.single.adapter.RecyclerAdapter;
 import news.factory.com.single.fragment.SingleFragmentContract;
+import news.factory.com.single.fragment.SingleFragmentModule;
 import news.factory.com.single.fragment.presenter.SingleFragmentPresenter;
 
 public class SingleFragment extends BaseFragment implements SingleFragmentContract.View {
@@ -29,8 +34,10 @@ public class SingleFragment extends BaseFragment implements SingleFragmentContra
     @BindView(R.id.rvItems)
     RecyclerView rvItems;
 
-    private SingleFragmentContract.Presenter singleFragmentPresenter;
-    private RecyclerAdapter adapter;
+    @Inject
+    public SingleFragmentContract.Presenter singleFragmentPresenter;
+    @Inject
+    public RecyclerAdapter adapter;
 
 
     public static SingleFragment newInstance(String articleId, String page) {
@@ -47,6 +54,10 @@ public class SingleFragment extends BaseFragment implements SingleFragmentContra
         ViewGroup viewGroup = (ViewGroup) inflater.inflate(R.layout.fragment_single, container, false);
         unbinder = ButterKnife.bind(this,viewGroup);
 
+        App.getComponent()
+                .plus(new SingleFragmentModule(this, getContext()))
+                .inject(this);
+
         setupRecycler();
         setupMVP();
         getArticleItems();
@@ -55,14 +66,14 @@ public class SingleFragment extends BaseFragment implements SingleFragmentContra
     }
 
     private void setupRecycler() {
-        adapter  = new RecyclerAdapter(getContext());
+        //adapter  = new RecyclerAdapter(getContext());
         adapter.setChildFragmentManager(getChildFragmentManager());
         rvItems.setLayoutManager(new LinearLayoutManager(getContext()));
         rvItems.setAdapter(adapter);
     }
 
     private void setupMVP() {
-        singleFragmentPresenter = new SingleFragmentPresenter(this);
+        //singleFragmentPresenter = new SingleFragmentPresenter(this);
         singleFragmentPresenter.initialize(getArticleID(), getPage());
     }
 

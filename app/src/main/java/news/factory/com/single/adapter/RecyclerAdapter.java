@@ -11,6 +11,8 @@ import android.view.ViewGroup;
 
 import java.util.List;
 
+import javax.inject.Inject;
+
 import news.factory.com.R;
 import news.factory.com.base.BaseItemViewHolder;
 import news.factory.com.base.RecyclerItemsWrapper;
@@ -28,9 +30,11 @@ public class RecyclerAdapter extends RecyclerView.Adapter<BaseItemViewHolder> {
 
     private List<RecyclerItemsWrapper> items;
     private LayoutInflater mInflater;
-    private Context mContext;
+    @Inject
+    public Context mContext;
     private FragmentManager fragmentManager;
 
+    @Inject
     public RecyclerAdapter(Context context) {
         this.mInflater = LayoutInflater.from(context);
         this.mContext = context;

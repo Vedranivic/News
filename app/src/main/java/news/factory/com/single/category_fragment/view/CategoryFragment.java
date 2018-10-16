@@ -14,14 +14,18 @@ import android.view.ViewGroup;
 import java.util.List;
 import java.util.Objects;
 
+import javax.inject.Inject;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import news.factory.com.App;
 import news.factory.com.R;
 import news.factory.com.base.BaseFragment;
 import news.factory.com.base.Constants;
 import news.factory.com.base.RecyclerItemsWrapper;
 import news.factory.com.single.adapter.RecyclerAdapter;
 import news.factory.com.single.category_fragment.CategoryFragmentContract;
+import news.factory.com.single.category_fragment.CategoryFragmentModule;
 import news.factory.com.single.category_fragment.presenter.CategoryFragmentPresenter;
 
 
@@ -30,8 +34,10 @@ public class CategoryFragment extends BaseFragment implements CategoryFragmentCo
     @BindView(R.id.rvCategoryItems)
     RecyclerView rvCategoryItems;
 
-    private CategoryFragmentContract.Presenter categoryFragmentPresenter;
-    private RecyclerAdapter adapter;
+    @Inject
+    public CategoryFragmentContract.Presenter categoryFragmentPresenter;
+    @Inject
+    public RecyclerAdapter adapter;
 
 
     public static CategoryFragment newInstance(String category, String id, String page) {
@@ -49,6 +55,10 @@ public class CategoryFragment extends BaseFragment implements CategoryFragmentCo
         ViewGroup viewGroup = (ViewGroup) inflater.inflate(R.layout.fragment_category, container, false);
         unbinder = ButterKnife.bind(this,viewGroup);
 
+        App.getComponent()
+                .plus(new CategoryFragmentModule(this,getContext()))
+                .inject(this);
+
         setupRecycler();
         setupMVP();
         getItems();
@@ -57,7 +67,7 @@ public class CategoryFragment extends BaseFragment implements CategoryFragmentCo
     }
 
     private void setupRecycler() {
-        adapter  = new RecyclerAdapter(getContext());
+        //adapter  = new RecyclerAdapter(getContext());
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
         rvCategoryItems.setLayoutManager(linearLayoutManager);
         rvCategoryItems.setAdapter(adapter);
@@ -67,7 +77,7 @@ public class CategoryFragment extends BaseFragment implements CategoryFragmentCo
     }
 
     private void setupMVP() {
-        categoryFragmentPresenter = new CategoryFragmentPresenter(this);
+        //categoryFragmentPresenter = new CategoryFragmentPresenter(this);
         categoryFragmentPresenter.initialize(getID(), getPage());
     }
 

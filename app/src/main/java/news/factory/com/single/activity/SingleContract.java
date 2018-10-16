@@ -1,5 +1,8 @@
 package news.factory.com.single.activity;
 
+
+import android.support.v4.app.FragmentManager;
+
 public interface SingleContract {
 
     interface View{

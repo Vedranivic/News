@@ -1,5 +1,6 @@
 package news.factory.com.base.dependency_injection;
 
+import android.app.Application;
 import android.content.Context;
 
 import com.maradroid.dummyresponsegenerator.base.DRGInterceptor;
@@ -8,6 +9,7 @@ import com.maradroid.dummyresponsegenerator.utils.ConstKt;
 import java.io.IOException;
 
 import javax.inject.Named;
+import javax.inject.Singleton;
 
 import dagger.Module;
 import dagger.Provides;
@@ -26,13 +28,13 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class ServiceModule {
 
     @Provides
-    @ApplicationScope
+    @Singleton
     public NewsAPI provideNewsAPI(Retrofit retrofit){
         return retrofit.create(NewsAPI.class);
     }
 
     @Provides
-    @ApplicationScope
+    @Singleton
     public Retrofit provideRetrofit(OkHttpClient okHttpClient){
         return new Retrofit.Builder()
                 .baseUrl(Constants.BASE_URL)
@@ -42,7 +44,7 @@ public class ServiceModule {
                 .build();
     }
 
-    @ApplicationScope
+    @Singleton
     @Provides OkHttpClient provideOkHttpClient(Interceptor interceptor, DRGInterceptor drgInterceptor){
         return new OkHttpClient.Builder()
                 .addInterceptor(interceptor)
@@ -51,7 +53,7 @@ public class ServiceModule {
     }
 
     @Provides
-    @ApplicationScope
+    @Singleton
     public Interceptor provideInterceptor() {
         return new Interceptor() {
             @Override
@@ -65,8 +67,8 @@ public class ServiceModule {
     }
 
     @Provides
-    @ApplicationScope
-    public DRGInterceptor provideDRGInterceptor(@Named("ApplicationContext") Context context){
-        return new DRGInterceptor(context, ConstKt.MEDIATYPE_JSON);
+    @Singleton
+    public DRGInterceptor provideDRGInterceptor(@Named("ApplicationContext") Application applicationContext){
+        return new DRGInterceptor(applicationContext, ConstKt.MEDIATYPE_JSON);
     }
 }

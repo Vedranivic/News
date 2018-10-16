@@ -13,6 +13,7 @@ public class SinglePagerAdapter extends FragmentStatePagerAdapter {
     private int pages;
     private String articleId;
 
+
     @Inject
     public SinglePagerAdapter(FragmentManager fm){
         super(fm);

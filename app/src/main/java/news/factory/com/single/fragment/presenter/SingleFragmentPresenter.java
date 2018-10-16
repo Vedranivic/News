@@ -6,12 +6,13 @@ import android.util.Log;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.inject.Inject;
+
 import news.factory.com.R;
 import news.factory.com.base.Constants;
 import news.factory.com.base.RecyclerItemsWrapper;
 import news.factory.com.base.ResultWrapper;
 import news.factory.com.model.interactor.ArticleInteractor;
-import news.factory.com.model.interactor.ArticleInteractorImpl;
 import news.factory.com.model.interactor.InteractorListener;
 import news.factory.com.model.data_model.Content;
 import news.factory.com.model.data_model.News;
@@ -32,15 +33,16 @@ public class SingleFragmentPresenter implements SingleFragmentContract.Presenter
     private static final String imageType = "image";
     private static final String TAG = SingleFragmentPresenter.class.getSimpleName();
 
-    private ArticleInteractor articleInteractor;
-    private SingleFragmentContract.View singleFragmentView;
+    public ArticleInteractor articleInteractor;
+    public SingleFragmentContract.View singleFragmentView;
     private String articleID;
     private String page;
 
-
-    public SingleFragmentPresenter(SingleFragmentContract.View singleFragmentView) {
+    @Inject
+    public SingleFragmentPresenter(SingleFragmentContract.View singleFragmentView, ArticleInteractor articleInteractor) {
         this.singleFragmentView = singleFragmentView;
-        articleInteractor = new ArticleInteractorImpl();
+        this.articleInteractor = articleInteractor;
+        //articleInteractor = new ArticleInteractorImpl();
     }
 
     @Override

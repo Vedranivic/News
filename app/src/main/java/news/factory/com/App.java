@@ -12,7 +12,8 @@ import news.factory.com.base.networking.NewsAPI;
 
 public class App extends Application {
 
-    public NewsAPI api;
+    private static AppComponent component;
+
 
     @Override
     public void onCreate() {
@@ -20,14 +21,13 @@ public class App extends Application {
         new InteractorImpl(this).generateResponses(true);
         new SharedPerfRepo(this).setDummyResponse(true);
 
-        AppComponent component = DaggerAppComponent.builder()
+        component = DaggerAppComponent.builder()
                 .appModule(new AppModule(this))
                 .build();
 
-        api = component.getNewsAPI();
     }
 
-    public NewsAPI getNewsApi() {
-        return api;
+    public static AppComponent getComponent() {
+        return component;
     }
 }

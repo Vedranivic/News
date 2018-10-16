@@ -1,37 +1,22 @@
 package news.factory.com.base.dependency_injection;
 
-import android.app.Application;
-import android.content.Context;
 
-import javax.inject.Named;
 import javax.inject.Singleton;
-
 import dagger.Component;
+import dagger.android.AndroidInjectionModule;
+import news.factory.com.App;
 import news.factory.com.base.networking.NewsAPI;
-import news.factory.com.single.activity.SingleActivityComponent;
-import news.factory.com.single.activity.SingleActivityModule;
-import news.factory.com.single.category_fragment.CategoryFragmentComponent;
-import news.factory.com.single.category_fragment.CategoryFragmentModule;
-import news.factory.com.single.fragment.SingleFragmentComponent;
-import news.factory.com.single.fragment.SingleFragmentModule;
 import news.factory.com.single.view_holder.category.CategoryViewHolderComponent;
 import news.factory.com.single.view_holder.category.CategoryViewHolderModule;
 
 
 @Singleton
-@Component(modules = {AppModule.class, ServiceModule.class})
+@Component(modules = {AppModule.class, ServiceModule.class, ActivityBuilder.class, AndroidInjectionModule.class})
 public interface AppComponent {
-
-    @Named("ApplicationContext")
-    Application getAppContext();
 
     NewsAPI getNewsAPI();
 
-    SingleActivityComponent plus(SingleActivityModule module);
-
-    SingleFragmentComponent plus(SingleFragmentModule module);
-
-    CategoryFragmentComponent plus(CategoryFragmentModule module);
+    void inject(App app);
 
     CategoryViewHolderComponent plus(CategoryViewHolderModule module);
 

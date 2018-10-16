@@ -16,6 +16,7 @@ import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import dagger.android.support.AndroidSupportInjection;
 import news.factory.com.App;
 import news.factory.com.base.BaseFragment;
 import news.factory.com.base.Constants;
@@ -54,9 +55,7 @@ public class SingleFragment extends BaseFragment implements SingleFragmentContra
         ViewGroup viewGroup = (ViewGroup) inflater.inflate(R.layout.fragment_single, container, false);
         unbinder = ButterKnife.bind(this,viewGroup);
 
-        App.getComponent()
-                .plus(new SingleFragmentModule(this, getContext()))
-                .inject(this);
+        AndroidSupportInjection.inject(this);
 
         setupRecycler();
         setupMVP();

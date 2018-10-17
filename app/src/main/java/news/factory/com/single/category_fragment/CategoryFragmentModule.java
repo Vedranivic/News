@@ -2,9 +2,12 @@ package news.factory.com.single.category_fragment;
 
 import android.content.Context;
 
+import javax.inject.Named;
+
 import dagger.Module;
 import dagger.Provides;
 import news.factory.com.base.dependency_injection.PerFragmentScope;
+import news.factory.com.base.networking.NewsAPI;
 import news.factory.com.model.interactor.CategoryInteractor;
 import news.factory.com.model.interactor.CategoryInteractorImpl;
 import news.factory.com.single.adapter.RecyclerAdapter;
@@ -14,7 +17,6 @@ import news.factory.com.single.category_fragment.view.CategoryFragment;
 
 @Module
 public class CategoryFragmentModule {
-
 
     @Provides
     @PerFragmentScope
@@ -30,18 +32,19 @@ public class CategoryFragmentModule {
 
     @Provides
     @PerFragmentScope
-    public CategoryInteractor provideCategoryInteractor(){
-        return new CategoryInteractorImpl();
+    public CategoryInteractor provideCategoryInteractor(NewsAPI newsAPI){
+        return new CategoryInteractorImpl(newsAPI);
     }
 
     @Provides
     @PerFragmentScope
-    public RecyclerAdapter provideRecyclerAdapter(Context context){
+    public RecyclerAdapter provideRecyclerAdapter(@Named("CategoryFragmentContext")Context context){
         return new RecyclerAdapter(context);
     }
 
     @Provides
     @PerFragmentScope
+    @Named("CategoryFragmentContext")
     public Context provideContext(CategoryFragment categoryFragment){
         return categoryFragment.getContext();
     }

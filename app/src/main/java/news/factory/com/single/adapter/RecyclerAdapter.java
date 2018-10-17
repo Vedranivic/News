@@ -106,5 +106,4 @@ public class RecyclerAdapter extends RecyclerView.Adapter<BaseItemViewHolder> {
 
         }
     }
-
 }

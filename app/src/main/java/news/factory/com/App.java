@@ -11,14 +11,10 @@ import javax.inject.Inject;
 import dagger.android.AndroidInjector;
 import dagger.android.DispatchingAndroidInjector;
 import dagger.android.HasActivityInjector;
-import news.factory.com.base.dependency_injection.AppComponent;
 import news.factory.com.base.dependency_injection.AppModule;
 import news.factory.com.base.dependency_injection.DaggerAppComponent;
-import news.factory.com.base.networking.NewsAPI;
 
 public class App extends Application implements HasActivityInjector {
-
-    private static AppComponent component;
 
     @Inject
     public DispatchingAndroidInjector<Activity> activityDispatchingAndroidInjector;
@@ -29,16 +25,10 @@ public class App extends Application implements HasActivityInjector {
         new InteractorImpl(this).generateResponses(true);
         new SharedPerfRepo(this).setDummyResponse(true);
 
-        component = DaggerAppComponent.builder()
+        DaggerAppComponent.builder()
                 .appModule(new AppModule(this))
-                .build();
-
-        component.inject(this);
-
-    }
-
-    public static AppComponent getComponent() {
-        return component;
+                .build()
+                .inject(this);
     }
 
     @Override

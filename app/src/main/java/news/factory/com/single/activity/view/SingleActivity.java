@@ -32,7 +32,6 @@ public class SingleActivity extends AppCompatActivity implements SingleContract.
     public DispatchingAndroidInjector<Fragment> fragmentDispatchingAndroidInjector;
     @Inject
     public SingleContract.Presenter singlePresenter;
-
     @Inject
     public SinglePagerAdapter adapter;
 

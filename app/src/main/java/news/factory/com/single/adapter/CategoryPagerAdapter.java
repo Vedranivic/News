@@ -16,7 +16,7 @@ public class CategoryPagerAdapter extends FragmentStatePagerAdapter {
 
     private String id;
     private String page;
-    @Inject
+
     public Context mContext;
 
     @Inject

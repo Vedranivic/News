@@ -10,6 +10,7 @@ import news.factory.com.single.activity.view.SingleActivity;
 @Module
 public abstract class ActivityBuilder {
 
+    @PerActivityScope
     @ContributesAndroidInjector(modules = {SingleActivityModule.class, FragmentBuilder.class})
     abstract SingleActivity bindSingleActivity();
 }

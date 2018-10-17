@@ -5,6 +5,7 @@ import android.support.v4.app.FragmentManager;
 import dagger.Module;
 import dagger.Provides;
 import news.factory.com.base.dependency_injection.PerActivityScope;
+import news.factory.com.base.networking.NewsAPI;
 import news.factory.com.model.interactor.ArticleInteractor;
 import news.factory.com.model.interactor.ArticleInteractorImpl;
 import news.factory.com.single.activity.presenter.SinglePresenter;
@@ -40,7 +41,7 @@ public class SingleActivityModule {
 
     @Provides
     @PerActivityScope
-    public ArticleInteractor provideArticleInteractor(){
-        return new ArticleInteractorImpl();
+    public ArticleInteractor provideArticleInteractor(NewsAPI newsAPI){
+        return new ArticleInteractorImpl(newsAPI);
     }
 }

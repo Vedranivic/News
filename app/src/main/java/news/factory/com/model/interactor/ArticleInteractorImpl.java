@@ -11,14 +11,15 @@ import news.factory.com.base.BaseInteractorImpl;
 import news.factory.com.base.Constants;
 import news.factory.com.base.ResultWrapper;
 import news.factory.com.base.networking.APIServiceGenerator;
+import news.factory.com.base.networking.NewsAPI;
 
 
 public class ArticleInteractorImpl extends BaseInteractorImpl implements ArticleInteractor {
 
     private static final String TAG = ArticleInteractorImpl.class.getSimpleName();
 
-    @Inject
-    public ArticleInteractorImpl() {
+    public ArticleInteractorImpl(NewsAPI newsAPI) {
+        super(newsAPI);
     }
 
     @SuppressLint("CheckResult")
@@ -26,7 +27,7 @@ public class ArticleInteractorImpl extends BaseInteractorImpl implements Article
     @Override
     public void makeCall(String articleID, String page, final InteractorListener listener) {
 
-        getDisposable().add(App.getComponent().getNewsAPI().getNews(articleID,page)
+        getDisposable().add(newsAPI.getNews(articleID,page)
                 .map(news -> new ResultWrapper(news, Constants.NEWS_TYPE))
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())

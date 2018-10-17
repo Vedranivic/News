@@ -30,9 +30,12 @@ public class RecyclerAdapter extends RecyclerView.Adapter<BaseItemViewHolder> {
 
     private List<RecyclerItemsWrapper> items;
     private LayoutInflater mInflater;
+
     @Inject
     public Context mContext;
-    private FragmentManager fragmentManager;
+
+    //private FragmentManager fragmentManager;
+    private CategoryPagerAdapter categoryPagerAdapter;
 
     @Inject
     public RecyclerAdapter(Context context) {
@@ -65,7 +68,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<BaseItemViewHolder> {
             case R.layout.item_indicator:
                 return new IndicatorViewHolder(view,items);
             case R.layout.item_category:
-                return new CategoryViewHolder(view,items,mContext, fragmentManager);
+                return new CategoryViewHolder(view,items,categoryPagerAdapter);
             case R.layout.item_news:
                 return new CategoryItemViewHolder(view,items);
         }
@@ -93,7 +96,11 @@ public class RecyclerAdapter extends RecyclerView.Adapter<BaseItemViewHolder> {
     }
 
     public void setChildFragmentManager(FragmentManager childFragmentManager) {
-        fragmentManager = childFragmentManager;
+        //fragmentManager = childFragmentManager;
+    }
+
+    public void setCategoryPagerAdaper(CategoryPagerAdapter categoryPagerAdapter) {
+        this.categoryPagerAdapter = categoryPagerAdapter;
     }
 
     private class DummyViewHolder extends BaseItemViewHolder{

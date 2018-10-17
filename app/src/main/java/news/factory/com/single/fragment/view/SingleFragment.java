@@ -25,6 +25,7 @@ import news.factory.com.R;
 
 import news.factory.com.base.RecyclerItemsWrapper;
 import news.factory.com.single.activity.SingleActivityModule;
+import news.factory.com.single.adapter.CategoryPagerAdapter;
 import news.factory.com.single.adapter.RecyclerAdapter;
 import news.factory.com.single.fragment.SingleFragmentContract;
 import news.factory.com.single.fragment.SingleFragmentModule;
@@ -39,6 +40,8 @@ public class SingleFragment extends BaseFragment implements SingleFragmentContra
     public SingleFragmentContract.Presenter singleFragmentPresenter;
     @Inject
     public RecyclerAdapter adapter;
+    @Inject
+    public CategoryPagerAdapter categoryPagerAdapter;
 
 
     public static SingleFragment newInstance(String articleId, String page) {
@@ -67,6 +70,7 @@ public class SingleFragment extends BaseFragment implements SingleFragmentContra
     private void setupRecycler() {
         //adapter  = new RecyclerAdapter(getContext());
         adapter.setChildFragmentManager(getChildFragmentManager());
+        adapter.setCategoryPagerAdaper(categoryPagerAdapter);
         rvItems.setLayoutManager(new LinearLayoutManager(getContext()));
         rvItems.setAdapter(adapter);
     }

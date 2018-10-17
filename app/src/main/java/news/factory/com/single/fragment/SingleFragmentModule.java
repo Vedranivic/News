@@ -44,12 +44,13 @@ public class SingleFragmentModule {
 
     @Provides
     @PerFragmentScope
-    public CategoryPagerAdapter provideCategoryPagerAdapter(FragmentManager fragmentManager, @Named("SingleFragmentContext")Context context){
+    public CategoryPagerAdapter provideCategoryPagerAdapter(@Named("SingleFragmentFragmentManager")FragmentManager fragmentManager, @Named("SingleFragmentContext")Context context){
         return new CategoryPagerAdapter(fragmentManager, context);
     }
 
     @Provides
     @PerFragmentScope
+    @Named("SingleFragmentFragmentManager")
     public FragmentManager provideFragmentManager(SingleFragment singleFragment){
         return singleFragment.getChildFragmentManager();
     }

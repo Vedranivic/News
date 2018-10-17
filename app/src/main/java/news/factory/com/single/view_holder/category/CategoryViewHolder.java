@@ -11,6 +11,8 @@ import android.view.View;
 import java.util.List;
 
 
+import javax.inject.Inject;
+
 import butterknife.BindView;
 import news.factory.com.R;
 import news.factory.com.base.BaseItemViewHolder;
@@ -28,15 +30,15 @@ public class CategoryViewHolder extends BaseItemViewHolder {
     public CategoryPagerAdapter adapter;
 
 
-    public CategoryViewHolder(View itemView, List<RecyclerItemsWrapper> items, Context context, FragmentManager fragmentManager) {
+    public CategoryViewHolder(View itemView, List<RecyclerItemsWrapper> items, CategoryPagerAdapter categoryPagerAdapter) {
         super(itemView, items);
 
-        //this.adapter = categoryPagerAdapter;
+        this.adapter = categoryPagerAdapter;
         //this.mContext = context; // itemView.getContext();
         //this.fragmentManager = fragmentManager; //((AppCompatActivity)mContext).getSupportFragmentManager();
-        adapter = new CategoryPagerAdapter(fragmentManager, context);
-
+        //adapter = new CategoryPagerAdapter(fragmentManager, context);
         setupAdapter();
+
     }
 
     private void setupAdapter() {

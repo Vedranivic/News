@@ -2,6 +2,8 @@ package news.factory.com.single.activity;
 
 import android.support.v4.app.FragmentManager;
 
+import javax.inject.Named;
+
 import dagger.Module;
 import dagger.Provides;
 import news.factory.com.base.dependency_injection.PerActivityScope;
@@ -17,7 +19,7 @@ public class SingleActivityModule {
 
     @Provides
     @PerActivityScope
-    public SinglePagerAdapter provideSinglePagerAdapter(FragmentManager fragmentManager){
+    public SinglePagerAdapter provideSinglePagerAdapter(@Named("SingleActivityFragmentManager")FragmentManager fragmentManager){
         return new SinglePagerAdapter(fragmentManager);
     }
 
@@ -35,6 +37,7 @@ public class SingleActivityModule {
 
     @Provides
     @PerActivityScope
+    @Named("SingleActivityFragmentManager")
     public FragmentManager provideFragmentManager(SingleActivity singleActivity){
         return singleActivity.getSupportFragmentManager();
     }

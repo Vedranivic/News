@@ -2,8 +2,8 @@ package news.factory.com.base.dependency_injection;
 
 import dagger.Module;
 import dagger.android.ContributesAndroidInjector;
-import news.factory.com.single.activity.FragmentBuilder;
-import news.factory.com.single.activity.SingleActivityModule;
+import news.factory.com.single.activity.di.FragmentBuilder;
+import news.factory.com.single.activity.di.SingleActivityModule;
 import news.factory.com.single.activity.view.SingleActivity;
 
 //Mapping of activities

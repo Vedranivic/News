@@ -1,4 +1,4 @@
-package news.factory.com.single.fragment;
+package news.factory.com.single.fragment.di;
 
 import android.content.Context;
 import android.support.v4.app.FragmentManager;
@@ -11,6 +11,7 @@ import news.factory.com.base.dependency_injection.PerFragmentScope;
 import news.factory.com.model.interactor.ArticleInteractor;
 import news.factory.com.single.adapter.CategoryPagerAdapter;
 import news.factory.com.single.adapter.RecyclerAdapter;
+import news.factory.com.single.fragment.SingleFragmentContract;
 import news.factory.com.single.fragment.presenter.SingleFragmentPresenter;
 import news.factory.com.single.fragment.view.SingleFragment;
 

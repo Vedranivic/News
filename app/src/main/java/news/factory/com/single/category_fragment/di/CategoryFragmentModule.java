@@ -1,4 +1,4 @@
-package news.factory.com.single.category_fragment;
+package news.factory.com.single.category_fragment.di;
 
 import android.content.Context;
 
@@ -11,6 +11,7 @@ import news.factory.com.base.networking.NewsAPI;
 import news.factory.com.model.interactor.CategoryInteractor;
 import news.factory.com.model.interactor.CategoryInteractorImpl;
 import news.factory.com.single.adapter.RecyclerAdapter;
+import news.factory.com.single.category_fragment.CategoryFragmentContract;
 import news.factory.com.single.category_fragment.presenter.CategoryFragmentPresenter;
 import news.factory.com.single.category_fragment.view.CategoryFragment;
 

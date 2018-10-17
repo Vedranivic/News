@@ -17,19 +17,15 @@ import javax.inject.Inject;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import dagger.android.support.AndroidSupportInjection;
-import news.factory.com.App;
 import news.factory.com.base.BaseFragment;
 import news.factory.com.base.Constants;
 
 import news.factory.com.R;
 
 import news.factory.com.base.RecyclerItemsWrapper;
-import news.factory.com.single.activity.SingleActivityModule;
 import news.factory.com.single.adapter.CategoryPagerAdapter;
 import news.factory.com.single.adapter.RecyclerAdapter;
 import news.factory.com.single.fragment.SingleFragmentContract;
-import news.factory.com.single.fragment.SingleFragmentModule;
-import news.factory.com.single.fragment.presenter.SingleFragmentPresenter;
 
 public class SingleFragment extends BaseFragment implements SingleFragmentContract.View {
 

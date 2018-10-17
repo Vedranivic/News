@@ -1,4 +1,4 @@
-package news.factory.com.single.activity;
+package news.factory.com.single.activity.di;
 
 import android.support.v4.app.FragmentManager;
 
@@ -10,6 +10,7 @@ import news.factory.com.base.dependency_injection.PerActivityScope;
 import news.factory.com.base.networking.NewsAPI;
 import news.factory.com.model.interactor.ArticleInteractor;
 import news.factory.com.model.interactor.ArticleInteractorImpl;
+import news.factory.com.single.activity.SingleContract;
 import news.factory.com.single.activity.presenter.SinglePresenter;
 import news.factory.com.single.activity.view.SingleActivity;
 import news.factory.com.single.adapter.SinglePagerAdapter;

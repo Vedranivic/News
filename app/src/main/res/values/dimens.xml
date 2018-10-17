@@ -44,4 +44,5 @@
     <dimen name="rvCategoryMarginTop">8dp</dimen>
     <dimen name="bookmarkMarginStart">23dp</dimen>
     <dimen name="categoryIndicatorHeight">3dp</dimen>
+    <dimen name="TabLayoutMaxWidth">0dp</dimen>
 </resources>

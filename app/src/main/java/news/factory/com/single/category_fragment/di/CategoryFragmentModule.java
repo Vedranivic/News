@@ -21,33 +21,26 @@ public class CategoryFragmentModule {
 
     @Provides
     @PerFragmentScope
-    public CategoryFragmentContract.Presenter provideCategoryFragmentPresenter(CategoryFragmentPresenter categoryFragmentPresenter){
-        return categoryFragmentPresenter;
-    }
-
-    @Provides
-    @PerFragmentScope
     public CategoryFragmentContract.View provideCategoryFragmentView(CategoryFragment categoryFragment){
         return categoryFragment;
     }
 
     @Provides
     @PerFragmentScope
-    public CategoryInteractor provideCategoryInteractor(NewsAPI newsAPI){
-        return new CategoryInteractorImpl(newsAPI);
+    public CategoryFragmentContract.Presenter provideCategoryFragmentPresenter(CategoryFragmentPresenter categoryFragmentPresenter){
+        return categoryFragmentPresenter;
     }
 
     @Provides
     @PerFragmentScope
-    public RecyclerAdapter provideRecyclerAdapter(@Named("CategoryFragmentContext")Context context){
-        return new RecyclerAdapter(context);
+    public CategoryInteractor provideCategoryInteractor(CategoryInteractorImpl categoryInteractor){
+        return categoryInteractor;
     }
 
     @Provides
     @PerFragmentScope
-    @Named("CategoryFragmentContext")
-    public Context provideContext(CategoryFragment categoryFragment){
-        return categoryFragment.getContext();
+    public RecyclerAdapter provideRecyclerAdapter(CategoryFragment categoryFragment){
+        return new RecyclerAdapter(categoryFragment.getContext());
     }
 
 }

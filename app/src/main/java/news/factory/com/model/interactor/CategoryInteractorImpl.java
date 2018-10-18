@@ -1,6 +1,8 @@
 package news.factory.com.model.interactor;
 
 
+import javax.inject.Inject;
+
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.functions.Function;
 import io.reactivex.schedulers.Schedulers;
@@ -13,6 +15,7 @@ import news.factory.com.model.data_model.Category;
 
 public class CategoryInteractorImpl extends BaseInteractorImpl implements CategoryInteractor {
 
+    @Inject
     public CategoryInteractorImpl(NewsAPI newsAPI) {
         super(newsAPI);
     }

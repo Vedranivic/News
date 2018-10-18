@@ -20,8 +20,8 @@ public class SingleActivityModule {
 
     @Provides
     @PerActivityScope
-    public SinglePagerAdapter provideSinglePagerAdapter(@Named("SingleActivityFragmentManager")FragmentManager fragmentManager){
-        return new SinglePagerAdapter(fragmentManager);
+    public SingleContract.View provideSingleView(SingleActivity singleActivity){
+        return singleActivity;
     }
 
     @Provides
@@ -32,20 +32,13 @@ public class SingleActivityModule {
 
     @Provides
     @PerActivityScope
-    public SingleContract.View provideSingleView(SingleActivity singleActivity){
-        return singleActivity;
+    public ArticleInteractor provideArticleInteractor(ArticleInteractorImpl articleInteractor){
+        return articleInteractor;
     }
 
     @Provides
     @PerActivityScope
-    @Named("SingleActivityFragmentManager")
-    public FragmentManager provideFragmentManager(SingleActivity singleActivity){
-        return singleActivity.getSupportFragmentManager();
-    }
-
-    @Provides
-    @PerActivityScope
-    public ArticleInteractor provideArticleInteractor(NewsAPI newsAPI){
-        return new ArticleInteractorImpl(newsAPI);
+    public SinglePagerAdapter provideSinglePagerAdapter(SingleActivity singleActivity){
+        return new SinglePagerAdapter(singleActivity.getSupportFragmentManager());
     }
 }

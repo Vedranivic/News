@@ -1,14 +1,10 @@
 package news.factory.com.single.fragment.di;
 
-import android.content.Context;
-import android.support.v4.app.FragmentManager;
-
-import javax.inject.Named;
-
 import dagger.Module;
 import dagger.Provides;
 import news.factory.com.base.dependency_injection.PerFragmentScope;
 import news.factory.com.model.interactor.ArticleInteractor;
+import news.factory.com.model.interactor.ArticleInteractorImpl;
 import news.factory.com.single.adapter.CategoryPagerAdapter;
 import news.factory.com.single.adapter.RecyclerAdapter;
 import news.factory.com.single.fragment.SingleFragmentContract;
@@ -20,40 +16,32 @@ public class SingleFragmentModule {
 
     @Provides
     @PerFragmentScope
-    public SingleFragmentContract.Presenter provideSingleFragmentPresenter(SingleFragmentContract.View singleFragmentView, ArticleInteractor articleInteractor){
-        return new SingleFragmentPresenter(singleFragmentView, articleInteractor);
-    }
-
-    @Provides
-    @PerFragmentScope
     public SingleFragmentContract.View provideSingleFragmentView(SingleFragment singleFragment){
         return singleFragment;
     }
 
     @Provides
     @PerFragmentScope
-    public RecyclerAdapter provideRecyclerAdapter(@Named("SingleFragmentContext")Context context ){
-        return new RecyclerAdapter(context);
+    public SingleFragmentContract.Presenter provideSingleFragmentPresenter(SingleFragmentPresenter singleFragmentPresenter){
+        return singleFragmentPresenter;
     }
 
     @Provides
     @PerFragmentScope
-    @Named("SingleFragmentContext")
-    public Context provideContext(SingleFragment singleFragment){
-        return singleFragment.getContext();
+    public ArticleInteractor provideArticleInteractor(ArticleInteractorImpl articleInteractor){
+        return articleInteractor;
     }
 
     @Provides
     @PerFragmentScope
-    public CategoryPagerAdapter provideCategoryPagerAdapter(@Named("SingleFragmentFragmentManager")FragmentManager fragmentManager, @Named("SingleFragmentContext")Context context){
-        return new CategoryPagerAdapter(fragmentManager, context);
+    public RecyclerAdapter provideRecyclerAdapter(SingleFragment singleFragment){
+        return new RecyclerAdapter(singleFragment.getContext());
     }
 
     @Provides
     @PerFragmentScope
-    @Named("SingleFragmentFragmentManager")
-    public FragmentManager provideFragmentManager(SingleFragment singleFragment){
-        return singleFragment.getChildFragmentManager();
+    public CategoryPagerAdapter provideCategoryPagerAdapter(SingleFragment singleFragment){
+        return new CategoryPagerAdapter(singleFragment.getChildFragmentManager(), singleFragment.getContext());
     }
 
 }

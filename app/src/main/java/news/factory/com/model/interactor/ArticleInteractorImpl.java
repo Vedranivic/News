@@ -18,6 +18,7 @@ public class ArticleInteractorImpl extends BaseInteractorImpl implements Article
 
     private static final String TAG = ArticleInteractorImpl.class.getSimpleName();
 
+    @Inject
     public ArticleInteractorImpl(NewsAPI newsAPI) {
         super(newsAPI);
     }

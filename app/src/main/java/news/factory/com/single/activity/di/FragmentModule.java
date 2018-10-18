@@ -9,7 +9,7 @@ import news.factory.com.single.fragment.di.SingleFragmentModule;
 import news.factory.com.single.fragment.view.SingleFragment;
 
 @Module
-public abstract class FragmentBuilder {
+public abstract class FragmentModule {
 
     @PerFragmentScope
     @ContributesAndroidInjector(modules = {SingleFragmentModule.class})

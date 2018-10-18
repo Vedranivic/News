@@ -64,7 +64,6 @@ public class SingleFragment extends BaseFragment implements SingleFragmentContra
     }
 
     private void setupRecycler() {
-        //adapter  = new RecyclerAdapter(getContext());
         adapter.setChildFragmentManager(getChildFragmentManager());
         adapter.setCategoryPagerAdaper(categoryPagerAdapter);
         rvItems.setLayoutManager(new LinearLayoutManager(getContext()));
@@ -72,7 +71,6 @@ public class SingleFragment extends BaseFragment implements SingleFragmentContra
     }
 
     private void setupMVP() {
-        //singleFragmentPresenter = new SingleFragmentPresenter(this);
         singleFragmentPresenter.initialize(getArticleID(), getPage());
     }
 

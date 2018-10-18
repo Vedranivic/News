@@ -16,14 +16,12 @@ public class CategoryPagerAdapter extends FragmentStatePagerAdapter {
 
     private String id;
     private String page;
-    private FragmentManager fragmentManager;
     private Context mContext;
 
     @Inject
     public CategoryPagerAdapter(FragmentManager fm, Context context) {
         super(fm);
         this.mContext = context;
-        this.fragmentManager = fm;
     }
 
     @Override

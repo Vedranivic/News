@@ -24,7 +24,7 @@ import news.factory.com.R;
 
 import news.factory.com.base.RecyclerItemsWrapper;
 import news.factory.com.single.adapter.CategoryPagerAdapter;
-import news.factory.com.single.adapter.RecyclerAdapter;
+import news.factory.com.single.adapter.RecyclerAdapterImpl;
 import news.factory.com.single.fragment.SingleFragmentContract;
 
 public class SingleFragment extends BaseFragment implements SingleFragmentContract.View {
@@ -35,7 +35,7 @@ public class SingleFragment extends BaseFragment implements SingleFragmentContra
     @Inject
     public SingleFragmentContract.Presenter singleFragmentPresenter;
     @Inject
-    public RecyclerAdapter adapter;
+    public RecyclerAdapterImpl adapter;
     @Inject
     public CategoryPagerAdapter categoryPagerAdapter;
 

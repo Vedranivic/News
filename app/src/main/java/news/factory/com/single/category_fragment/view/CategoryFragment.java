@@ -7,9 +7,11 @@ import android.support.annotation.Nullable;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import java.util.List;
 import java.util.Objects;
@@ -24,6 +26,7 @@ import news.factory.com.base.BaseFragment;
 import news.factory.com.base.Constants;
 import news.factory.com.base.RecyclerItemsWrapper;
 import news.factory.com.single.adapter.RecyclerAdapter;
+import news.factory.com.single.adapter.RecyclerAdapterImpl;
 import news.factory.com.single.category_fragment.CategoryFragmentContract;
 
 
@@ -65,7 +68,7 @@ public class CategoryFragment extends BaseFragment implements CategoryFragmentCo
     private void setupRecycler() {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
         rvCategoryItems.setLayoutManager(linearLayoutManager);
-        rvCategoryItems.setAdapter(adapter);
+        rvCategoryItems.setAdapter((RecyclerAdapterImpl)adapter);
         rvCategoryItems.addItemDecoration(new DividerItemDecoration(
                 Objects.requireNonNull(getContext()),linearLayoutManager.getOrientation()
         ));
@@ -82,6 +85,11 @@ public class CategoryFragment extends BaseFragment implements CategoryFragmentCo
     @Override
     public void displayItemsByCategory(List<RecyclerItemsWrapper> items) {
         adapter.setItems(items);
+    }
+
+    @Override
+    public void showToast(String message) {
+        Toast.makeText(this.getContext(),message,Toast.LENGTH_LONG).show();
     }
 
     public String getCategory() {

@@ -31,8 +31,8 @@ public class SingleFragmentPresenter implements SingleFragmentContract.Presenter
     private static final String imageType = "image";
     private static final String TAG = SingleFragmentPresenter.class.getSimpleName();
 
-    public ArticleInteractor articleInteractor;
-    public SingleFragmentContract.View singleFragmentView;
+    private ArticleInteractor articleInteractor;
+    private SingleFragmentContract.View singleFragmentView;
     private String articleID;
     private String page;
 

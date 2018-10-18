@@ -1,6 +1,5 @@
 package news.factory.com.single.view_holder.category_item;
 
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -9,11 +8,17 @@ import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
+
 import butterknife.BindView;
+import butterknife.OnClick;
 import news.factory.com.R;
 import news.factory.com.base.BaseItemViewHolder;
 import news.factory.com.base.Constants;
+import news.factory.com.base.ObjectWrapper;
 import news.factory.com.base.RecyclerItemsWrapper;
+import news.factory.com.single.category_fragment.CategoryFragmentContract;
+import news.factory.com.single.category_fragment.presenter.CategoryFragmentPresenter;
+import news.factory.com.single.category_fragment.view.CategoryFragment;
 
 public class CategoryItemViewHolder extends BaseItemViewHolder {
 
@@ -26,8 +31,11 @@ public class CategoryItemViewHolder extends BaseItemViewHolder {
     @BindView(R.id.tvShares)
     TextView tvShares;
 
-    public CategoryItemViewHolder(View itemView, List<RecyclerItemsWrapper> items) {
+    private ObjectWrapper objectWrapper;
+
+    public CategoryItemViewHolder(View itemView, List<RecyclerItemsWrapper> items, ObjectWrapper objectWrapper) {
         super(itemView, items);
+        this.objectWrapper = objectWrapper;
     }
 
     @Override
@@ -41,5 +49,13 @@ public class CategoryItemViewHolder extends BaseItemViewHolder {
                 .fit()
                 .centerCrop()
                 .into(this.ivThumbnail);
+    }
+
+    @OnClick(R.id.tvTitle)
+    public void onClick(TextView textView){
+        if(objectWrapper.getView() instanceof CategoryFragment){
+            ((CategoryFragmentContract.View) objectWrapper.getView()).showToast(tvTitle.getText().toString());
+        }
+
     }
 }

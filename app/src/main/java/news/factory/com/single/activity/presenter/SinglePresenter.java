@@ -15,8 +15,8 @@ public class SinglePresenter implements SingleContract.Presenter, InteractorList
 
     private static final String TAG = SinglePresenter.class.getSimpleName();
 
-    public ArticleInteractor articleInteractor;
-    public SingleContract.View singleView;
+    private ArticleInteractor articleInteractor;
+    private SingleContract.View singleView;
     private String articleID;
 
     @Inject

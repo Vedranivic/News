@@ -5,7 +5,6 @@ import javax.inject.Singleton;
 import dagger.Component;
 import dagger.android.AndroidInjectionModule;
 import news.factory.com.App;
-import news.factory.com.single.activity.di.FragmentModule;
 
 
 @Singleton

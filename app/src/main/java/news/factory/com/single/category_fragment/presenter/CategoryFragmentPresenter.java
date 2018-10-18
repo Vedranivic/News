@@ -7,6 +7,7 @@ import java.util.List;
 
 import javax.inject.Inject;
 
+import dagger.Lazy;
 import news.factory.com.R;
 import news.factory.com.base.RecyclerItemsWrapper;
 import news.factory.com.base.ResultWrapper;
@@ -14,6 +15,7 @@ import news.factory.com.model.data_model.Category;
 import news.factory.com.model.data_model.News;
 import news.factory.com.model.interactor.CategoryInteractor;
 import news.factory.com.model.interactor.InteractorListener;
+import news.factory.com.single.adapter.RecyclerAdapter;
 import news.factory.com.single.category_fragment.CategoryFragmentContract;
 import news.factory.com.single.view_holder.category_item.CategoryItemDataClass;
 
@@ -21,10 +23,13 @@ public class CategoryFragmentPresenter implements CategoryFragmentContract.Prese
 
     private static final String TAG = CategoryFragmentPresenter.class.getSimpleName();
 
-    public CategoryInteractor categoryInteractor;
-    public CategoryFragmentContract.View categoryFragmentView;
+    private CategoryInteractor categoryInteractor;
+    private CategoryFragmentContract.View categoryFragmentView;
     private String id;
     private String page;
+
+    @Inject
+    public Lazy<RecyclerAdapter> adapter;
 
     @Inject
     public CategoryFragmentPresenter(CategoryFragmentContract.View categoryFragmentView, CategoryInteractor categoryInteractor){
@@ -45,9 +50,12 @@ public class CategoryFragmentPresenter implements CategoryFragmentContract.Prese
 
     @Override
     public void onSuccess(ResultWrapper result) {
-        Category category = (Category) result.getResult();
+        getItemsList((Category) result.getResult());
+    }
+
+    private void getItemsList(Category result) {
         List<RecyclerItemsWrapper> items = new ArrayList<>();
-        for(News n : category.getArticles()){
+        for(News n : result.getArticles()){
             items.add(new RecyclerItemsWrapper(new CategoryItemDataClass(
                     n.getFeatured_image().getOriginal(),
                     n.getCategory(),
@@ -55,7 +63,8 @@ public class CategoryFragmentPresenter implements CategoryFragmentContract.Prese
                     n.getShares()
             ), R.layout.item_news));
         }
-        categoryFragmentView.displayItemsByCategory(items);
+        //categoryFragmentView.displayItemsByCategory(items);
+        adapter.get().setItems(items);
     }
 
     @Override
@@ -67,4 +76,5 @@ public class CategoryFragmentPresenter implements CategoryFragmentContract.Prese
     public void dispose() {
         categoryInteractor.dispose();
     }
+
 }

@@ -1,4 +1,4 @@
-package news.factory.com.single.activity.di;
+package news.factory.com.base.dependency_injection;
 
 import dagger.Module;
 import dagger.android.ContributesAndroidInjector;

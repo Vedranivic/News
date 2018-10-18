@@ -1,13 +1,8 @@
 package news.factory.com.single.category_fragment.di;
 
-import android.content.Context;
-
-import javax.inject.Named;
-
 import dagger.Module;
 import dagger.Provides;
 import news.factory.com.base.dependency_injection.PerFragmentScope;
-import news.factory.com.base.networking.NewsAPI;
 import news.factory.com.model.interactor.CategoryInteractor;
 import news.factory.com.model.interactor.CategoryInteractorImpl;
 import news.factory.com.single.adapter.RecyclerAdapter;

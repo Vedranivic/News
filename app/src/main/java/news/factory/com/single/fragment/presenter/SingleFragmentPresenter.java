@@ -1,6 +1,5 @@
 package news.factory.com.single.fragment.presenter;
 
-
 import android.util.Log;
 
 import java.util.ArrayList;
@@ -26,7 +25,6 @@ import news.factory.com.single.view_holder.text.TextDataClass;
 import news.factory.com.single.view_holder.title.TitleDataClass;
 import news.factory.com.single.view_holder.uppertitle.UppertitleDataClass;
 
-
 public class SingleFragmentPresenter implements SingleFragmentContract.Presenter, InteractorListener {
 
     private static final String textType = "text";
@@ -42,7 +40,6 @@ public class SingleFragmentPresenter implements SingleFragmentContract.Presenter
     public SingleFragmentPresenter(SingleFragmentContract.View singleFragmentView, ArticleInteractor articleInteractor) {
         this.singleFragmentView = singleFragmentView;
         this.articleInteractor = articleInteractor;
-        //articleInteractor = new ArticleInteractorImpl();
     }
 
     @Override

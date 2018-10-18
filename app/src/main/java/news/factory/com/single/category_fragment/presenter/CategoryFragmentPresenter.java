@@ -13,7 +13,6 @@ import news.factory.com.base.ResultWrapper;
 import news.factory.com.model.data_model.Category;
 import news.factory.com.model.data_model.News;
 import news.factory.com.model.interactor.CategoryInteractor;
-import news.factory.com.model.interactor.CategoryInteractorImpl;
 import news.factory.com.model.interactor.InteractorListener;
 import news.factory.com.single.category_fragment.CategoryFragmentContract;
 import news.factory.com.single.view_holder.category_item.CategoryItemDataClass;
@@ -22,9 +21,7 @@ public class CategoryFragmentPresenter implements CategoryFragmentContract.Prese
 
     private static final String TAG = CategoryFragmentPresenter.class.getSimpleName();
 
-    @Inject
     public CategoryInteractor categoryInteractor;
-    @Inject
     public CategoryFragmentContract.View categoryFragmentView;
     private String id;
     private String page;

@@ -1,13 +1,9 @@
 package news.factory.com.single.activity.di;
 
-import android.support.v4.app.FragmentManager;
-
-import javax.inject.Named;
 
 import dagger.Module;
 import dagger.Provides;
 import news.factory.com.base.dependency_injection.PerActivityScope;
-import news.factory.com.base.networking.NewsAPI;
 import news.factory.com.model.interactor.ArticleInteractor;
 import news.factory.com.model.interactor.ArticleInteractorImpl;
 import news.factory.com.single.activity.SingleContract;

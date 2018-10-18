@@ -6,7 +6,6 @@ import javax.inject.Inject;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.functions.Function;
 import io.reactivex.schedulers.Schedulers;
-import news.factory.com.App;
 import news.factory.com.base.BaseInteractorImpl;
 import news.factory.com.base.Constants;
 import news.factory.com.base.ResultWrapper;

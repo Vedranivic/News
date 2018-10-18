@@ -63,7 +63,6 @@ public class CategoryFragment extends BaseFragment implements CategoryFragmentCo
     }
 
     private void setupRecycler() {
-        //adapter  = new RecyclerAdapter(getContext());
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
         rvCategoryItems.setLayoutManager(linearLayoutManager);
         rvCategoryItems.setAdapter(adapter);
@@ -73,7 +72,6 @@ public class CategoryFragment extends BaseFragment implements CategoryFragmentCo
     }
 
     private void setupMVP() {
-        //categoryFragmentPresenter = new CategoryFragmentPresenter(this);
         categoryFragmentPresenter.initialize(getID(), getPage());
     }
 

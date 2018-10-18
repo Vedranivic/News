@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 
@@ -15,9 +14,7 @@ import butterknife.ButterKnife;
 import dagger.android.AndroidInjection;
 import dagger.android.AndroidInjector;
 import dagger.android.DispatchingAndroidInjector;
-import dagger.android.HasFragmentInjector;
 import dagger.android.support.HasSupportFragmentInjector;
-import news.factory.com.App;
 import news.factory.com.base.Constants;
 import news.factory.com.R;
 import news.factory.com.single.activity.SingleContract;
@@ -56,12 +53,10 @@ public class SingleActivity extends AppCompatActivity implements SingleContract.
     }
 
     private void setupAdapter() {
-        //adapter = new SinglePagerAdapter(getSupportFragmentManager());
         vpSingles.setAdapter(adapter);
     }
 
     private void setupMVP() {
-        //singlePresenter = new SinglePresenter(this);
         singlePresenter.initialize(getArticleID());
     }
 

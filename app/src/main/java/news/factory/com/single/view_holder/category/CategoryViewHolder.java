@@ -1,17 +1,10 @@
 package news.factory.com.single.view_holder.category;
 
-import android.app.Activity;
-import android.content.Context;
 import android.support.design.widget.TabLayout;
-import android.support.v4.app.FragmentManager;
 import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 import java.util.List;
-
-
-import javax.inject.Inject;
 
 import butterknife.BindView;
 import news.factory.com.R;
@@ -32,13 +25,8 @@ public class CategoryViewHolder extends BaseItemViewHolder {
 
     public CategoryViewHolder(View itemView, List<RecyclerItemsWrapper> items, CategoryPagerAdapter categoryPagerAdapter) {
         super(itemView, items);
-
         this.adapter = categoryPagerAdapter;
-        //this.mContext = context; // itemView.getContext();
-        //this.fragmentManager = fragmentManager; //((AppCompatActivity)mContext).getSupportFragmentManager();
-        //adapter = new CategoryPagerAdapter(fragmentManager, context);
         setupAdapter();
-
     }
 
     private void setupAdapter() {

@@ -34,7 +34,6 @@ public class RecyclerAdapter extends RecyclerView.Adapter<BaseItemViewHolder> {
     @Inject
     public Context mContext;
 
-    //private FragmentManager fragmentManager;
     private CategoryPagerAdapter categoryPagerAdapter;
 
     @Inject
@@ -93,10 +92,6 @@ public class RecyclerAdapter extends RecyclerView.Adapter<BaseItemViewHolder> {
     public void setItems(List<RecyclerItemsWrapper> items) {
         this.items = items;
         notifyDataSetChanged();
-    }
-
-    public void setChildFragmentManager(FragmentManager childFragmentManager) {
-        //fragmentManager = childFragmentManager;
     }
 
     public void setCategoryPagerAdaper(CategoryPagerAdapter categoryPagerAdapter) {

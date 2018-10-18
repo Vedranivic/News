@@ -15,19 +15,14 @@ public class SinglePresenter implements SingleContract.Presenter, InteractorList
 
     private static final String TAG = SinglePresenter.class.getSimpleName();
 
-    @Inject
     public ArticleInteractor articleInteractor;
-
-    @Inject
     public SingleContract.View singleView;
-
     private String articleID;
 
     @Inject
     public SinglePresenter(SingleContract.View view, ArticleInteractor articleInteractor) {
         this.singleView = view;
         this.articleInteractor = articleInteractor;
-        //articleInteractor = new ArticleInteractorImpl();
     }
 
     @Override

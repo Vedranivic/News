@@ -21,7 +21,6 @@ public class BaseInteractorImpl implements BaseInteractor /*, LifecycleObserver*
 
     private CompositeDisposable disposable;
 
-    @Inject
     public NewsAPI newsAPI;
 
     public BaseInteractorImpl(NewsAPI newsAPI) {

@@ -2,7 +2,6 @@ package news.factory.com.base.dependency_injection;
 
 import dagger.Module;
 import dagger.android.ContributesAndroidInjector;
-import news.factory.com.single.activity.di.FragmentModule;
 import news.factory.com.single.activity.di.SingleActivityModule;
 import news.factory.com.single.activity.view.SingleActivity;
 

@@ -23,7 +23,9 @@ public class UpperTitleViewHolder extends BaseItemViewHolder {
 
     @Override
     public void bind(int position) {
-        UppertitleDataClass uppertitle = (UppertitleDataClass) items.get(position).getItem();
-        tvUpperTitle.setText(uppertitle.getUpperTitle());
+        if (items.get(position).getItem() instanceof UppertitleDataClass) {
+            UppertitleDataClass uppertitle = (UppertitleDataClass) items.get(position).getItem();
+            tvUpperTitle.setText(uppertitle.getUpperTitle());
+        }
     }
 }

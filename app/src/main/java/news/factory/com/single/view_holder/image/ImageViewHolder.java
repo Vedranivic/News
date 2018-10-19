@@ -26,9 +26,11 @@ public class ImageViewHolder extends BaseItemViewHolder {
 
     @Override
     public void bind(int position) {
-        ImageDataClass image = (ImageDataClass) items.get(position).getItem();
-        Picasso.get()
-                .load(Constants.IMAGE_BASE_URL+image.getOriginal())
-                .into(this.ivImage);
+        if (items.get(position).getItem() instanceof ImageDataClass) {
+            ImageDataClass image = (ImageDataClass) items.get(position).getItem();
+            Picasso.get()
+                    .load(Constants.IMAGE_BASE_URL + image.getOriginal())
+                    .into(this.ivImage);
+        }
     }
 }

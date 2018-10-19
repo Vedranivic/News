@@ -37,15 +37,17 @@ public class CategoryItemViewHolder extends BaseItemViewHolder {
 
     @Override
     public void bind(int position) {
-        CategoryItemDataClass categoryItem = (CategoryItemDataClass) items.get(position).getItem();
-        tvCategory.setText(categoryItem.getCategory());
-        tvTitle.setText(categoryItem.getTitle());
-        tvShares.setText(categoryItem.getShares());
-        Picasso.get()
-                .load(Constants.IMAGE_BASE_URL+categoryItem.getImageOriginal())
-                .fit()
-                .centerCrop()
-                .into(this.ivThumbnail);
+        if(items.get(position).getItem() instanceof CategoryItemDataClass) {
+            CategoryItemDataClass categoryItem = (CategoryItemDataClass) items.get(position).getItem();
+            tvCategory.setText(categoryItem.getCategory());
+            tvTitle.setText(categoryItem.getTitle());
+            tvShares.setText(categoryItem.getShares());
+            Picasso.get()
+                    .load(Constants.IMAGE_BASE_URL + categoryItem.getImageOriginal())
+                    .fit()
+                    .centerCrop()
+                    .into(this.ivThumbnail);
+        }
     }
 
     @OnClick(R.id.tvTitle)

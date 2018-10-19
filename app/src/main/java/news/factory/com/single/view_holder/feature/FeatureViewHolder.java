@@ -15,7 +15,6 @@ import news.factory.com.base.BaseItemViewHolder;
 import news.factory.com.base.Constants;
 import news.factory.com.base.RecyclerItemsWrapper;
 import news.factory.com.single.fragment.SingleFragmentContract;
-import news.factory.com.single.fragment.view.SingleFragment;
 
 public class FeatureViewHolder extends BaseItemViewHolder {
 
@@ -37,20 +36,22 @@ public class FeatureViewHolder extends BaseItemViewHolder {
 
     @Override
     public void bind(int position) {
-        FeatureDataClass feature = (FeatureDataClass) items.get(position).getItem();
-        if(feature.getSource().equals("")){
-            lbSource.setVisibility(View.INVISIBLE);
-            tvSource.setVisibility(View.INVISIBLE);
+        if(items.get(position).getItem() instanceof FeatureDataClass) {
+            FeatureDataClass feature = (FeatureDataClass) items.get(position).getItem();
+            if (feature.getSource().equals("")) {
+                lbSource.setVisibility(View.INVISIBLE);
+                tvSource.setVisibility(View.INVISIBLE);
+            }
+            if (feature.getCaption().equals("")) {
+                tvCaption.setVisibility(View.INVISIBLE);
+            }
+            tvCategory.setText(feature.getCategory());
+            tvSource.setText(feature.getSource());
+            tvCaption.setText(feature.getCaption());
+            Picasso.get()
+                    .load(Constants.IMAGE_BASE_URL + feature.getOriginal())
+                    .into(this.ivFeatureImage);
         }
-        if(feature.getCaption().equals("")){
-            tvCaption.setVisibility(View.INVISIBLE);
-        }
-        tvCategory.setText(feature.getCategory());
-        tvSource.setText(feature.getSource());
-        tvCaption.setText(feature.getCaption());
-        Picasso.get()
-                .load(Constants.IMAGE_BASE_URL+feature.getOriginal())
-                .into(this.ivFeatureImage);
     }
 
     @OnClick(R.id.ivBookmark)

@@ -25,7 +25,9 @@ public class TextViewHolder extends BaseItemViewHolder {
 
     @Override
     public void bind(int position) {
-        TextDataClass text = (TextDataClass) items.get(position).getItem();
-        tvText.setText(Html.fromHtml(text.getTextData()));
+        if (items.get(position).getItem() instanceof TextDataClass) {
+            TextDataClass text = (TextDataClass) items.get(position).getItem();
+            tvText.setText(Html.fromHtml(text.getTextData()));
+        }
     }
 }

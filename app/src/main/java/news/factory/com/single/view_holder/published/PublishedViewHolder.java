@@ -27,9 +27,11 @@ public class PublishedViewHolder extends BaseItemViewHolder {
 
     @Override
     public void bind(int position) {
-        PublishedDataClass published = (PublishedDataClass) items.get(position).getItem();
-        tvPublished.setText(published.getPublished().split(" ")[0].concat("."));
-        tvAuthor.setText(published.getAuthor());
-        tvShares.setText(published.getShares());
+        if (items.get(position).getItem() instanceof PublishedDataClass) {
+            PublishedDataClass published = (PublishedDataClass) items.get(position).getItem();
+            tvPublished.setText(published.getPublished().split(" ")[0].concat("."));
+            tvAuthor.setText(published.getAuthor());
+            tvShares.setText(published.getShares());
+        }
     }
 }

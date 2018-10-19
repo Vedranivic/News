@@ -38,8 +38,8 @@ public class CategoryViewHolder extends BaseItemViewHolder {
 
     @Override
     public void bind(int position) {
-        CategoryDataClass category = (CategoryDataClass) items.get(position).getItem();
         if(pagerAdapter instanceof CategoryPagerAdapter) {
+            CategoryDataClass category = (CategoryDataClass) items.get(position).getItem();
             ((CategoryPagerAdapter) pagerAdapter).setId(category.getId());
             ((CategoryPagerAdapter) pagerAdapter).setPage(category.getPage());
         }

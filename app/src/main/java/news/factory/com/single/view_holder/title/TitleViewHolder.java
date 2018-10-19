@@ -23,7 +23,9 @@ public class TitleViewHolder extends BaseItemViewHolder {
 
     @Override
     public void bind(int position) {
-        TitleDataClass title = (TitleDataClass) items.get(position).getItem();
-        tvTitle.setText(title.getTitle());
+        if (items.get(position).getItem() instanceof TitleDataClass) {
+            TitleDataClass title = (TitleDataClass) items.get(position).getItem();
+            tvTitle.setText(title.getTitle());
+        }
     }
 }

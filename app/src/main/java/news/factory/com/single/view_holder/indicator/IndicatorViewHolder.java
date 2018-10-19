@@ -26,8 +26,10 @@ public class IndicatorViewHolder extends BaseItemViewHolder {
 
     @Override
     public void bind(int position) {
-        IndicatorDataClass indicator = (IndicatorDataClass) items.get(position).getItem();
-        tvTotalPages.setText(indicator.getTotalPages());
-        tvCurrentPage.setText(indicator.getPage());
+        if (items.get(position).getItem() instanceof IndicatorDataClass) {
+            IndicatorDataClass indicator = (IndicatorDataClass) items.get(position).getItem();
+            tvTotalPages.setText(indicator.getTotalPages());
+            tvCurrentPage.setText(indicator.getPage());
+        }
     }
 }

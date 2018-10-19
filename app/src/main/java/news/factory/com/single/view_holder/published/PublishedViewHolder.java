@@ -21,8 +21,8 @@ public class PublishedViewHolder extends BaseItemViewHolder {
     TextView tvShares;
 
 
-    public PublishedViewHolder(View itemView, List<RecyclerItemsWrapper> items){
-        super(itemView, items);
+    public PublishedViewHolder(View itemView, List<RecyclerItemsWrapper> items, Object view){
+        super(itemView, items, view);
     }
 
     @Override

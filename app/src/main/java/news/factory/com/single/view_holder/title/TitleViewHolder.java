@@ -17,8 +17,8 @@ public class TitleViewHolder extends BaseItemViewHolder {
     TextView tvTitle;
 
 
-    public TitleViewHolder(View itemView, List<RecyclerItemsWrapper> items){
-        super(itemView, items);
+    public TitleViewHolder(View itemView, List<RecyclerItemsWrapper> items, Object view){
+        super(itemView, items, view);
     }
 
     @Override

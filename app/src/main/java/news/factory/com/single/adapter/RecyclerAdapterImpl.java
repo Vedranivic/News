@@ -45,26 +45,26 @@ public class RecyclerAdapterImpl extends RecyclerView.Adapter<BaseItemViewHolder
         View view = LayoutInflater.from(parent.getContext()).inflate(viewType,parent,false);
         switch (viewType){
             case R.layout.item_feature_image:
-                return new FeatureViewHolder(view,items);
+                return new FeatureViewHolder(view,items, objectWrapper.getView());
             case R.layout.item_title:
-                return new TitleViewHolder(view,items);
+                return new TitleViewHolder(view,items, objectWrapper.getView());
             case R.layout.item_image:
-                return new ImageViewHolder(view,items);
+                return new ImageViewHolder(view,items, objectWrapper.getView());
             case R.layout.item_text:
-                return new TextViewHolder(view,items);
+                return new TextViewHolder(view,items, objectWrapper.getView());
             case R.layout.item_uppertitle:
-                return new UpperTitleViewHolder(view,items);
+                return new UpperTitleViewHolder(view,items, objectWrapper.getView());
             case R.layout.item_published:
-                return new PublishedViewHolder(view,items);
+                return new PublishedViewHolder(view,items, objectWrapper.getView());
             case R.layout.item_indicator:
-                return new IndicatorViewHolder(view,items);
+                return new IndicatorViewHolder(view,items, objectWrapper.getView());
             case R.layout.item_category:
-                return new CategoryViewHolder(view,items,objectWrapper.getPagerAdapter());
+                return new CategoryViewHolder(view,items, objectWrapper.getView(), objectWrapper.getPagerAdapter());
             case R.layout.item_news:
                 return new CategoryItemViewHolder(view,items,objectWrapper.getView());
+            default:
+                return new DummyViewHolder(new View(parent.getContext()),items, objectWrapper.getView());
         }
-
-        return new DummyViewHolder(new View(parent.getContext()),items);
     }
 
     @SuppressWarnings("unchecked")
@@ -87,19 +87,13 @@ public class RecyclerAdapterImpl extends RecyclerView.Adapter<BaseItemViewHolder
         notifyDataSetChanged();
     }
 
-/*    public void setCategoryPagerAdaper(CategoryPagerAdapter categoryPagerAdapter) {
-        this.categoryPagerAdapter = categoryPagerAdapter;
-    }*/
-
 
     private class DummyViewHolder extends BaseItemViewHolder{
-        public DummyViewHolder(View itemView,List<RecyclerItemsWrapper> items) {
-            super(itemView, items);
+        public DummyViewHolder(View itemView, List<RecyclerItemsWrapper> items, Object view){
+            super(itemView, items, view);
         }
-
         @Override
         public void bind(int position) {
-
         }
     }
 }

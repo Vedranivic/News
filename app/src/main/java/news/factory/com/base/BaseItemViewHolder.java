@@ -11,10 +11,13 @@ public abstract class BaseItemViewHolder extends RecyclerView.ViewHolder {
 
     public List<RecyclerItemsWrapper> items;
 
-    public BaseItemViewHolder(View itemView, List<RecyclerItemsWrapper> items) {
+    public Object view;
+
+    public BaseItemViewHolder(View itemView, List<RecyclerItemsWrapper> items, Object view) {
         super(itemView);
         ButterKnife.bind(this,itemView);
         this.items = items;
+        this.view = view;
     }
 
     public abstract void bind(int position);

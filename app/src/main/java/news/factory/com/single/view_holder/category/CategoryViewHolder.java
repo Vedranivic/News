@@ -20,11 +20,11 @@ public class CategoryViewHolder extends BaseItemViewHolder {
     @BindView(R.id.tabSlider)
     TabLayout tabSlider;
 
-    public Object pagerAdapter;
+    private Object pagerAdapter;
 
 
-    public CategoryViewHolder(View itemView, List<RecyclerItemsWrapper> items, Object pagerAdapter) {
-        super(itemView, items);
+    public CategoryViewHolder(View itemView, List<RecyclerItemsWrapper> items, Object view, Object pagerAdapter) {
+        super(itemView, items, view);
         this.pagerAdapter = pagerAdapter;
         setupAdapter();
     }

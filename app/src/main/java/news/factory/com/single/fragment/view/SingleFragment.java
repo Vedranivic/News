@@ -9,6 +9,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -24,6 +25,7 @@ import news.factory.com.R;
 
 import news.factory.com.base.RecyclerItemsWrapper;
 import news.factory.com.single.adapter.CategoryPagerAdapter;
+import news.factory.com.single.adapter.RecyclerAdapter;
 import news.factory.com.single.adapter.RecyclerAdapterImpl;
 import news.factory.com.single.fragment.SingleFragmentContract;
 
@@ -35,9 +37,7 @@ public class SingleFragment extends BaseFragment implements SingleFragmentContra
     @Inject
     public SingleFragmentContract.Presenter singleFragmentPresenter;
     @Inject
-    public RecyclerAdapterImpl adapter;
-    @Inject
-    public CategoryPagerAdapter categoryPagerAdapter;
+    public RecyclerAdapter adapter;
 
 
     public static SingleFragment newInstance(String articleId, String page) {
@@ -64,9 +64,8 @@ public class SingleFragment extends BaseFragment implements SingleFragmentContra
     }
 
     private void setupRecycler() {
-        //adapter.setCategoryPagerAdaper(categoryPagerAdapter);
         rvItems.setLayoutManager(new LinearLayoutManager(getContext()));
-        rvItems.setAdapter(adapter);
+        rvItems.setAdapter((RecyclerAdapterImpl)adapter);
     }
 
     private void setupMVP() {
@@ -87,6 +86,11 @@ public class SingleFragment extends BaseFragment implements SingleFragmentContra
             return getArguments().getString(Constants.ARTICLE_KEY);
         }
         return "";
+    }
+
+    @Override
+    public void showToast(String message) {
+        Toast.makeText(this.getContext(),message,Toast.LENGTH_LONG).show();
     }
 
     public String getPage() {

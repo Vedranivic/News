@@ -20,8 +20,8 @@ public class IndicatorViewHolder extends BaseItemViewHolder {
     TextView tvTotalPages;
 
 
-    public IndicatorViewHolder(View itemView, List<RecyclerItemsWrapper> items){
-        super(itemView, items);
+    public IndicatorViewHolder(View itemView, List<RecyclerItemsWrapper> items, Object view){
+        super(itemView, items, view);
     }
 
     @Override

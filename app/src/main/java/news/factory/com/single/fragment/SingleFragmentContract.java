@@ -8,6 +8,7 @@ public interface SingleFragmentContract {
 
     interface View{
         void displayArticleItems(List<RecyclerItemsWrapper> items);
+        void showToast(String message);
     }
 
     interface Presenter{

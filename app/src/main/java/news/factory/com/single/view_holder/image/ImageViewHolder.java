@@ -20,8 +20,8 @@ public class ImageViewHolder extends BaseItemViewHolder {
     ImageView ivImage;
 
 
-    public ImageViewHolder(View itemView, List<RecyclerItemsWrapper> items){
-        super(itemView, items);
+    public ImageViewHolder(View itemView, List<RecyclerItemsWrapper> items, Object view){
+        super(itemView, items, view);
     }
 
     @Override

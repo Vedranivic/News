@@ -7,6 +7,7 @@ import java.util.List;
 
 import javax.inject.Inject;
 
+import dagger.Lazy;
 import news.factory.com.R;
 import news.factory.com.base.Constants;
 import news.factory.com.base.RecyclerItemsWrapper;
@@ -15,6 +16,7 @@ import news.factory.com.model.interactor.ArticleInteractor;
 import news.factory.com.model.interactor.InteractorListener;
 import news.factory.com.model.data_model.Content;
 import news.factory.com.model.data_model.News;
+import news.factory.com.single.adapter.RecyclerAdapter;
 import news.factory.com.single.fragment.SingleFragmentContract;
 import news.factory.com.single.view_holder.category.CategoryDataClass;
 import news.factory.com.single.view_holder.feature.FeatureDataClass;
@@ -35,6 +37,9 @@ public class SingleFragmentPresenter implements SingleFragmentContract.Presenter
     private SingleFragmentContract.View singleFragmentView;
     private String articleID;
     private String page;
+
+    @Inject
+    public Lazy<RecyclerAdapter> adapter;
 
     @Inject
     public SingleFragmentPresenter(SingleFragmentContract.View singleFragmentView, ArticleInteractor articleInteractor) {
@@ -121,6 +126,7 @@ public class SingleFragmentPresenter implements SingleFragmentContract.Presenter
                 "1"
             ), R.layout.item_category));
 
-        singleFragmentView.displayArticleItems(items);
+        //singleFragmentView.displayArticleItems(items);
+        adapter.get().setItems(items);
     }
 }

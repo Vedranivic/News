@@ -45,4 +45,8 @@
     <dimen name="bookmarkMarginStart">23dp</dimen>
     <dimen name="categoryIndicatorHeight">3dp</dimen>
     <dimen name="TabLayoutMaxWidth">0dp</dimen>
+    <dimen name="bottomBarTextMarginStart">77dp</dimen>
+    <dimen name="bottomBarHeight">56dp</dimen>
+    <dimen name="shareButtonMarginEnd">16dp</dimen>
+    <dimen name="shareButtonMarginBottom">28dp</dimen>
 </resources>

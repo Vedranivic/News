@@ -24,6 +24,6 @@
         app:layout_constraintTop_toBottomOf="@id/tabSlider"
         android:layout_marginTop="@dimen/rvCategoryMarginTop"
         android:layout_width="match_parent"
-        android:layout_height="516dp"/>
+        android:layout_height="544dp"/>
 
 </android.support.constraint.ConstraintLayout>

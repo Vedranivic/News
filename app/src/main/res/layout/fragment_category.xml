@@ -5,6 +5,7 @@
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/rvCategoryItems"
+        android:background="@android:color/white"
         android:paddingStart="@dimen/categoryItemMarginStart"
         android:paddingEnd="@dimen/categoryItemMarginStart"
         android:layout_width="match_parent"

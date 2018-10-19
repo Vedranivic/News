@@ -8,8 +8,30 @@
 
     <android.support.v4.view.ViewPager
         android:id="@+id/vpArticles"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/ShareButton"
+        android:layout_marginBottom="@dimen/bottomBarHeight"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
+
+    <FrameLayout
+        android:id="@+id/BottomBar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/bottomBarHeight"
+        android:background="@color/indicatorColor"
+        app:layout_constraintBottom_toBottomOf="parent">
+        <TextView
+            android:id="@+id/tvBottomBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="@dimen/bottomBarTextMarginStart"
+            android:fontFamily="@font/robot_slab"
+            android:text="@string/bottomBarText"
+            android:textColor="@android:color/white"
+            android:textStyle="bold"
+            android:textSize="20sp" />
+    </FrameLayout>
 
     <FrameLayout
         android:id="@+id/bPrevious"
@@ -44,6 +66,24 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
     </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/ShareButton"
+        android:elevation="3dp"
+        app:layout_constraintBottom_toBottomOf="@id/BottomBar"
+        app:layout_constraintEnd_toEndOf="@id/BottomBar"
+        android:layout_marginEnd="@dimen/shareButtonMarginEnd"
+        android:layout_marginBottom="@dimen/shareButtonMarginBottom"
+        android:background="@drawable/share_circle_shape"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:layout_gravity="center"
+            android:src="@drawable/ic_share_white_24dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </FrameLayout>
+
 
 
 </android.support.constraint.ConstraintLayout>

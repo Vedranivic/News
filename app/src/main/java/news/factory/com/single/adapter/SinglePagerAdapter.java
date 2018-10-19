@@ -38,4 +38,5 @@ public class SinglePagerAdapter extends FragmentStatePagerAdapter {
         this.articleId = articleId;
         notifyDataSetChanged();
     }
+
 }

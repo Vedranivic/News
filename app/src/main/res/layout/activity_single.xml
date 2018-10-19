@@ -12,7 +12,7 @@
         android:layout_height="match_parent"/>
 
     <FrameLayout
-        android:id="@+id/ivPrevious"
+        android:id="@+id/bPrevious"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/navigation"
@@ -21,12 +21,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
         <ImageView
+            android:layout_marginEnd="4dp"
+            android:layout_gravity="center|end"
+            android:src="@drawable/ic_left_white_24dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
     </FrameLayout>
 
     <FrameLayout
-        android:id="@+id/ivNext"
+        android:id="@+id/bNext"
         android:background="@drawable/navigation"
         android:translationX="28dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -35,6 +38,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
         <ImageView
+            android:layout_marginStart="4dp"
+            android:layout_gravity="center|start"
+            android:src="@drawable/ic_right_white_24dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
     </FrameLayout>

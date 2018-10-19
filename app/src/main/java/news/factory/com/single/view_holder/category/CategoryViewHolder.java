@@ -20,25 +20,29 @@ public class CategoryViewHolder extends BaseItemViewHolder {
     @BindView(R.id.tabSlider)
     TabLayout tabSlider;
 
-    public CategoryPagerAdapter adapter;
+    public Object pagerAdapter;
 
 
-    public CategoryViewHolder(View itemView, List<RecyclerItemsWrapper> items, CategoryPagerAdapter categoryPagerAdapter) {
+    public CategoryViewHolder(View itemView, List<RecyclerItemsWrapper> items, Object pagerAdapter) {
         super(itemView, items);
-        this.adapter = categoryPagerAdapter;
+        this.pagerAdapter = pagerAdapter;
         setupAdapter();
     }
 
     private void setupAdapter() {
         tabSlider.setupWithViewPager(vpCategory);
-        vpCategory.setAdapter(adapter);
+        if(pagerAdapter instanceof CategoryPagerAdapter) {
+            vpCategory.setAdapter((CategoryPagerAdapter)pagerAdapter);
+        }
     }
 
     @Override
     public void bind(int position) {
         CategoryDataClass category = (CategoryDataClass) items.get(position).getItem();
-        adapter.setId(category.getId());
-        adapter.setPage(category.getPage());
+        if(pagerAdapter instanceof CategoryPagerAdapter) {
+            ((CategoryPagerAdapter) pagerAdapter).setId(category.getId());
+            ((CategoryPagerAdapter) pagerAdapter).setPage(category.getPage());
+        }
     }
 
 }

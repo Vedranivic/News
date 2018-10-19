@@ -31,11 +31,11 @@ public class CategoryItemViewHolder extends BaseItemViewHolder {
     @BindView(R.id.tvShares)
     TextView tvShares;
 
-    private ObjectWrapper objectWrapper;
+    private Object view;
 
-    public CategoryItemViewHolder(View itemView, List<RecyclerItemsWrapper> items, ObjectWrapper objectWrapper) {
+    public CategoryItemViewHolder(View itemView, List<RecyclerItemsWrapper> items, Object view) {
         super(itemView, items);
-        this.objectWrapper = objectWrapper;
+        this.view = view;
     }
 
     @Override
@@ -53,9 +53,8 @@ public class CategoryItemViewHolder extends BaseItemViewHolder {
 
     @OnClick(R.id.tvTitle)
     public void onClick(TextView textView){
-        if(objectWrapper.getView() instanceof CategoryFragment){
-            ((CategoryFragmentContract.View) objectWrapper.getView()).showToast(tvTitle.getText().toString());
+        if(view instanceof CategoryFragment){
+            ((CategoryFragmentContract.View) view).showToast(tvTitle.getText().toString());
         }
-
     }
 }

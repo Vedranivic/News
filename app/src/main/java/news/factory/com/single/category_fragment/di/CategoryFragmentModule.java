@@ -6,6 +6,7 @@ import news.factory.com.base.ObjectWrapper;
 import news.factory.com.base.dependency_injection.PerFragmentScope;
 import news.factory.com.model.interactor.CategoryInteractor;
 import news.factory.com.model.interactor.CategoryInteractorImpl;
+import news.factory.com.single.adapter.CategoryPagerAdapter;
 import news.factory.com.single.adapter.RecyclerAdapter;
 import news.factory.com.single.adapter.RecyclerAdapterImpl;
 import news.factory.com.single.category_fragment.CategoryFragmentContract;

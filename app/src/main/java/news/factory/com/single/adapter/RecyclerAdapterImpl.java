@@ -27,7 +27,6 @@ import news.factory.com.single.view_holder.uppertitle.UpperTitleViewHolder;
 public class RecyclerAdapterImpl extends RecyclerView.Adapter<BaseItemViewHolder> implements RecyclerAdapter {
 
     private List<RecyclerItemsWrapper> items;
-    private CategoryPagerAdapter categoryPagerAdapter;//
     private ObjectWrapper objectWrapper;
 
     @Inject
@@ -60,9 +59,9 @@ public class RecyclerAdapterImpl extends RecyclerView.Adapter<BaseItemViewHolder
             case R.layout.item_indicator:
                 return new IndicatorViewHolder(view,items);
             case R.layout.item_category:
-                return new CategoryViewHolder(view,items,categoryPagerAdapter);
+                return new CategoryViewHolder(view,items,objectWrapper.getPagerAdapter());
             case R.layout.item_news:
-                return new CategoryItemViewHolder(view,items,objectWrapper);
+                return new CategoryItemViewHolder(view,items,objectWrapper.getView());
         }
 
         return new DummyViewHolder(new View(parent.getContext()),items);
@@ -88,9 +87,9 @@ public class RecyclerAdapterImpl extends RecyclerView.Adapter<BaseItemViewHolder
         notifyDataSetChanged();
     }
 
-    public void setCategoryPagerAdaper(CategoryPagerAdapter categoryPagerAdapter) {
+/*    public void setCategoryPagerAdaper(CategoryPagerAdapter categoryPagerAdapter) {
         this.categoryPagerAdapter = categoryPagerAdapter;
-    }
+    }*/
 
 
     private class DummyViewHolder extends BaseItemViewHolder{

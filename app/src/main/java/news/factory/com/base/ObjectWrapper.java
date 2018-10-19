@@ -6,9 +6,17 @@ public class ObjectWrapper {
 
     private Object view;
 
+    private Object pagerAdapter;
+
     public ObjectWrapper(Object presenter, Object view) {
         this.presenter = presenter;
         this.view = view;
+    }
+
+    public ObjectWrapper(Object presenter, Object view, Object pagerAdapter) {
+        this.presenter = presenter;
+        this.view = view;
+        this.pagerAdapter = pagerAdapter;
     }
 
     public Object getPresenter() {
@@ -17,5 +25,9 @@ public class ObjectWrapper {
 
     public Object getView() {
         return view;
+    }
+
+    public Object getPagerAdapter() {
+        return pagerAdapter;
     }
 }

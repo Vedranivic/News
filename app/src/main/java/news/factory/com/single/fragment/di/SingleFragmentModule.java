@@ -42,8 +42,8 @@ public class SingleFragmentModule {
 
     @Provides
     @PerFragmentScope
-    public ObjectWrapper provideObjectWrapper(SingleFragmentContract.Presenter presenter, SingleFragmentContract.View view){
-        return new ObjectWrapper(presenter, view);
+    public ObjectWrapper provideObjectWrapper(SingleFragmentContract.Presenter presenter, SingleFragmentContract.View view, CategoryPagerAdapter categoryPagerAdapter){
+        return new ObjectWrapper(presenter, view, categoryPagerAdapter);
     }
 
     @Provides

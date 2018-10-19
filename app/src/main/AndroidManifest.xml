@@ -18,11 +18,12 @@
         <activity android:name=".home.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".single.activity.view.SingleActivity"/>
+        <activity android:name=".single.activity.view.SingleActivity"
+            android:theme="@style/Theme.Single"
+            />
     </application>
 
 </manifest>

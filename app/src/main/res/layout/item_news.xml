@@ -42,6 +42,18 @@
         tools:text="@string/dummyString" />
 
     <TextView
+        android:id="@+id/tvPublishedBefore"
+        android:textSize="@dimen/defaultTextSize"
+        android:textColor="@color/textTextColor"
+        android:layout_marginTop="@dimen/publishedMarginBottom"
+        android:layout_marginStart="@dimen/categoryMarginStart"
+        android:layout_alignBottom="@id/ivThumbnail"
+        android:layout_toEndOf="@id/ivThumbnail"
+        tools:text="Prije: "
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
         android:id="@+id/tvShares"
         android:textSize="@dimen/defaultTextSize"
         android:textColor="@color/textTextColor"

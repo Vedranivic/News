@@ -60,10 +60,10 @@ public class CategoryFragmentPresenter implements CategoryFragmentContract.Prese
                     n.getFeatured_image().getOriginal(),
                     n.getCategory(),
                     n.getTitle(),
-                    n.getShares()
+                    n.getShares(),
+                    n.getPublished_at_humans()
             ), R.layout.item_news));
         }
-        //categoryFragmentView.displayItemsByCategory(items);
         adapter.get().setItems(items);
     }
 

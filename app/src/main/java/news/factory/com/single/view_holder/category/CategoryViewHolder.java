@@ -9,6 +9,7 @@ import java.util.List;
 import butterknife.BindView;
 import news.factory.com.R;
 import news.factory.com.base.BaseItemViewHolder;
+import news.factory.com.base.ObjectWrapper;
 import news.factory.com.base.RecyclerItemsWrapper;
 import news.factory.com.single.adapter.CategoryPagerAdapter;
 
@@ -22,10 +23,9 @@ public class CategoryViewHolder extends BaseItemViewHolder {
 
     private Object pagerAdapter;
 
-
-    public CategoryViewHolder(View itemView, List<RecyclerItemsWrapper> items, Object view, Object pagerAdapter) {
-        super(itemView, items, view);
-        this.pagerAdapter = pagerAdapter;
+    public CategoryViewHolder(View itemView, List<RecyclerItemsWrapper> items, ObjectWrapper objectWrapper) {
+        super(itemView, items, objectWrapper);
+        this.pagerAdapter = objectWrapper.getPagerAdapter();
         setupAdapter();
     }
 

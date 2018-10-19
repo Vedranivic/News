@@ -30,9 +30,11 @@ public class CategoryItemViewHolder extends BaseItemViewHolder {
     TextView tvTitle;
     @BindView(R.id.tvShares)
     TextView tvShares;
+    @BindView(R.id.tvPublishedBefore)
+    TextView tvPublishedBefore;
 
-    public CategoryItemViewHolder(View itemView, List<RecyclerItemsWrapper> items, Object view) {
-        super(itemView, items, view);
+    public CategoryItemViewHolder(View itemView, List<RecyclerItemsWrapper> items, ObjectWrapper objectWrapper) {
+        super(itemView, items, objectWrapper);
     }
 
     @Override
@@ -42,6 +44,7 @@ public class CategoryItemViewHolder extends BaseItemViewHolder {
             tvCategory.setText(categoryItem.getCategory());
             tvTitle.setText(categoryItem.getTitle());
             tvShares.setText(categoryItem.getShares());
+            tvPublishedBefore.setText(categoryItem.getPublishedBefore());
             Picasso.get()
                     .load(Constants.IMAGE_BASE_URL + categoryItem.getImageOriginal())
                     .fit()
@@ -52,8 +55,8 @@ public class CategoryItemViewHolder extends BaseItemViewHolder {
 
     @OnClick(R.id.tvTitle)
     public void onClick(TextView textView){
-        if(view instanceof CategoryFragmentContract.View){
-            ((CategoryFragmentContract.View) view).showToast(tvTitle.getText().toString());
+        if(objectWrapper.getView() instanceof CategoryFragmentContract.View){
+            ((CategoryFragmentContract.View) objectWrapper.getView()).showToast(tvTitle.getText().toString());
         }
     }
 }

@@ -45,25 +45,25 @@ public class RecyclerAdapterImpl extends RecyclerView.Adapter<BaseItemViewHolder
         View view = LayoutInflater.from(parent.getContext()).inflate(viewType,parent,false);
         switch (viewType){
             case R.layout.item_feature_image:
-                return new FeatureViewHolder(view,items, objectWrapper.getView());
+                return new FeatureViewHolder(view,items, objectWrapper);
             case R.layout.item_title:
-                return new TitleViewHolder(view,items, objectWrapper.getView());
+                return new TitleViewHolder(view,items, objectWrapper);
             case R.layout.item_image:
-                return new ImageViewHolder(view,items, objectWrapper.getView());
+                return new ImageViewHolder(view,items,objectWrapper);
             case R.layout.item_text:
-                return new TextViewHolder(view,items, objectWrapper.getView());
+                return new TextViewHolder(view,items, objectWrapper);
             case R.layout.item_uppertitle:
-                return new UpperTitleViewHolder(view,items, objectWrapper.getView());
+                return new UpperTitleViewHolder(view,items, objectWrapper);
             case R.layout.item_published:
-                return new PublishedViewHolder(view,items, objectWrapper.getView());
+                return new PublishedViewHolder(view,items, objectWrapper);
             case R.layout.item_indicator:
-                return new IndicatorViewHolder(view,items, objectWrapper.getView());
+                return new IndicatorViewHolder(view,items, objectWrapper);
             case R.layout.item_category:
-                return new CategoryViewHolder(view,items, objectWrapper.getView(), objectWrapper.getPagerAdapter());
+                return new CategoryViewHolder(view,items,objectWrapper);
             case R.layout.item_news:
-                return new CategoryItemViewHolder(view,items,objectWrapper.getView());
+                return new CategoryItemViewHolder(view,items,objectWrapper);
             default:
-                return new DummyViewHolder(new View(parent.getContext()),items, objectWrapper.getView());
+                return new DummyViewHolder(new View(parent.getContext()),items, objectWrapper);
         }
     }
 
@@ -89,8 +89,8 @@ public class RecyclerAdapterImpl extends RecyclerView.Adapter<BaseItemViewHolder
 
 
     private class DummyViewHolder extends BaseItemViewHolder{
-        public DummyViewHolder(View itemView, List<RecyclerItemsWrapper> items, Object view){
-            super(itemView, items, view);
+        public DummyViewHolder(View itemView, List<RecyclerItemsWrapper> items, ObjectWrapper objectWrapper){
+            super(itemView, items, objectWrapper);
         }
         @Override
         public void bind(int position) {

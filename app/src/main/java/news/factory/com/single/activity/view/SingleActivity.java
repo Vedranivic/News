@@ -15,18 +15,17 @@ import dagger.android.AndroidInjection;
 import dagger.android.AndroidInjector;
 import dagger.android.DispatchingAndroidInjector;
 import dagger.android.support.HasSupportFragmentInjector;
+import news.factory.com.base.BaseActivity;
 import news.factory.com.base.Constants;
 import news.factory.com.R;
 import news.factory.com.single.activity.SingleContract;
 import news.factory.com.single.adapter.SinglePagerAdapter;
 
-public class SingleActivity extends AppCompatActivity implements SingleContract.View, HasSupportFragmentInjector {
+public class SingleActivity extends BaseActivity implements SingleContract.View {
 
     @BindView(R.id.vpArticles)
     ViewPager vpSingles;
 
-    @Inject
-    public DispatchingAndroidInjector<Fragment> fragmentDispatchingAndroidInjector;
     @Inject
     public SingleContract.Presenter singlePresenter;
     @Inject
@@ -44,8 +43,6 @@ public class SingleActivity extends AppCompatActivity implements SingleContract.
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_single);
         ButterKnife.bind(this);
-
-        AndroidInjection.inject(this);
 
         setupAdapter();
         setupMVP();
@@ -83,8 +80,4 @@ public class SingleActivity extends AppCompatActivity implements SingleContract.
         singlePresenter.dispose();
     }
 
-    @Override
-    public AndroidInjector<android.support.v4.app.Fragment> supportFragmentInjector() {
-        return fragmentDispatchingAndroidInjector;
-    }
 }

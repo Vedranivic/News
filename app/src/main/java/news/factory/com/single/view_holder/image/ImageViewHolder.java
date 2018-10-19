@@ -11,6 +11,7 @@ import butterknife.BindView;
 import news.factory.com.R;
 import news.factory.com.base.BaseItemViewHolder;
 import news.factory.com.base.Constants;
+import news.factory.com.base.ObjectWrapper;
 import news.factory.com.base.RecyclerItemsWrapper;
 import news.factory.com.model.data_model.Image;
 
@@ -20,8 +21,8 @@ public class ImageViewHolder extends BaseItemViewHolder {
     ImageView ivImage;
 
 
-    public ImageViewHolder(View itemView, List<RecyclerItemsWrapper> items, Object view){
-        super(itemView, items, view);
+    public ImageViewHolder(View itemView, List<RecyclerItemsWrapper> items, ObjectWrapper objectWrapper) {
+        super(itemView, items, objectWrapper);
     }
 
     @Override

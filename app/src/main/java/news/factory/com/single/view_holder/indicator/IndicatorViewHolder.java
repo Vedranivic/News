@@ -9,6 +9,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import news.factory.com.R;
 import news.factory.com.base.BaseItemViewHolder;
+import news.factory.com.base.ObjectWrapper;
 import news.factory.com.base.RecyclerItemsWrapper;
 import news.factory.com.model.data_model.News;
 
@@ -20,8 +21,8 @@ public class IndicatorViewHolder extends BaseItemViewHolder {
     TextView tvTotalPages;
 
 
-    public IndicatorViewHolder(View itemView, List<RecyclerItemsWrapper> items, Object view){
-        super(itemView, items, view);
+    public IndicatorViewHolder(View itemView, List<RecyclerItemsWrapper> items, ObjectWrapper objectWrapper) {
+        super(itemView, items, objectWrapper);
     }
 
     @Override

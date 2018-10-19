@@ -8,6 +8,7 @@ import java.util.List;
 import butterknife.BindView;
 import news.factory.com.R;
 import news.factory.com.base.BaseItemViewHolder;
+import news.factory.com.base.ObjectWrapper;
 import news.factory.com.base.RecyclerItemsWrapper;
 
 
@@ -17,8 +18,8 @@ public class UpperTitleViewHolder extends BaseItemViewHolder {
     TextView tvUpperTitle;
 
 
-    public UpperTitleViewHolder(View itemView, List<RecyclerItemsWrapper> items, Object view){
-        super(itemView, items, view);
+    public UpperTitleViewHolder(View itemView, List<RecyclerItemsWrapper> items, ObjectWrapper objectWrapper) {
+        super(itemView, items, objectWrapper);
     }
 
     @Override

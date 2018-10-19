@@ -13,6 +13,7 @@ import butterknife.OnClick;
 import news.factory.com.R;
 import news.factory.com.base.BaseItemViewHolder;
 import news.factory.com.base.Constants;
+import news.factory.com.base.ObjectWrapper;
 import news.factory.com.base.RecyclerItemsWrapper;
 import news.factory.com.single.fragment.SingleFragmentContract;
 
@@ -30,8 +31,8 @@ public class FeatureViewHolder extends BaseItemViewHolder {
     @BindView(R.id.lbSource)
     TextView lbSource;
 
-    public FeatureViewHolder(View itemView, List<RecyclerItemsWrapper> items, Object view){
-        super(itemView, items, view);
+    public FeatureViewHolder(View itemView, List<RecyclerItemsWrapper> items, ObjectWrapper objectWrapper) {
+        super(itemView, items, objectWrapper);
     }
 
     @Override
@@ -56,8 +57,8 @@ public class FeatureViewHolder extends BaseItemViewHolder {
 
     @OnClick(R.id.ivBookmark)
     public void onClick(ImageView imageView){
-        if(view instanceof SingleFragmentContract.View){
-            ((SingleFragmentContract.View) view).showToast("Article added to saved articles");
+        if(objectWrapper.getView() instanceof SingleFragmentContract.View){
+            ((SingleFragmentContract.View) objectWrapper.getView()).showToast("Article added to saved articles");
         }
     }
 }

@@ -1,4 +1,4 @@
-package news.factory.com.single.adapter;
+package news.factory.com.adapter;
 
 import java.util.List;
 

@@ -4,29 +4,25 @@ package news.factory.com.single.category_fragment.view;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
 import java.util.List;
-import java.util.Objects;
 
 import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import dagger.android.support.AndroidSupportInjection;
 import news.factory.com.R;
 import news.factory.com.base.BaseFragment;
 import news.factory.com.base.Constants;
 import news.factory.com.base.RecyclerItemsWrapper;
-import news.factory.com.single.adapter.RecyclerAdapter;
-import news.factory.com.single.adapter.RecyclerAdapterImpl;
+import news.factory.com.adapter.RecyclerAdapter;
+import news.factory.com.adapter.RecyclerAdapterImpl;
 import news.factory.com.single.category_fragment.CategoryFragmentContract;
 
 
@@ -56,8 +52,6 @@ public class CategoryFragment extends BaseFragment implements CategoryFragmentCo
         ViewGroup viewGroup = (ViewGroup) inflater.inflate(R.layout.fragment_category, container, false);
         unbinder = ButterKnife.bind(this,viewGroup);
 
-        AndroidSupportInjection.inject(this);
-
         setupRecycler();
         setupMVP();
         getItems();
@@ -67,13 +61,8 @@ public class CategoryFragment extends BaseFragment implements CategoryFragmentCo
 
     private void setupRecycler() {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
-        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(
-                Objects.requireNonNull(getContext()),linearLayoutManager.getOrientation()
-        );
-        dividerItemDecoration.setDrawable(getResources().getDrawable(R.drawable.divider));
         rvCategoryItems.setLayoutManager(linearLayoutManager);
         rvCategoryItems.setAdapter((RecyclerAdapterImpl)adapter);
-        rvCategoryItems.addItemDecoration(dividerItemDecoration);
     }
 
     private void setupMVP() {

@@ -40,7 +40,7 @@ public class SinglePresenter implements SingleContract.Presenter, InteractorList
         switch (result.getType()) {
             case Constants.NEWS_TYPE:
                 News news = (News) result.getResult();
-                singleView.displayArticle(articleID, Integer.parseInt(news.getPages_no()));
+                singleView.displayArticle(articleID, news.getUrl(), Integer.parseInt(news.getPages_no()));
         }
     }
 

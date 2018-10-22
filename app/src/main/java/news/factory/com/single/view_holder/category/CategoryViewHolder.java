@@ -11,7 +11,7 @@ import news.factory.com.R;
 import news.factory.com.base.BaseItemViewHolder;
 import news.factory.com.base.ObjectWrapper;
 import news.factory.com.base.RecyclerItemsWrapper;
-import news.factory.com.single.adapter.CategoryPagerAdapter;
+import news.factory.com.adapter.CategoryPagerAdapter;
 
 
 public class CategoryViewHolder extends BaseItemViewHolder {

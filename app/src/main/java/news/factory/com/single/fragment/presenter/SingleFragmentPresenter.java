@@ -16,7 +16,7 @@ import news.factory.com.model.interactor.ArticleInteractor;
 import news.factory.com.model.interactor.InteractorListener;
 import news.factory.com.model.data_model.Content;
 import news.factory.com.model.data_model.News;
-import news.factory.com.single.adapter.RecyclerAdapter;
+import news.factory.com.adapter.RecyclerAdapter;
 import news.factory.com.single.fragment.SingleFragmentContract;
 import news.factory.com.single.view_holder.category.CategoryDataClass;
 import news.factory.com.single.view_holder.feature.FeatureDataClass;
@@ -87,6 +87,14 @@ public class SingleFragmentPresenter implements SingleFragmentContract.Presenter
                     news.getFeatured_image_caption(),
                     news.getFeatured_image().getOriginal()
                 ), R.layout.item_feature_image));
+        }
+        else{
+            items.add(new RecyclerItemsWrapper(new FeatureDataClass(
+                    news.getCategory(),
+                    news.getFeatured_image_source(),
+                    news.getFeatured_image_caption(),
+                    ""
+            ), R.layout.item_feature_image));
         }
         //uppertitle
         items.add(new RecyclerItemsWrapper(new UppertitleDataClass(

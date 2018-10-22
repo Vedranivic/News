@@ -15,7 +15,7 @@ import news.factory.com.model.data_model.Category;
 import news.factory.com.model.data_model.News;
 import news.factory.com.model.interactor.CategoryInteractor;
 import news.factory.com.model.interactor.InteractorListener;
-import news.factory.com.single.adapter.RecyclerAdapter;
+import news.factory.com.adapter.RecyclerAdapter;
 import news.factory.com.single.category_fragment.CategoryFragmentContract;
 import news.factory.com.single.view_holder.category_item.CategoryItemDataClass;
 

@@ -1,4 +1,4 @@
-package news.factory.com.single.adapter;
+package news.factory.com.adapter;
 
 import android.content.Context;
 import android.support.annotation.Nullable;

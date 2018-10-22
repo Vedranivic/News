@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.widget.FrameLayout;
-import android.widget.ImageView;
 import android.widget.Toast;
 
 import javax.inject.Inject;
@@ -19,7 +18,7 @@ import news.factory.com.base.BaseActivity;
 import news.factory.com.base.Constants;
 import news.factory.com.R;
 import news.factory.com.single.activity.SingleContract;
-import news.factory.com.single.adapter.SinglePagerAdapter;
+import news.factory.com.adapter.SinglePagerAdapter;
 
 public class SingleActivity extends BaseActivity implements SingleContract.View {
 
@@ -36,6 +35,8 @@ public class SingleActivity extends BaseActivity implements SingleContract.View 
     public SingleContract.Presenter singlePresenter;
     @Inject
     public SinglePagerAdapter adapter;
+
+    private String articleURL;
 
 
     public static void openActivityInstance(Context context,String articleId) {
@@ -68,9 +69,10 @@ public class SingleActivity extends BaseActivity implements SingleContract.View 
     }
 
     @Override
-    public void displayArticle(String articleID, int pages) {
+    public void displayArticle(String articleID, String articleUrl, int pages) {
         adapter.setArticleId(articleID);
         adapter.setPages(pages);
+        articleURL = articleUrl;
         checkButtonVisibility(vpSingles.getCurrentItem());
     }
 
@@ -107,7 +109,11 @@ public class SingleActivity extends BaseActivity implements SingleContract.View 
     }
 
     private void checkButtonVisibility(int state) {
-        if(state == 0){
+        if(adapter.getCount() == 1){
+            bPrevious.setVisibility(View.GONE);
+            bNext.setVisibility(View.GONE);
+        }
+        else if(state == 0){
             bPrevious.setVisibility(View.GONE);
         }
         else if(state == adapter.getCount()-1){
@@ -121,7 +127,11 @@ public class SingleActivity extends BaseActivity implements SingleContract.View 
 
     @OnClick(R.id.shareButton)
     public void onShare(View view){
-        Toast.makeText(SingleActivity.this,"Article shared",Toast.LENGTH_SHORT).show();
+        Intent shareIntent = new Intent(android.content.Intent.ACTION_SEND);
+        shareIntent.setType("text/plain");
+        shareIntent.putExtra(Intent.EXTRA_SUBJECT, "Avaz Article");
+        shareIntent.putExtra(Intent.EXTRA_TEXT, articleURL);
+        startActivity(Intent.createChooser(shareIntent,"Share via"));
     }
 
 }

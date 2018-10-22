@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    tools:context=".home.activity.view.HomeActivity">
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/vpHome"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <android.support.design.widget.TabLayout
+        android:id="@+id/tabHome"
+        app:tabMode="scrollable"
+        app:tabGravity="fill"
+        android:scaleY="-1"
+        android:maxWidth="@dimen/TabLayoutMaxWidth"
+        android:background="@color/indicatorTextColor"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:tabSelectedTextColor="@android:color/white"
+        app:tabTextColor="@android:color/white"
+        app:tabTextAppearance="@style/categoryTabTextStyle"
+        app:tabIndicatorColor="@android:color/white"
+        app:tabIndicatorHeight="@dimen/categoryIndicatorHeight"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+
+</android.support.constraint.ConstraintLayout>

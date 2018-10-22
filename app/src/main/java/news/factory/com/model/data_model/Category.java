@@ -19,6 +19,13 @@ public class Category {
     private String read_more_text;
     private String stranica;
     private String page;
+    private String color;
+    private int order;
+    private String block_type;
+    private int position_no;
+    private String widget;
+    private int article_selection;
+
     private List<News> articles;
 
     public void setArticles(List<News> articles) {
@@ -87,6 +94,30 @@ public class Category {
 
     public String getPage() {
         return page;
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public int getOrder() {
+        return order;
+    }
+
+    public String getBlock_type() {
+        return block_type;
+    }
+
+    public int getPosition_no() {
+        return position_no;
+    }
+
+    public String getWidget() {
+        return widget;
+    }
+
+    public int getArticle_selection() {
+        return article_selection;
     }
 
     public List<News> getArticles() {

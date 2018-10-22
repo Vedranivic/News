@@ -23,7 +23,7 @@
     <dimen name="lbSourceMarginBottom">8dp</dimen>
     <dimen name="defaultTextSize">12sp</dimen>
     <dimen name="captionMarginStart">16dp</dimen>
-    <dimen name="captionMarginBottom">16dp</dimen>
+    <dimen name="captionMarginBottom">8dp</dimen>
     <dimen name="categoryMarginStart">16dp</dimen>
     <dimen name="categoryMarginBottom">8dp</dimen>
     <dimen name="uppertitleMarginBottom">8dp</dimen>

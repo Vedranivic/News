@@ -18,5 +18,9 @@ public class Constants {
     //Result type constants
     public static final int NEWS_TYPE = 111;
     public static final int CATEGORIES_TYPE = 222;
+    public static final int HOME_ITEMS_TYPE = 333;
+    public static final int MENU_TYPE = 444;
+    public static final int MENU_BOTTOM_TYPE = 555;
+
 
 }

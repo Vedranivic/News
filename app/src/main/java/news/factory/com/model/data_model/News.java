@@ -54,8 +54,6 @@ public class News
 
     private String updated_at_atom;
 
-    private CategoryAnalytics category_analytics;
-
     private String featured_image_source;
 
     private String published_at_rss;
@@ -342,16 +340,6 @@ public class News
         this.updated_at_atom = updated_at_atom;
     }
 
-    public CategoryAnalytics getCategory_analytics ()
-    {
-        return category_analytics;
-    }
-
-    public void setCategory_analytics (CategoryAnalytics category_analytics)
-    {
-        this.category_analytics = category_analytics;
-    }
-
     public String getFeatured_image_source ()
     {
         return featured_image_source;
@@ -581,5 +569,4 @@ public class News
     {
         this.subtitle = subtitle;
     }
-
 }

@@ -1,5 +1,7 @@
 package news.factory.com.single.view_holder.feature;
 
+import android.graphics.Color;
+import android.graphics.PorterDuff;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -30,6 +32,8 @@ public class FeatureViewHolder extends BaseItemViewHolder {
     TextView tvCaption;
     @BindView(R.id.lbSource)
     TextView lbSource;
+    @BindView(R.id.ivBookmark)
+    ImageView ivBookmark;
 
     public FeatureViewHolder(View itemView, List<RecyclerItemsWrapper> items, ObjectWrapper objectWrapper) {
         super(itemView, items, objectWrapper);
@@ -39,12 +43,19 @@ public class FeatureViewHolder extends BaseItemViewHolder {
     public void bind(int position) {
         if(items.get(position).getItem() instanceof FeatureDataClass) {
             FeatureDataClass feature = (FeatureDataClass) items.get(position).getItem();
+            if(feature.getOriginal().equals("")){
+                ivFeatureImage.setVisibility(View.GONE);
+                lbSource.setTextColor(Color.BLACK);
+                tvSource.setTextColor(Color.BLACK);
+                tvCaption.setTextColor(Color.BLACK);
+                ivBookmark.getDrawable().setColorFilter(Color.BLACK, PorterDuff.Mode.MULTIPLY);
+            }
             if (feature.getSource().equals("")) {
-                lbSource.setVisibility(View.INVISIBLE);
-                tvSource.setVisibility(View.INVISIBLE);
+                lbSource.setVisibility(View.GONE);
+                tvSource.setVisibility(View.GONE);
             }
             if (feature.getCaption().equals("")) {
-                tvCaption.setVisibility(View.INVISIBLE);
+                tvCaption.setVisibility(View.GONE);
             }
             tvCategory.setText(feature.getCategory());
             tvSource.setText(feature.getSource());

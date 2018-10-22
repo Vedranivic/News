@@ -17,16 +17,14 @@ import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import dagger.android.support.AndroidSupportInjection;
 import news.factory.com.base.BaseFragment;
 import news.factory.com.base.Constants;
 
 import news.factory.com.R;
 
 import news.factory.com.base.RecyclerItemsWrapper;
-import news.factory.com.single.adapter.CategoryPagerAdapter;
-import news.factory.com.single.adapter.RecyclerAdapter;
-import news.factory.com.single.adapter.RecyclerAdapterImpl;
+import news.factory.com.adapter.RecyclerAdapter;
+import news.factory.com.adapter.RecyclerAdapterImpl;
 import news.factory.com.single.fragment.SingleFragmentContract;
 
 public class SingleFragment extends BaseFragment implements SingleFragmentContract.View {
@@ -53,8 +51,6 @@ public class SingleFragment extends BaseFragment implements SingleFragmentContra
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         ViewGroup viewGroup = (ViewGroup) inflater.inflate(R.layout.fragment_single, container, false);
         unbinder = ButterKnife.bind(this,viewGroup);
-
-        AndroidSupportInjection.inject(this);
 
         setupRecycler();
         setupMVP();

@@ -38,7 +38,7 @@ public class BaseInteractorImpl implements BaseInteractor /*, LifecycleObserver*
 
             @Override
             public void onError(Throwable e) {
-                Log.e("GET OBSERVER", e.getMessage());
+                Log.e("GET_OBSERVER", e.getMessage());
                 listener.onFailure();
             }
         };

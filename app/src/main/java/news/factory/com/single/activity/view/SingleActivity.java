@@ -3,11 +3,11 @@ package news.factory.com.single.activity.view;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
+import android.widget.Toast;
 
 import javax.inject.Inject;
 
@@ -15,10 +15,6 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.OnPageChange;
-import dagger.android.AndroidInjection;
-import dagger.android.AndroidInjector;
-import dagger.android.DispatchingAndroidInjector;
-import dagger.android.support.HasSupportFragmentInjector;
 import news.factory.com.base.BaseActivity;
 import news.factory.com.base.Constants;
 import news.factory.com.R;
@@ -33,6 +29,8 @@ public class SingleActivity extends BaseActivity implements SingleContract.View 
     FrameLayout bPrevious;
     @BindView(R.id.bNext)
     FrameLayout bNext;
+    @BindView(R.id.shareButton)
+    FrameLayout shareButton;
 
     @Inject
     public SingleContract.Presenter singlePresenter;
@@ -119,6 +117,11 @@ public class SingleActivity extends BaseActivity implements SingleContract.View 
             bPrevious.setVisibility(View.VISIBLE);
             bNext.setVisibility(View.VISIBLE);
         }
+    }
+
+    @OnClick(R.id.shareButton)
+    public void onShare(View view){
+        Toast.makeText(SingleActivity.this,"Article shared",Toast.LENGTH_SHORT).show();
     }
 
 }

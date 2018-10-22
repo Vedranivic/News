@@ -67,11 +67,13 @@ public class CategoryFragment extends BaseFragment implements CategoryFragmentCo
 
     private void setupRecycler() {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
+        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(
+                Objects.requireNonNull(getContext()),linearLayoutManager.getOrientation()
+        );
+        dividerItemDecoration.setDrawable(getResources().getDrawable(R.drawable.divider));
         rvCategoryItems.setLayoutManager(linearLayoutManager);
         rvCategoryItems.setAdapter((RecyclerAdapterImpl)adapter);
-        rvCategoryItems.addItemDecoration(new DividerItemDecoration(
-                Objects.requireNonNull(getContext()),linearLayoutManager.getOrientation()
-        ));
+        rvCategoryItems.addItemDecoration(dividerItemDecoration);
     }
 
     private void setupMVP() {

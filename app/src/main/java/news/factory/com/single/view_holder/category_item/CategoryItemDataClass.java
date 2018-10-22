@@ -49,7 +49,7 @@ public class CategoryItemDataClass {
             return "Prije: " + String.valueOf(days) + ending;
         } catch (ParseException e) {
             e.printStackTrace();
-            return "";
+            return publishedDate.split(" ")[0].concat(".");
         }
     }
 }

@@ -1,4 +1,4 @@
-package news.factory.com.single.fragment;
+package news.factory.com.single.fragment_single;
 
 import java.util.List;
 

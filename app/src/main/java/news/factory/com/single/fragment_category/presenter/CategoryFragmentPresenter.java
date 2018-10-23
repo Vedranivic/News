@@ -1,4 +1,4 @@
-package news.factory.com.single.category_fragment.presenter;
+package news.factory.com.single.fragment_category.presenter;
 
 import android.util.Log;
 
@@ -16,7 +16,7 @@ import news.factory.com.model.data_model.News;
 import news.factory.com.model.interactor.CategoryInteractor;
 import news.factory.com.model.interactor.InteractorListener;
 import news.factory.com.adapter.RecyclerAdapter;
-import news.factory.com.single.category_fragment.CategoryFragmentContract;
+import news.factory.com.single.fragment_category.CategoryFragmentContract;
 import news.factory.com.single.view_holder.category_item.CategoryItemDataClass;
 
 public class CategoryFragmentPresenter implements CategoryFragmentContract.Presenter, InteractorListener {
@@ -61,7 +61,8 @@ public class CategoryFragmentPresenter implements CategoryFragmentContract.Prese
                     n.getCategory(),
                     n.getTitle(),
                     n.getShares(),
-                    n.getPublished_at_humans()
+                    n.getPublished_at_humans(),
+                    n.getCategory_color()
             ), R.layout.item_news));
         }
         adapter.get().setItems(items);

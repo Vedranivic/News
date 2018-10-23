@@ -1,7 +1,10 @@
 package news.factory.com.single.view_holder.feature;
 
+import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
+import android.graphics.drawable.Drawable;
+import android.support.v4.content.ContextCompat;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -17,7 +20,8 @@ import news.factory.com.base.BaseItemViewHolder;
 import news.factory.com.base.Constants;
 import news.factory.com.base.ObjectWrapper;
 import news.factory.com.base.RecyclerItemsWrapper;
-import news.factory.com.single.fragment.SingleFragmentContract;
+import news.factory.com.single.activity.view.SingleActivity;
+import news.factory.com.single.fragment_single.SingleFragmentContract;
 
 public class FeatureViewHolder extends BaseItemViewHolder {
 
@@ -58,6 +62,7 @@ public class FeatureViewHolder extends BaseItemViewHolder {
                 tvCaption.setVisibility(View.GONE);
             }
             tvCategory.setText(feature.getCategory());
+            tvCategory.getBackground().setColorFilter(Color.parseColor(feature.getCategory_color()), PorterDuff.Mode.ADD);
             tvSource.setText(feature.getSource());
             tvCaption.setText(feature.getCaption());
             Picasso.get()

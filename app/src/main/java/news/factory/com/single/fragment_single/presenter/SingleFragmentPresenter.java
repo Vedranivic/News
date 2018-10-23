@@ -1,4 +1,4 @@
-package news.factory.com.single.fragment.presenter;
+package news.factory.com.single.fragment_single.presenter;
 
 import android.util.Log;
 
@@ -17,7 +17,7 @@ import news.factory.com.model.interactor.InteractorListener;
 import news.factory.com.model.data_model.Content;
 import news.factory.com.model.data_model.News;
 import news.factory.com.adapter.RecyclerAdapter;
-import news.factory.com.single.fragment.SingleFragmentContract;
+import news.factory.com.single.fragment_single.SingleFragmentContract;
 import news.factory.com.single.view_holder.category.CategoryDataClass;
 import news.factory.com.single.view_holder.feature.FeatureDataClass;
 import news.factory.com.single.view_holder.image.ImageDataClass;
@@ -85,7 +85,8 @@ public class SingleFragmentPresenter implements SingleFragmentContract.Presenter
                     news.getCategory(),
                     news.getFeatured_image_source(),
                     news.getFeatured_image_caption(),
-                    news.getFeatured_image().getOriginal()
+                    news.getFeatured_image().getOriginal(),
+                    news.getCategory_color()
                 ), R.layout.item_feature_image));
         }
         else{
@@ -93,7 +94,8 @@ public class SingleFragmentPresenter implements SingleFragmentContract.Presenter
                     news.getCategory(),
                     news.getFeatured_image_source(),
                     news.getFeatured_image_caption(),
-                    ""
+                    "",
+                    news.getCategory_color()
             ), R.layout.item_feature_image));
         }
         //uppertitle

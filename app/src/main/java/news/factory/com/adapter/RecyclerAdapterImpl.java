@@ -15,6 +15,7 @@ import news.factory.com.base.BaseItemViewHolder;
 import news.factory.com.base.ObjectWrapper;
 import news.factory.com.base.RecyclerItemsWrapper;
 import news.factory.com.single.view_holder.category.CategoryViewHolder;
+import news.factory.com.single.view_holder.category_block.CategoryBlockViewHolder;
 import news.factory.com.single.view_holder.category_item.CategoryItemViewHolder;
 import news.factory.com.single.view_holder.feature.FeatureViewHolder;
 import news.factory.com.single.view_holder.image.ImageViewHolder;
@@ -22,6 +23,7 @@ import news.factory.com.single.view_holder.indicator.IndicatorViewHolder;
 import news.factory.com.single.view_holder.published.PublishedViewHolder;
 import news.factory.com.single.view_holder.text.TextViewHolder;
 import news.factory.com.single.view_holder.title.TitleViewHolder;
+import news.factory.com.single.view_holder.top_block.TopBlockViewHolder;
 import news.factory.com.single.view_holder.uppertitle.UpperTitleViewHolder;
 
 public class RecyclerAdapterImpl extends RecyclerView.Adapter<BaseItemViewHolder> implements RecyclerAdapter {
@@ -62,6 +64,10 @@ public class RecyclerAdapterImpl extends RecyclerView.Adapter<BaseItemViewHolder
                 return new CategoryViewHolder(view,items,objectWrapper);
             case R.layout.item_news:
                 return new CategoryItemViewHolder(view,items,objectWrapper);
+            case R.layout.item_top_block:
+                return new TopBlockViewHolder(view,items,objectWrapper);
+            case R.layout.item_category_block:
+                return new CategoryBlockViewHolder(view,items,objectWrapper);
             default:
                 return new DummyViewHolder(new View(parent.getContext()),items, objectWrapper);
         }

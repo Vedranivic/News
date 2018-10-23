@@ -1,5 +1,7 @@
 package news.factory.com.single.view_holder.category_item;
 
+import android.graphics.Color;
+import android.graphics.PorterDuff;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -16,9 +18,7 @@ import news.factory.com.base.BaseItemViewHolder;
 import news.factory.com.base.Constants;
 import news.factory.com.base.ObjectWrapper;
 import news.factory.com.base.RecyclerItemsWrapper;
-import news.factory.com.single.category_fragment.CategoryFragmentContract;
-import news.factory.com.single.category_fragment.presenter.CategoryFragmentPresenter;
-import news.factory.com.single.category_fragment.view.CategoryFragment;
+import news.factory.com.single.fragment_category.CategoryFragmentContract;
 
 public class CategoryItemViewHolder extends BaseItemViewHolder {
 
@@ -42,6 +42,7 @@ public class CategoryItemViewHolder extends BaseItemViewHolder {
         if(items.get(position).getItem() instanceof CategoryItemDataClass) {
             CategoryItemDataClass categoryItem = (CategoryItemDataClass) items.get(position).getItem();
             tvCategory.setText(categoryItem.getCategory());
+            tvCategory.getBackground().setColorFilter(Color.parseColor(categoryItem.getCategory_color()), PorterDuff.Mode.ADD);
             tvTitle.setText(categoryItem.getTitle());
             tvShares.setText(categoryItem.getShares());
             tvPublishedBefore.setText(categoryItem.getPublishedBefore());

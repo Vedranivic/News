@@ -10,7 +10,7 @@ import javax.inject.Inject;
 
 import news.factory.com.R;
 import news.factory.com.base.Constants;
-import news.factory.com.single.category_fragment.view.CategoryFragment;
+import news.factory.com.single.fragment_category.view.CategoryFragment;
 
 public class CategoryPagerAdapter extends FragmentStatePagerAdapter {
 

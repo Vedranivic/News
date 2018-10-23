@@ -49,4 +49,16 @@
     <dimen name="bottomBarHeight">56dp</dimen>
     <dimen name="shareButtonMarginEnd">16dp</dimen>
     <dimen name="shareButtonMarginBottom">28dp</dimen>
+    <dimen name="homeIndicatorHeight">2dp</dimen>
+    <dimen name="pageIndicatorWidth">60dp</dimen>
+    <dimen name="pageIndicatorMarginStart">16dp</dimen>
+    <dimen name="categoryTopBlockMarginBottom">16dp</dimen>
+    <dimen name="pageIndicatorMarginTop">376dp</dimen>
+    <dimen name="titleTopBlockMarginTop">30dp</dimen>
+    <dimen name="topBlockTitleTextSize">20sp</dimen>
+    <dimen name="categoryNameMarginStart">16dp</dimen>
+    <dimen name="categoryNameMarginTop">16dp</dimen>
+    <dimen name="categoryUnderlineHeight">3dp</dimen>
+    <dimen name="categoryUndelineMarginTop">8dp</dimen>
+    <dimen name="buttonShowMoreMarginBottom">16dp</dimen>
 </resources>

@@ -23,7 +23,7 @@
         android:layout_alignTop="@id/ivThumbnail"
         android:layout_marginStart="@dimen/categoryMarginStart"
         android:textSize="@dimen/defaultTextSize"
-        android:background="@drawable/shape_rounded"
+        android:background="@drawable/category_shape"
         />
 
     <TextView

@@ -63,7 +63,7 @@
             android:layout_marginStart="@dimen/categoryMarginStart"
             android:layout_marginBottom="@dimen/categoryMarginBottom"
             android:textSize="@dimen/defaultTextSize"
-            android:background="@drawable/shape_rounded"
+            android:background="@drawable/category_shape"
             />
 
         <ImageView

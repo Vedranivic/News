@@ -10,13 +10,15 @@ public class CategoryItemDataClass {
     private String title;
     private String shares;
     private String publishedDate;
+    private String category_color;
 
-    public CategoryItemDataClass(String imageOriginal, String category, String title, String shares, String publishedDate) {
+    public CategoryItemDataClass(String imageOriginal, String category, String title, String shares, String publishedDate, String category_color) {
         this.imageOriginal = imageOriginal;
         this.category = category;
         this.title = title;
         this.shares = shares;
         this.publishedDate = publishedDate;
+        this.category_color = category_color;
     }
 
     public String getImageOriginal() {
@@ -51,5 +53,9 @@ public class CategoryItemDataClass {
             e.printStackTrace();
             return publishedDate.split(" ")[0].concat(".");
         }
+    }
+
+    public String getCategory_color() {
+        return category_color;
     }
 }

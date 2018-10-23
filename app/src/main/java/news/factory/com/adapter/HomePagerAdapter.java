@@ -3,15 +3,15 @@ package news.factory.com.adapter;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
-import android.util.Log;
 
 import java.util.List;
 
 import javax.inject.Inject;
 
 import news.factory.com.base.Constants;
+import news.factory.com.home.fragment_home.view.HomeFragment;
 import news.factory.com.model.data_model.Menu;
-import news.factory.com.single.category_fragment.view.CategoryFragment;
+import news.factory.com.single.fragment_category.view.CategoryFragment;
 
 public class HomePagerAdapter extends FragmentStatePagerAdapter {
 
@@ -24,7 +24,7 @@ public class HomePagerAdapter extends FragmentStatePagerAdapter {
 
     @Override
     public Fragment getItem(int position) {
-        return CategoryFragment.newInstance(Constants.CATEGORY_MOSTPOPULAR,"0","1");
+        return HomeFragment.newInstance();
     }
 
     @Override
@@ -41,7 +41,6 @@ public class HomePagerAdapter extends FragmentStatePagerAdapter {
         for(Menu menu : bottomMenuItems){
             if(menu.getPriority()-1 == position){
                 pageTitle = menu.getTitle();
-                Log.d("HOME_PRESENTER", pageTitle);
             }
         }
         return pageTitle;

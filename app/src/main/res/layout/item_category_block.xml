@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/item_shape_white"
+    android:elevation="5dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+        android:id="@+id/tvCategoryName"
+        android:textSize="@dimen/topBlockTitleTextSize"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="@dimen/categoryNameMarginStart"
+        android:layout_marginTop="@dimen/categoryNameMarginTop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <FrameLayout
+        android:id="@+id/categoryUnderline"
+        android:layout_width="match_parent"
+        android:background="@android:color/black"
+        app:layout_constraintTop_toBottomOf="@id/tvCategoryName"
+        app:layout_constraintStart_toStartOf="@id/tvCategoryName"
+        app:layout_constraintEnd_toEndOf="@id/tvCategoryName"
+        android:layout_marginTop="@dimen/categoryUndelineMarginTop"
+        android:layout_height="@dimen/categoryUnderlineHeight"/>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rvCategoryBlockItems"
+        android:background="@android:color/white"
+        android:paddingStart="@dimen/categoryItemMarginStart"
+        android:paddingEnd="@dimen/categoryItemMarginStart"
+        app:layout_constraintTop_toBottomOf="@id/categoryUnderline"
+        android:layout_marginTop="@dimen/categoryItemMarginStart"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <Button
+        android:id="@+id/bShowMore"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/categoryItemMarginStart"
+        android:layout_marginTop="@dimen/categoryUndelineMarginTop"
+        android:layout_marginEnd="@dimen/categoryItemMarginStart"
+        android:layout_marginBottom="@dimen/buttonShowMoreMarginBottom"
+        android:background="@drawable/button_shape"
+        android:text="@string/buttonShowMoreText"
+        android:textColor="@color/indicatorColor"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/rvCategoryBlockItems" />
+
+</android.support.constraint.ConstraintLayout>

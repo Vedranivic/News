@@ -60,4 +60,8 @@ dependencies {
     implementation 'com.google.dagger:dagger-android-support:2.15'
     annotationProcessor 'com.google.dagger:dagger-android-processor:2.15'
 
+    //PagerIndicatorView
+    implementation 'com.romandanylyk:pageindicatorview:1.0.2'
+
+
 }

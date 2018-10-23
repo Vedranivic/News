@@ -1,4 +1,4 @@
-package news.factory.com.single.category_fragment.view;
+package news.factory.com.single.fragment_category.view;
 
 
 import android.os.Bundle;
@@ -23,7 +23,7 @@ import news.factory.com.base.Constants;
 import news.factory.com.base.RecyclerItemsWrapper;
 import news.factory.com.adapter.RecyclerAdapter;
 import news.factory.com.adapter.RecyclerAdapterImpl;
-import news.factory.com.single.category_fragment.CategoryFragmentContract;
+import news.factory.com.single.fragment_category.CategoryFragmentContract;
 
 
 public class CategoryFragment extends BaseFragment implements CategoryFragmentContract.View {

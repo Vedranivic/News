@@ -1,4 +1,4 @@
-package news.factory.com.single.category_fragment;
+package news.factory.com.single.fragment_category;
 
 import java.util.List;
 

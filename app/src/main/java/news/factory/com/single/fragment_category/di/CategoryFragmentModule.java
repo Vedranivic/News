@@ -1,4 +1,4 @@
-package news.factory.com.single.category_fragment.di;
+package news.factory.com.single.fragment_category.di;
 
 import dagger.Module;
 import dagger.Provides;
@@ -8,9 +8,9 @@ import news.factory.com.model.interactor.CategoryInteractor;
 import news.factory.com.model.interactor.CategoryInteractorImpl;
 import news.factory.com.adapter.RecyclerAdapter;
 import news.factory.com.adapter.RecyclerAdapterImpl;
-import news.factory.com.single.category_fragment.CategoryFragmentContract;
-import news.factory.com.single.category_fragment.presenter.CategoryFragmentPresenter;
-import news.factory.com.single.category_fragment.view.CategoryFragment;
+import news.factory.com.single.fragment_category.CategoryFragmentContract;
+import news.factory.com.single.fragment_category.presenter.CategoryFragmentPresenter;
+import news.factory.com.single.fragment_category.view.CategoryFragment;
 
 
 @Module

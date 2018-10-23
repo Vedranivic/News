@@ -1,8 +1,8 @@
 package news.factory.com.base;
 
 import news.factory.com.single.activity.presenter.SinglePresenter;
-import news.factory.com.single.category_fragment.presenter.CategoryFragmentPresenter;
-import news.factory.com.single.fragment.presenter.SingleFragmentPresenter;
+import news.factory.com.single.fragment_category.presenter.CategoryFragmentPresenter;
+import news.factory.com.single.fragment_single.presenter.SingleFragmentPresenter;
 
 public class ObjectWrapper {
 

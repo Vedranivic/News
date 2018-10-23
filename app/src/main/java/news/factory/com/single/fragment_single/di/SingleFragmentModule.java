@@ -1,4 +1,4 @@
-package news.factory.com.single.fragment.di;
+package news.factory.com.single.fragment_single.di;
 
 import dagger.Module;
 import dagger.Provides;
@@ -9,9 +9,9 @@ import news.factory.com.model.interactor.ArticleInteractorImpl;
 import news.factory.com.adapter.CategoryPagerAdapter;
 import news.factory.com.adapter.RecyclerAdapter;
 import news.factory.com.adapter.RecyclerAdapterImpl;
-import news.factory.com.single.fragment.SingleFragmentContract;
-import news.factory.com.single.fragment.presenter.SingleFragmentPresenter;
-import news.factory.com.single.fragment.view.SingleFragment;
+import news.factory.com.single.fragment_single.SingleFragmentContract;
+import news.factory.com.single.fragment_single.presenter.SingleFragmentPresenter;
+import news.factory.com.single.fragment_single.view.SingleFragment;
 
 @Module
 public class SingleFragmentModule {

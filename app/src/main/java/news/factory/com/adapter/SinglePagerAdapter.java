@@ -6,7 +6,7 @@ import android.support.v4.app.FragmentStatePagerAdapter;
 
 import javax.inject.Inject;
 
-import news.factory.com.single.fragment.view.SingleFragment;
+import news.factory.com.single.fragment_single.view.SingleFragment;
 
 public class SinglePagerAdapter extends FragmentStatePagerAdapter {
 

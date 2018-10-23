@@ -18,15 +18,13 @@
         app:tabMode="scrollable"
         app:tabGravity="fill"
         android:scaleY="-1"
+        android:foregroundGravity="top"
         android:maxWidth="@dimen/TabLayoutMaxWidth"
         android:background="@color/indicatorTextColor"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:tabSelectedTextColor="@android:color/white"
-        app:tabTextColor="@android:color/white"
-        app:tabTextAppearance="@style/categoryTabTextStyle"
         app:tabIndicatorColor="@android:color/white"
-        app:tabIndicatorHeight="@dimen/categoryIndicatorHeight"
+        app:tabIndicatorHeight="@dimen/homeIndicatorHeight"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 

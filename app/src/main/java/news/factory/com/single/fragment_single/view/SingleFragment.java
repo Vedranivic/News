@@ -1,4 +1,4 @@
-package news.factory.com.single.fragment.view;
+package news.factory.com.single.fragment_single.view;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -25,7 +25,7 @@ import news.factory.com.R;
 import news.factory.com.base.RecyclerItemsWrapper;
 import news.factory.com.adapter.RecyclerAdapter;
 import news.factory.com.adapter.RecyclerAdapterImpl;
-import news.factory.com.single.fragment.SingleFragmentContract;
+import news.factory.com.single.fragment_single.SingleFragmentContract;
 
 public class SingleFragment extends BaseFragment implements SingleFragmentContract.View {
 

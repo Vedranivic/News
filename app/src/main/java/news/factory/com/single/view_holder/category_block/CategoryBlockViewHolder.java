@@ -36,6 +36,7 @@ public class CategoryBlockViewHolder extends BaseItemViewHolder {
 
     public CategoryBlockViewHolder(View itemView, List<RecyclerItemsWrapper> items, ObjectWrapper objectWrapper) {
         super(itemView, items, objectWrapper);
+        adapter = (RecyclerAdapterImpl)objectWrapper.getRecyclerAdapter();
         setupAdapter();
     }
 
@@ -60,5 +61,6 @@ public class CategoryBlockViewHolder extends BaseItemViewHolder {
                 ), R.layout.item_news
             ));
         }
+        adapter.setItems(items);
     }
 }

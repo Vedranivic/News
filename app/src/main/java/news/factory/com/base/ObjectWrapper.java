@@ -12,6 +12,8 @@ public class ObjectWrapper {
 
     private Object pagerAdapter;
 
+    private Object recyclerAdapter;
+
     public ObjectWrapper(Object presenter, Object view) {
         this.presenter = presenter;
         this.view = view;
@@ -21,6 +23,14 @@ public class ObjectWrapper {
         this.presenter = presenter;
         this.view = view;
         this.pagerAdapter = pagerAdapter;
+    }
+
+    //experimental
+    public ObjectWrapper(Object presenter, Object view, Object pagerAdapter, Object recyclerAdapter) {
+        this.presenter = presenter;
+        this.view = view;
+        this.pagerAdapter = pagerAdapter;
+        this.recyclerAdapter = recyclerAdapter;
     }
 
     public int getType(){
@@ -47,5 +57,9 @@ public class ObjectWrapper {
 
     public Object getPagerAdapter() {
         return pagerAdapter;
+    }
+
+    public Object getRecyclerAdapter() {
+        return recyclerAdapter;
     }
 }

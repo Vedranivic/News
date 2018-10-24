@@ -37,10 +37,10 @@ public class CategoryFragment extends BaseFragment implements CategoryFragmentCo
     public RecyclerAdapter adapter;
 
 
-    public static CategoryFragment newInstance(String category, String id, String page) {
+    public static CategoryFragment newInstance(String category, String categoryID, String page) {
         Bundle args = new Bundle();
-        args.putString(Constants.CATEGORY_KEY, category);
-        args.putString(Constants.ARTICLE_KEY, id);
+        args.putString(Constants.CATEGORY_SORT_KEY, category);
+        args.putString(Constants.CATEGORY_ID_KEY, categoryID);
         args.putString(Constants.PAGE_KEY, page);
         CategoryFragment fragment = new CategoryFragment();
         fragment.setArguments(args);
@@ -85,14 +85,14 @@ public class CategoryFragment extends BaseFragment implements CategoryFragmentCo
 
     public String getCategory() {
         if(getArguments()!=null){
-            return getArguments().getString(Constants.CATEGORY_KEY);
+            return getArguments().getString(Constants.CATEGORY_SORT_KEY);
         }
         return "";
     }
 
     public String getID() {
         if(getArguments()!=null){
-            return getArguments().getString(Constants.ARTICLE_KEY);
+            return getArguments().getString(Constants.CATEGORY_ID_KEY);
         }
         return "";
     }

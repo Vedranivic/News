@@ -6,7 +6,10 @@
     <string name="MostPopularPageTitle">Najpopularnije</string>
     <string name="MostReadPageTitle">Najčitanije</string>
     <string name="NewestPageTitle">Najnovije</string>
-    <string name="dummyString">jbjjkbhjhhhhjhjhvvhvhsvhdhasvdhasdh ahjd jad adasdas d d ads asd asd asdasdasdas asd asd asd asd asd asd as dasdasd asd asd asd as das</string>
+    <string name="dummyString">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</string>
     <string name="bottomBarText">Avaz vijesti</string>
     <string name="buttonShowMoreText">SVI ČLANCI</string>
+    <string name="dummyCategoryText">CATEGORY</string>
+    <string name="dummyCategoryTitleName">CategoryName</string>
+    <string name="dummySharesString">23</string>
 </resources>

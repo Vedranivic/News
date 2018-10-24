@@ -14,17 +14,17 @@ import news.factory.com.R;
 import news.factory.com.base.BaseItemViewHolder;
 import news.factory.com.base.ObjectWrapper;
 import news.factory.com.base.RecyclerItemsWrapper;
-import news.factory.com.single.view_holder.category.CategoryViewHolder;
-import news.factory.com.single.view_holder.category_block.CategoryBlockViewHolder;
-import news.factory.com.single.view_holder.category_item.CategoryItemViewHolder;
-import news.factory.com.single.view_holder.feature.FeatureViewHolder;
-import news.factory.com.single.view_holder.image.ImageViewHolder;
-import news.factory.com.single.view_holder.indicator.IndicatorViewHolder;
-import news.factory.com.single.view_holder.published.PublishedViewHolder;
-import news.factory.com.single.view_holder.text.TextViewHolder;
-import news.factory.com.single.view_holder.title.TitleViewHolder;
-import news.factory.com.single.view_holder.top_block.TopBlockViewHolder;
-import news.factory.com.single.view_holder.uppertitle.UpperTitleViewHolder;
+import news.factory.com.view_holder.category.CategoryViewHolder;
+import news.factory.com.view_holder.category_block.CategoryBlockViewHolder;
+import news.factory.com.view_holder.category_item.CategoryItemViewHolder;
+import news.factory.com.view_holder.feature.FeatureViewHolder;
+import news.factory.com.view_holder.image.ImageViewHolder;
+import news.factory.com.view_holder.indicator.IndicatorViewHolder;
+import news.factory.com.view_holder.published.PublishedViewHolder;
+import news.factory.com.view_holder.text.TextViewHolder;
+import news.factory.com.view_holder.title.TitleViewHolder;
+import news.factory.com.view_holder.top_block.TopBlockViewHolder;
+import news.factory.com.view_holder.uppertitle.UpperTitleViewHolder;
 
 public class RecyclerAdapterImpl extends RecyclerView.Adapter<BaseItemViewHolder> implements RecyclerAdapter {
 

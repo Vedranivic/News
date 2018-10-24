@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@drawable/item_shape_white"
+    android:elevation="@dimen/itemElevation"
+    android:paddingBottom="@dimen/categorySortItemPaddingBottom"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ImageView
+        app:layout_constraintTop_toTopOf="parent"
+        android:id="@+id/ivThumbnail"
+        android:layout_width="match_parent"
+        android:layout_height="264dp" />
+
+    <TextView
+        android:id="@+id/tvCategory"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/white"
+        app:layout_constraintBottom_toBottomOf="@id/ivThumbnail"
+        app:layout_constraintStart_toStartOf="@id/ivThumbnail"
+        android:layout_marginStart="@dimen/categoryMarginStart"
+        android:layout_marginBottom="@dimen/categoryTagMarginBottom"
+        android:textSize="@dimen/defaultTextSize"
+        android:background="@drawable/category_shape"
+        tools:text="@string/dummyCategoryText"
+        tools:textColor="@android:color/black"
+        />
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/categoryMarginBottom"
+        android:paddingStart="@dimen/categoryMarginStart"
+        android:paddingEnd="@dimen/categoryMarginStart"
+        android:ellipsize="end"
+        android:maxLines="3"
+        android:textColor="@color/upperTitleTextColor"
+        android:textSize="@dimen/upperTitleTextSize"
+        android:textStyle="bold"
+        android:fontFamily="@font/robot_slab"
+        app:layout_constraintTop_toBottomOf="@id/ivThumbnail"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:text="@string/dummyString"
+        />
+
+    <TextView
+        android:id="@+id/tvPublishedBefore"
+        android:textSize="@dimen/defaultTextSize"
+        android:textColor="@color/textTextColor"
+        android:layout_marginTop="@dimen/publishedMarginBottom"
+        android:layout_marginStart="@dimen/categoryMarginStart"
+        app:layout_constraintTop_toBottomOf="@id/tvTitle"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:text="Prije: "
+        android:drawableStart="@drawable/ic_access_time_black_16dp"
+        android:drawablePadding="@dimen/drawablePadding"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/tvShares"
+        android:textSize="@dimen/defaultTextSize"
+        android:textColor="@color/textTextColor"
+        android:layout_marginTop="@dimen/publishedMarginBottom"
+        android:layout_marginEnd="@dimen/categoryMarginStart"
+        app:layout_constraintTop_toBottomOf="@id/tvTitle"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:drawablePadding="@dimen/sharesMarginEnd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="@string/dummySharesString"
+        android:drawableEnd="@drawable/ic_share_black_16dp"/>
+
+</android.support.constraint.ConstraintLayout>

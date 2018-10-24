@@ -1,5 +1,6 @@
 package news.factory.com.home.fragment_home.di;
 
+import dagger.Lazy;
 import dagger.Module;
 import dagger.Provides;
 import news.factory.com.adapter.RecyclerAdapter;

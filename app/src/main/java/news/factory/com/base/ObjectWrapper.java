@@ -14,6 +14,8 @@ public class ObjectWrapper {
 
     private Object recyclerAdapter;
 
+    public ObjectWrapper(){}
+
     public ObjectWrapper(Object presenter, Object view) {
         this.presenter = presenter;
         this.view = view;

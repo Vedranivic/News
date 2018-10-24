@@ -17,7 +17,7 @@ import news.factory.com.model.interactor.CategoryInteractor;
 import news.factory.com.model.interactor.InteractorListener;
 import news.factory.com.adapter.RecyclerAdapter;
 import news.factory.com.single.fragment_category.CategoryFragmentContract;
-import news.factory.com.single.view_holder.category_item.CategoryItemDataClass;
+import news.factory.com.view_holder.category_item.CategoryItemDataClass;
 
 public class CategoryFragmentPresenter implements CategoryFragmentContract.Presenter, InteractorListener {
 
@@ -55,14 +55,15 @@ public class CategoryFragmentPresenter implements CategoryFragmentContract.Prese
 
     private void getItemsList(Category result) {
         List<RecyclerItemsWrapper> items = new ArrayList<>();
-        for(News n : result.getArticles()){
+        for(News n : result.getArticles().subList(0,4)){
             items.add(new RecyclerItemsWrapper(new CategoryItemDataClass(
                     n.getFeatured_image().getOriginal(),
                     n.getCategory(),
                     n.getTitle(),
                     n.getShares(),
                     n.getPublished_at_humans(),
-                    n.getCategory_color()
+                    n.getCategory_color(),
+                    n.getId()
             ), R.layout.item_news));
         }
         adapter.get().setItems(items);

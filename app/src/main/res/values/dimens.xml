@@ -61,4 +61,13 @@
     <dimen name="categoryUnderlineHeight">3dp</dimen>
     <dimen name="categoryUndelineMarginTop">8dp</dimen>
     <dimen name="buttonShowMoreMarginBottom">16dp</dimen>
+    <dimen name="homeTabLayoutHeight">54dp</dimen>
+    <dimen name="categoryHomeViewPagerMarginTop">16dp</dimen>
+    <dimen name="categoryHomeTablayoutMarginEnd">16dp</dimen>
+    <dimen name="categoryHomeTablayoutMarginStartđ">16dp</dimen>
+    <dimen name="categoryHomeTablayoutMarginTop">24dp</dimen>
+    <dimen name="categoryTagMarginBottom">19dp</dimen>
+    <dimen name="categorySortItemPaddingBottom">7dp</dimen>
+    <dimen name="itemElevation">3dp</dimen>
+    <dimen name="drawablePadding">4dp</dimen>
 </resources>

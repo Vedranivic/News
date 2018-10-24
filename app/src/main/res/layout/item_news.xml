@@ -24,6 +24,8 @@
         android:layout_marginStart="@dimen/categoryMarginStart"
         android:textSize="@dimen/defaultTextSize"
         android:background="@drawable/category_shape"
+        tools:text="@string/dummyCategoryText"
+        tools:textColor="@android:color/black"
         />
 
     <TextView

@@ -2,6 +2,10 @@ package news.factory.com.base.dependency_injection;
 
 import dagger.Module;
 import dagger.android.ContributesAndroidInjector;
+import news.factory.com.home.fragment_category.di.HomeCategoryFragmentModule;
+import news.factory.com.home.fragment_category.view.HomeCategoryFragment;
+import news.factory.com.home.fragment_category_sort.di.HomeSortCategoryFragmentModule;
+import news.factory.com.home.fragment_category_sort.view.HomeSortCategoryFragment;
 import news.factory.com.home.fragment_home.di.HomeFragmentModule;
 import news.factory.com.home.fragment_home.view.HomeFragment;
 import news.factory.com.single.fragment_category.di.CategoryFragmentModule;
@@ -24,6 +28,12 @@ public abstract class FragmentModule {
     @ContributesAndroidInjector(modules = {HomeFragmentModule.class})
     abstract HomeFragment provideHomeFragmentFactory();
 
+    @PerFragmentScope
+    @ContributesAndroidInjector(modules = {HomeCategoryFragmentModule.class})
+    abstract HomeCategoryFragment provideHomeCategoryFragmentFactory();
 
+    @PerFragmentScope
+    @ContributesAndroidInjector(modules = {HomeSortCategoryFragmentModule.class})
+    abstract HomeSortCategoryFragment provideHomeSortCategoryFragmentFactory();
 
 }

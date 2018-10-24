@@ -12,6 +12,6 @@
     <color name="tabUnselectedTextColor">#FF9B9B9B</color>
     <color name="indicatorColor">#FFEE0000</color>
     <color name="unselectedTextTransparent">#7fffffff</color>
-    <color name="homeRecyclerBackColor">#ffbababa</color>
+    <color name="homeRecyclerBackColor">#e1e1e1</color>
     <color name="indicatorUnselectedColor">#FFD8D8D8</color>
 </resources>

@@ -18,7 +18,8 @@ import news.factory.com.model.data_model.Category;
 import news.factory.com.model.data_model.News;
 import news.factory.com.model.interactor.HomeInteractor;
 import news.factory.com.model.interactor.InteractorListener;
-import news.factory.com.single.view_holder.top_block.TopBlockDataClass;
+import news.factory.com.view_holder.category_block.CategoryBlockDataClass;
+import news.factory.com.view_holder.top_block.TopBlockDataClass;
 
 public class HomeFragmentPresenter implements HomeFragmentContract.Presenter, InteractorListener {
 
@@ -46,6 +47,11 @@ public class HomeFragmentPresenter implements HomeFragmentContract.Presenter, In
         homeInteractor.getHomeItems(this);
     }
 
+    @Override
+    public void dispose() {
+        homeInteractor.dispose();
+    }
+
     @SuppressWarnings("unchecked")
     @Override
     public void onSuccess(ResultWrapper result) {
@@ -62,7 +68,14 @@ public class HomeFragmentPresenter implements HomeFragmentContract.Presenter, In
                 result.get(0).getArticles()
             ), R.layout.item_top_block
         ));
-
+        for(Category c : result.subList(1,result.size())) {
+            items.add(new RecyclerItemsWrapper(new CategoryBlockDataClass(
+                    c.getName(),
+                    c.getColor(),
+                    c.getArticles()
+                ), R.layout.item_category_block
+            ));
+        }
         homeFragmentView.displayHomeItems(items);
     }
 

@@ -66,4 +66,10 @@ public class HomeFragment extends BaseFragment implements HomeFragmentContract.V
     public void displayHomeItems(List<RecyclerItemsWrapper> items) {
         adapter.setItems(items);
     }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        homeFragmentPresenter.dispose();
+    }
 }

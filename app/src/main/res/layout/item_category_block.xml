@@ -2,37 +2,49 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
     android:background="@drawable/item_shape_white"
-    android:elevation="5dp"
+    android:layout_marginTop="8dp"
+    android:elevation="3dp"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <TextView
-        android:id="@+id/tvCategoryName"
-        android:textSize="@dimen/topBlockTitleTextSize"
-        android:textStyle="bold"
+    <RelativeLayout
+        android:id="@+id/titleLayout"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         android:layout_marginStart="@dimen/categoryNameMarginStart"
         android:layout_marginTop="@dimen/categoryNameMarginTop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+    <TextView
+        android:id="@+id/tvCategoryName"
+        android:textSize="@dimen/topBlockTitleTextSize"
+        android:textStyle="bold"
+        android:fontFamily="@font/robot_slab"
+        android:textColor="@color/titleTextColor"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:text="@string/dummyCategoryTitleName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
     <FrameLayout
         android:id="@+id/categoryUnderline"
         android:layout_width="match_parent"
-        android:background="@android:color/black"
-        app:layout_constraintTop_toBottomOf="@id/tvCategoryName"
-        app:layout_constraintStart_toStartOf="@id/tvCategoryName"
-        app:layout_constraintEnd_toEndOf="@id/tvCategoryName"
+        android:layout_alignStart="@id/tvCategoryName"
+        android:layout_alignEnd="@id/tvCategoryName"
+        android:background="@color/indicatorColor"
+        android:layout_below="@id/tvCategoryName"
         android:layout_marginTop="@dimen/categoryUndelineMarginTop"
         android:layout_height="@dimen/categoryUnderlineHeight"/>
+    </RelativeLayout>
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/rvCategoryBlockItems"
         android:background="@android:color/white"
         android:paddingStart="@dimen/categoryItemMarginStart"
         android:paddingEnd="@dimen/categoryItemMarginStart"
-        app:layout_constraintTop_toBottomOf="@id/categoryUnderline"
+        app:layout_constraintTop_toBottomOf="@id/titleLayout"
         android:layout_marginTop="@dimen/categoryItemMarginStart"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>

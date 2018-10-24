@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.widget.FrameLayout;
-import android.widget.Toast;
 
 import javax.inject.Inject;
 
@@ -115,9 +114,11 @@ public class SingleActivity extends BaseActivity implements SingleContract.View 
         }
         else if(state == 0){
             bPrevious.setVisibility(View.GONE);
+            bNext.setVisibility(View.VISIBLE);
         }
         else if(state == adapter.getCount()-1){
             bNext.setVisibility(View.GONE);
+            bPrevious.setVisibility(View.VISIBLE);
         }
         else{
             bPrevious.setVisibility(View.VISIBLE);
@@ -132,6 +133,7 @@ public class SingleActivity extends BaseActivity implements SingleContract.View 
         shareIntent.putExtra(Intent.EXTRA_SUBJECT, "Avaz Article");
         shareIntent.putExtra(Intent.EXTRA_TEXT, articleURL);
         startActivity(Intent.createChooser(shareIntent,"Share via"));
+        //on successfull share -> update number of shares
     }
 
 }

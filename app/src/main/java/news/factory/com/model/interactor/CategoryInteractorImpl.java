@@ -23,12 +23,7 @@ public class CategoryInteractorImpl extends BaseInteractorImpl implements Catego
     @Override
     public void makeCall(String category, String id, String page, InteractorListener listener) {
         getDisposable().add(newsAPI.getByCategory(category,id,page)
-                .map((Function<Category, Object>) category1 -> {
-                    if(category1.getArticles().size()>=4) {
-                        category1.setArticles(category1.getArticles().subList(0, 4));
-                    }
-                    return new ResultWrapper(category1, Constants.CATEGORIES_TYPE);
-                })
+                .map((Function<Category, Object>) category1 -> new ResultWrapper(category1, Constants.CATEGORIES_TYPE))
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeWith(getObserver(listener))

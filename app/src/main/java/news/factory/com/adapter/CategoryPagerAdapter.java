@@ -14,7 +14,7 @@ import news.factory.com.single.fragment_category.view.CategoryFragment;
 
 public class CategoryPagerAdapter extends FragmentStatePagerAdapter {
 
-    private String id;
+    private String categoryID;
     private String page;
     private Context mContext;
 
@@ -27,10 +27,10 @@ public class CategoryPagerAdapter extends FragmentStatePagerAdapter {
     @Override
     public Fragment getItem(int position) {
         switch(position){
-            case 0: return CategoryFragment.newInstance(Constants.CATEGORY_MOSTPOPULAR,id,page);
-            case 1: return CategoryFragment.newInstance(Constants.CATEGORY_MOSTREAD,id,page);
-            case 2: return CategoryFragment.newInstance(Constants.CATEGORY_NEWEST,id,page);
-            default: return CategoryFragment.newInstance(Constants.CATEGORY_MOSTREAD,id,page);
+            case 0: return CategoryFragment.newInstance(Constants.CATEGORY_MOSTPOPULAR, categoryID,page);
+            case 1: return CategoryFragment.newInstance(Constants.CATEGORY_MOSTREAD, categoryID,page);
+            case 2: return CategoryFragment.newInstance(Constants.CATEGORY_NEWEST, categoryID,page);
+            default: return CategoryFragment.newInstance(Constants.CATEGORY_MOSTREAD, categoryID,page);
         }
     }
 
@@ -51,8 +51,8 @@ public class CategoryPagerAdapter extends FragmentStatePagerAdapter {
         return 3;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setCategoryID(String categoryID) {
+        this.categoryID = categoryID;
         notifyDataSetChanged();
     }
 

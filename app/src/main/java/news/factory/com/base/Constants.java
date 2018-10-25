@@ -10,6 +10,7 @@ public class Constants {
     public static final String ARTICLE_KEY = "articleID";
     public static final String PAGE_KEY = "PAGE";
     public static final String CATEGORY_SORT_KEY = "CATEGORY";
+    public static final String COLOR_KEY = "COLOR";
     public static final String CATEGORY_ID_KEY = "categoryID";
     public static final String FIRST_PAGE_VALUE = "1";
     public static final String CATEGORY_MOSTPOPULAR = "najpopularnije";

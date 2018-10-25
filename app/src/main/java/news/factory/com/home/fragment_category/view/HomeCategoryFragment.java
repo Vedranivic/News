@@ -1,5 +1,6 @@
 package news.factory.com.home.fragment_category.view;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -14,7 +15,7 @@ import javax.inject.Inject;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import news.factory.com.R;
-import news.factory.com.adapter.HomeCategoryPagerAdapter;
+import news.factory.com.common.adapter.HomeCategoryPagerAdapter;
 import news.factory.com.base.BaseFragment;
 import news.factory.com.base.Constants;
 import news.factory.com.home.fragment_category.HomeCategoryFragmentContract;
@@ -29,10 +30,11 @@ public class HomeCategoryFragment extends BaseFragment implements HomeCategoryFr
     @Inject
     public HomeCategoryPagerAdapter pagerAdapter;
 
-    public static HomeCategoryFragment newInstance(String categoryID, String page) {
+    public static HomeCategoryFragment newInstance(String categoryID, String page, String color) {
         Bundle args = new Bundle();
         args.putString(Constants.CATEGORY_ID_KEY, categoryID);
         args.putString(Constants.PAGE_KEY, page);
+        args.putString(Constants.COLOR_KEY, color);
         HomeCategoryFragment fragment = new HomeCategoryFragment();
         fragment.setArguments(args);
         return fragment;
@@ -51,12 +53,14 @@ public class HomeCategoryFragment extends BaseFragment implements HomeCategoryFr
 
     private void setupPager() {
         tabCategoryHome.setupWithViewPager(vpCategoryHome);
+        tabCategoryHome.setSelectedTabIndicatorColor(Color.parseColor(getColor()));
         vpCategoryHome.setAdapter(pagerAdapter);
     }
 
     private void setCategory() {
         pagerAdapter.setCategoryID(getCategoryID());
         pagerAdapter.setPage(getPage());
+        pagerAdapter.setColor(getColor());
     }
 
     private String getCategoryID() {
@@ -71,6 +75,13 @@ public class HomeCategoryFragment extends BaseFragment implements HomeCategoryFr
             return getArguments().getString(Constants.PAGE_KEY);
         }
         else return "1";
+    }
+
+    private String getColor() {
+        if(getArguments()!=null) {
+            return getArguments().getString(Constants.COLOR_KEY);
+        }
+        else return "";
     }
 
 }

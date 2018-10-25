@@ -12,16 +12,33 @@
         android:layout_width="match_parent"
         android:layout_height="484dp"/>
 
-    <com.rd.PageIndicatorView
-        android:id="@+id/pivTopBlock"
+    <RelativeLayout
         app:layout_constraintTop_toTopOf="@id/vpTopBlock"
         app:layout_constraintStart_toStartOf="parent"
         android:layout_marginStart="@dimen/pageIndicatorMarginStart"
         android:layout_marginTop="@dimen/pageIndicatorMarginTop"
+        android:layout_width="wrap_content"
+        android:translationX="-16dp"
+        android:layout_height="12dp">
+    <com.rd.PageIndicatorView
+        android:id="@+id/pivTopBlock"
         app:piv_animationType="worm"
         app:piv_selectedColor="@color/indicatorColor"
         app:piv_unselectedColor="@color/indicatorUnselectedColor"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
+
+        <FrameLayout
+            android:layout_alignStart="@id/pivTopBlock"
+            android:background="@android:color/white"
+            android:layout_width="16dp"
+            android:layout_height="match_parent"/>
+
+        <FrameLayout
+            android:layout_alignEnd="@id/pivTopBlock"
+            android:background="@android:color/white"
+            android:layout_width="16dp"
+            android:layout_height="match_parent"/>
+    </RelativeLayout>
 
 </android.support.constraint.ConstraintLayout>

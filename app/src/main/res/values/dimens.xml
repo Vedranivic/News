@@ -70,4 +70,8 @@
     <dimen name="categorySortItemPaddingBottom">7dp</dimen>
     <dimen name="itemElevation">3dp</dimen>
     <dimen name="drawablePadding">4dp</dimen>
+    <dimen name="rvHomeSortCategoryMarginStart">8dp</dimen>
+    <dimen name="rvHomeSortCategoryMarginEnd">8dp</dimen>
+    <dimen name="itemSortMarginBottom">10dp</dimen>
+    <dimen name="recyclerSortHomePaddingBottom">16dp</dimen>
 </resources>

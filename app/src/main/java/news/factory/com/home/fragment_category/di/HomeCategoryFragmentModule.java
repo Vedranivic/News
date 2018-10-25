@@ -3,7 +3,7 @@ package news.factory.com.home.fragment_category.di;
 
 import dagger.Module;
 import dagger.Provides;
-import news.factory.com.adapter.HomeCategoryPagerAdapter;
+import news.factory.com.common.adapter.HomeCategoryPagerAdapter;
 import news.factory.com.base.dependency_injection.PerFragmentScope;
 import news.factory.com.home.fragment_category.HomeCategoryFragmentContract;
 import news.factory.com.home.fragment_category.view.HomeCategoryFragment;

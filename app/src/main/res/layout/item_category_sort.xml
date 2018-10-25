@@ -6,11 +6,13 @@
     android:background="@drawable/item_shape_white"
     android:elevation="@dimen/itemElevation"
     android:paddingBottom="@dimen/categorySortItemPaddingBottom"
+    android:layout_marginBottom="@dimen/itemSortMarginBottom"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <ImageView
         app:layout_constraintTop_toTopOf="parent"
         android:id="@+id/ivThumbnail"
+        android:background="@drawable/sort_image_shape"
         android:layout_width="match_parent"
         android:layout_height="264dp" />
 
@@ -31,13 +33,14 @@
 
     <TextView
         android:id="@+id/tvTitle"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/categoryMarginBottom"
         android:paddingStart="@dimen/categoryMarginStart"
         android:paddingEnd="@dimen/categoryMarginStart"
         android:ellipsize="end"
         android:maxLines="3"
+        android:textAlignment="viewStart"
         android:textColor="@color/upperTitleTextColor"
         android:textSize="@dimen/upperTitleTextSize"
         android:textStyle="bold"
@@ -75,5 +78,14 @@
         android:layout_height="wrap_content"
         tools:text="@string/dummySharesString"
         android:drawableEnd="@drawable/ic_share_black_16dp"/>
+
+    <RelativeLayout
+        android:id="@+id/newsItem"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"/>
 
 </android.support.constraint.ConstraintLayout>

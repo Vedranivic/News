@@ -1,5 +1,7 @@
 package news.factory.com.home.fragment_category_sort.presenter;
 
+import android.util.Log;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -7,7 +9,7 @@ import javax.inject.Inject;
 
 import dagger.Lazy;
 import news.factory.com.R;
-import news.factory.com.adapter.RecyclerAdapter;
+import news.factory.com.common.adapter.RecyclerAdapter;
 import news.factory.com.base.RecyclerItemsWrapper;
 import news.factory.com.base.ResultWrapper;
 import news.factory.com.home.fragment_category_sort.HomeSortCategoryFragmentContract;
@@ -16,15 +18,17 @@ import news.factory.com.model.data_model.Category;
 import news.factory.com.model.data_model.News;
 import news.factory.com.model.interactor.CategoryInteractor;
 import news.factory.com.model.interactor.InteractorListener;
-import news.factory.com.single.fragment_category.CategoryFragmentContract;
-import news.factory.com.view_holder.category_item.CategoryItemDataClass;
+import news.factory.com.common.view_holder.category_item.CategoryItemDataClass;
 
 public class HomeSortCategoryFragmentPresenter implements HomeSortCategoryFragmentContract.Presenter, InteractorListener {
+
+    private final String TAG = HomeSortCategoryFragment.class.getSimpleName();
 
     private CategoryInteractor categoryInteractor;
     private HomeSortCategoryFragmentContract.View view;
     private String id;
     private String page;
+    private String color;
 
     @Inject
     public Lazy<RecyclerAdapter> adapter;
@@ -41,9 +45,10 @@ public class HomeSortCategoryFragmentPresenter implements HomeSortCategoryFragme
     }
 
     @Override
-    public void initialize(String id, String page) {
+    public void initialize(String id, String page, String color) {
         this.id = id;
         this.page = page;
+        this.color = color;
     }
 
     @Override
@@ -65,16 +70,17 @@ public class HomeSortCategoryFragmentPresenter implements HomeSortCategoryFragme
                     n.getTitle(),
                     n.getShares(),
                     n.getPublished_at_humans(),
-                    n.getCategory_color(),
+                    color,
                     n.getId()
-            ), R.layout.item_news));
+            ), R.layout.item_category_sort));
         }
+        items.add(new RecyclerItemsWrapper(color, R.layout.item_button));
+
         adapter.get().setItems(items);
     }
 
-
     @Override
     public void onFailure() {
-
+        Log.e(TAG, "Failed getting data");
     }
 }

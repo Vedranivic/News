@@ -9,9 +9,11 @@
 
     <android.support.v4.view.ViewPager
         android:id="@+id/vpHome"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toTopOf="@id/tabHome"
+        android:layout_marginBottom="@dimen/homeTabLayoutHeight"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="match_parent" />
 
     <android.support.design.widget.TabLayout
         android:id="@+id/tabHome"
@@ -20,7 +22,7 @@
         android:scaleY="-1"
         android:foregroundGravity="top"
         android:maxWidth="@dimen/TabLayoutMaxWidth"
-        android:background="@color/indicatorTextColor"
+        android:background="@color/indicatorColor"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:tabIndicatorColor="@android:color/white"

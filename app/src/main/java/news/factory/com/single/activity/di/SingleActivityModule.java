@@ -9,7 +9,7 @@ import news.factory.com.model.interactor.ArticleInteractorImpl;
 import news.factory.com.single.activity.SingleContract;
 import news.factory.com.single.activity.presenter.SinglePresenter;
 import news.factory.com.single.activity.view.SingleActivity;
-import news.factory.com.adapter.SinglePagerAdapter;
+import news.factory.com.common.adapter.SinglePagerAdapter;
 
 @Module
 public class SingleActivityModule {

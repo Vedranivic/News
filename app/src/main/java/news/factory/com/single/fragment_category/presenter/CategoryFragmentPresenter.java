@@ -15,9 +15,9 @@ import news.factory.com.model.data_model.Category;
 import news.factory.com.model.data_model.News;
 import news.factory.com.model.interactor.CategoryInteractor;
 import news.factory.com.model.interactor.InteractorListener;
-import news.factory.com.adapter.RecyclerAdapter;
+import news.factory.com.common.adapter.RecyclerAdapter;
 import news.factory.com.single.fragment_category.CategoryFragmentContract;
-import news.factory.com.view_holder.category_item.CategoryItemDataClass;
+import news.factory.com.common.view_holder.category_item.CategoryItemDataClass;
 
 public class CategoryFragmentPresenter implements CategoryFragmentContract.Presenter, InteractorListener {
 

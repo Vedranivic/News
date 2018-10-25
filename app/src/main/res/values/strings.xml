@@ -12,4 +12,5 @@
     <string name="dummyCategoryText">CATEGORY</string>
     <string name="dummyCategoryTitleName">CategoryName</string>
     <string name="dummySharesString">23</string>
+    <string name="loadMoreTextString">UČITAJ JOŠ</string>
 </resources>

@@ -9,17 +9,16 @@ import javax.inject.Inject;
 
 import dagger.Lazy;
 import news.factory.com.R;
-import news.factory.com.adapter.RecyclerAdapter;
+import news.factory.com.common.adapter.RecyclerAdapter;
 import news.factory.com.base.Constants;
 import news.factory.com.base.RecyclerItemsWrapper;
 import news.factory.com.base.ResultWrapper;
 import news.factory.com.home.fragment_home.HomeFragmentContract;
 import news.factory.com.model.data_model.Category;
-import news.factory.com.model.data_model.News;
 import news.factory.com.model.interactor.HomeInteractor;
 import news.factory.com.model.interactor.InteractorListener;
-import news.factory.com.view_holder.category_block.CategoryBlockDataClass;
-import news.factory.com.view_holder.top_block.TopBlockDataClass;
+import news.factory.com.common.view_holder.category_block.CategoryBlockDataClass;
+import news.factory.com.common.view_holder.top_block.TopBlockDataClass;
 
 public class HomeFragmentPresenter implements HomeFragmentContract.Presenter, InteractorListener {
 
@@ -70,6 +69,7 @@ public class HomeFragmentPresenter implements HomeFragmentContract.Presenter, In
         ));
         for(Category c : result.subList(1,result.size())) {
             items.add(new RecyclerItemsWrapper(new CategoryBlockDataClass(
+                    c.getCategory_id(),
                     c.getName(),
                     c.getColor(),
                     c.getArticles()

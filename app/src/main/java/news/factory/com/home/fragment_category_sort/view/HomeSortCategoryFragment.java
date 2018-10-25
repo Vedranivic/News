@@ -8,19 +8,18 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import news.factory.com.R;
-import news.factory.com.adapter.RecyclerAdapter;
-import news.factory.com.adapter.RecyclerAdapterImpl;
+import news.factory.com.common.adapter.RecyclerAdapter;
+import news.factory.com.common.adapter.RecyclerAdapterImpl;
 import news.factory.com.base.BaseFragment;
 import news.factory.com.base.Constants;
 import news.factory.com.home.fragment_category_sort.HomeSortCategoryFragmentContract;
-import news.factory.com.single.fragment_category.CategoryFragmentContract;
-import news.factory.com.single.fragment_category.view.CategoryFragment;
 
 public class HomeSortCategoryFragment extends BaseFragment implements HomeSortCategoryFragmentContract.View {
 
@@ -32,11 +31,12 @@ public class HomeSortCategoryFragment extends BaseFragment implements HomeSortCa
     @Inject
     public RecyclerAdapter adapter;
 
-    public static HomeSortCategoryFragment newInstance(String category, String categoryID, String page) {
+    public static HomeSortCategoryFragment newInstance(String category, String categoryID, String page, String color) {
         Bundle args = new Bundle();
         args.putString(Constants.CATEGORY_SORT_KEY, category);
         args.putString(Constants.CATEGORY_ID_KEY, categoryID);
         args.putString(Constants.PAGE_KEY, page);
+        args.putString(Constants.COLOR_KEY,color);
         HomeSortCategoryFragment fragment = new HomeSortCategoryFragment();
         fragment.setArguments(args);
         return fragment;
@@ -44,7 +44,7 @@ public class HomeSortCategoryFragment extends BaseFragment implements HomeSortCa
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        ViewGroup viewGroup = (ViewGroup) inflater.inflate(R.layout.fragment_category, container, false);
+        ViewGroup viewGroup = (ViewGroup) inflater.inflate(R.layout.fragment_category_sort_home, container, false);
         unbinder = ButterKnife.bind(this,viewGroup);
 
         setupRecycler();
@@ -61,11 +61,16 @@ public class HomeSortCategoryFragment extends BaseFragment implements HomeSortCa
     }
 
     private void setupMVP() {
-        presenter.initialize(getID(), getPage());
+        presenter.initialize(getID(), getPage(), getColor());
     }
 
     private void getItems() {
         presenter.getItemsByCategory(getCategory());
+    }
+
+    @Override
+    public void loadMore() {
+        Toast.makeText(this.getContext(),"Loading more articles", Toast.LENGTH_SHORT).show();
     }
 
     public String getCategory() {
@@ -85,6 +90,13 @@ public class HomeSortCategoryFragment extends BaseFragment implements HomeSortCa
     public String getPage() {
         if(getArguments()!=null){
             return getArguments().getString(Constants.PAGE_KEY);
+        }
+        return "";
+    }
+
+    public String getColor() {
+        if(getArguments()!=null){
+            return getArguments().getString(Constants.COLOR_KEY);
         }
         return "";
     }

@@ -16,10 +16,13 @@ import javax.inject.Inject;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import news.factory.com.R;
-import news.factory.com.adapter.RecyclerAdapter;
-import news.factory.com.adapter.RecyclerAdapterImpl;
+import news.factory.com.base.Constants;
+import news.factory.com.common.adapter.RecyclerAdapter;
+import news.factory.com.common.adapter.RecyclerAdapterImpl;
 import news.factory.com.base.BaseFragment;
 import news.factory.com.base.RecyclerItemsWrapper;
+import news.factory.com.home.activity.HomeContract;
+import news.factory.com.home.fragment_category.view.HomeCategoryFragment;
 import news.factory.com.home.fragment_home.HomeFragmentContract;
 
 
@@ -30,6 +33,7 @@ public class HomeFragment extends BaseFragment implements HomeFragmentContract.V
 
     @Inject
     public HomeFragmentContract.Presenter homeFragmentPresenter;
+
     @Inject
     public RecyclerAdapter adapter;
 

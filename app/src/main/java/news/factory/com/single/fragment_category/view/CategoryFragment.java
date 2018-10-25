@@ -21,8 +21,8 @@ import news.factory.com.R;
 import news.factory.com.base.BaseFragment;
 import news.factory.com.base.Constants;
 import news.factory.com.base.RecyclerItemsWrapper;
-import news.factory.com.adapter.RecyclerAdapter;
-import news.factory.com.adapter.RecyclerAdapterImpl;
+import news.factory.com.common.adapter.RecyclerAdapter;
+import news.factory.com.common.adapter.RecyclerAdapterImpl;
 import news.factory.com.single.fragment_category.CategoryFragmentContract;
 
 
@@ -49,7 +49,7 @@ public class CategoryFragment extends BaseFragment implements CategoryFragmentCo
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        ViewGroup viewGroup = (ViewGroup) inflater.inflate(R.layout.fragment_category, container, false);
+        ViewGroup viewGroup = (ViewGroup) inflater.inflate(R.layout.fragment_category_single, container, false);
         unbinder = ButterKnife.bind(this,viewGroup);
 
         setupRecycler();

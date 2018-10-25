@@ -17,7 +17,7 @@ import news.factory.com.base.BaseActivity;
 import news.factory.com.base.Constants;
 import news.factory.com.R;
 import news.factory.com.single.activity.SingleContract;
-import news.factory.com.adapter.SinglePagerAdapter;
+import news.factory.com.common.adapter.SinglePagerAdapter;
 
 public class SingleActivity extends BaseActivity implements SingleContract.View {
 

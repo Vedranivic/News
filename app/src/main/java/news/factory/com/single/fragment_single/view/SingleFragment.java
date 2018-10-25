@@ -23,8 +23,8 @@ import news.factory.com.base.Constants;
 import news.factory.com.R;
 
 import news.factory.com.base.RecyclerItemsWrapper;
-import news.factory.com.adapter.RecyclerAdapter;
-import news.factory.com.adapter.RecyclerAdapterImpl;
+import news.factory.com.common.adapter.RecyclerAdapter;
+import news.factory.com.common.adapter.RecyclerAdapterImpl;
 import news.factory.com.single.fragment_single.SingleFragmentContract;
 
 public class SingleFragment extends BaseFragment implements SingleFragmentContract.View {

@@ -63,18 +63,6 @@ public class HomeActivity extends BaseActivity implements HomeContract.View, Nav
         navigationView.setNavigationItemSelectedListener(this);
     }
 
-    private void getBottomMenu() {
-        homePresenter.getBottomMenu();
-    }
-
-    private void getMenu() {
-        homePresenter.getMenu();
-    }
-
-    private void setupMVP() {
-        homePresenter.initialize();
-    }
-
     private void setupAdapter() {
         vpHome.setAdapter(homePagerAdapter);
         tabHome.setupWithViewPager(vpHome,true);
@@ -94,6 +82,18 @@ public class HomeActivity extends BaseActivity implements HomeContract.View, Nav
                 selectTab(tab);
             }
         });
+    }
+
+    private void setupMVP() {
+        homePresenter.initialize();
+    }
+
+    private void getMenu() {
+        homePresenter.getMenu();
+    }
+
+    private void getBottomMenu() {
+        homePresenter.getBottomMenu();
     }
 
     @Override
@@ -152,8 +152,8 @@ public class HomeActivity extends BaseActivity implements HomeContract.View, Nav
 
     @Override
     protected void onDestroy() {
-        super.onDestroy();
         homePresenter.dispose();
+        super.onDestroy();
     }
 
     @Override

@@ -60,6 +60,7 @@ public class CategoryFragmentPresenter implements CategoryFragmentContract.Prese
                     n.getFeatured_image().getOriginal(),
                     n.getCategory(),
                     n.getTitle(),
+                    n.getSubtitle(),
                     n.getShares(),
                     n.getPublished_at_humans(),
                     n.getCategory_color(),

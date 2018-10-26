@@ -40,7 +40,6 @@ public class HomePresenter implements HomeContract.Presenter, InteractorListener
 
     @Override
     public void initialize() {
-
     }
 
     @Override

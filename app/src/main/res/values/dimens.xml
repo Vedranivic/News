@@ -75,4 +75,6 @@
     <dimen name="itemSortMarginBottom">10dp</dimen>
     <dimen name="recyclerSortHomePaddingBottom">16dp</dimen>
     <dimen name="categoryHomeFragmentPaddingTop">24dp</dimen>
+    <dimen name="subtitleMarginTop">5dp</dimen>
+    <dimen name="subtitleTextSize">13sp</dimen>
 </resources>

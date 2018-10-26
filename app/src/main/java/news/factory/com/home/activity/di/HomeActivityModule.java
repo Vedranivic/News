@@ -28,7 +28,7 @@ public class HomeActivityModule {
 
     @Provides
     @PerActivityScope
-    public HomeInteractor provideCategoryInteractor(HomeInteractorImpl homeInteractor){
+    public HomeInteractor provideHomeInteractor(HomeInteractorImpl homeInteractor){
         return homeInteractor;
     }
 

@@ -3,6 +3,7 @@ package news.factory.com.common.view_holder.category_item;
 import android.graphics.Color;
 import android.graphics.Outline;
 import android.graphics.PorterDuff;
+import android.support.annotation.Nullable;
 import android.view.View;
 import android.view.ViewOutlineProvider;
 import android.widget.ImageView;
@@ -33,6 +34,9 @@ public class CategoryItemViewHolder extends BaseItemViewHolder {
     TextView tvCategory;
     @BindView(R.id.tvTitle)
     TextView tvTitle;
+    @Nullable
+    @BindView(R.id.tvSubtitle)
+    TextView tvSubtitle;
     @BindView(R.id.tvShares)
     TextView tvShares;
     @BindView(R.id.tvPublishedBefore)
@@ -69,6 +73,9 @@ public class CategoryItemViewHolder extends BaseItemViewHolder {
                     }
                 });
                 ivThumbnail.setClipToOutline(true);
+            }
+            if(tvSubtitle != null){
+                tvSubtitle.setText(article.getSubtitle());
             }
         }
     }

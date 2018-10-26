@@ -52,12 +52,30 @@
         />
 
     <TextView
+        android:id="@+id/tvSubtitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/subtitleMarginTop"
+        android:paddingStart="@dimen/categoryMarginStart"
+        android:paddingEnd="@dimen/categoryMarginStart"
+        android:ellipsize="end"
+        android:maxLines="2"
+        android:textAlignment="viewStart"
+        android:textColor="@color/subtitletextColor"
+        android:textSize="@dimen/subtitleTextSize"
+        app:layout_constraintTop_toBottomOf="@id/tvTitle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:text="@string/dummyString"
+        />
+
+    <TextView
         android:id="@+id/tvPublishedBefore"
         android:textSize="@dimen/defaultTextSize"
         android:textColor="@color/textTextColor"
         android:layout_marginTop="@dimen/publishedMarginBottom"
         android:layout_marginStart="@dimen/categoryMarginStart"
-        app:layout_constraintTop_toBottomOf="@id/tvTitle"
+        app:layout_constraintTop_toBottomOf="@id/tvSubtitle"
         app:layout_constraintStart_toStartOf="parent"
         tools:text="Prije: "
         android:drawableStart="@drawable/ic_access_time_black_16dp"
@@ -71,7 +89,7 @@
         android:textColor="@color/textTextColor"
         android:layout_marginTop="@dimen/publishedMarginBottom"
         android:layout_marginEnd="@dimen/categoryMarginStart"
-        app:layout_constraintTop_toBottomOf="@id/tvTitle"
+        app:layout_constraintTop_toBottomOf="@id/tvSubtitle"
         app:layout_constraintEnd_toEndOf="parent"
         android:drawablePadding="@dimen/sharesMarginEnd"
         android:layout_width="wrap_content"

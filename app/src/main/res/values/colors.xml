@@ -14,4 +14,5 @@
     <color name="unselectedTextTransparent">#7fffffff</color>
     <color name="homeRecyclerBackColor">#e1e1e1</color>
     <color name="indicatorUnselectedColor">#FFD8D8D8</color>
+    <color name="subtitletextColor">#FF414A51</color>
 </resources>

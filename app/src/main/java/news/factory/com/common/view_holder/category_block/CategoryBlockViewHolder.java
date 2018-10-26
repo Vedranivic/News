@@ -11,9 +11,12 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.inject.Inject;
+
 import butterknife.BindView;
 import butterknife.OnClick;
 import news.factory.com.R;
+import news.factory.com.common.adapter.RecyclerAdapter;
 import news.factory.com.common.adapter.RecyclerAdapterImpl;
 import news.factory.com.base.BaseItemViewHolder;
 import news.factory.com.base.ObjectWrapper;
@@ -33,7 +36,8 @@ public class CategoryBlockViewHolder extends BaseItemViewHolder {
     @BindView(R.id.bShowMore)
     Button bShowMore;
 
-    private RecyclerAdapterImpl adapter;
+    @Inject
+    public RecyclerAdapter adapter;
     private String categoryName;
 
     public CategoryBlockViewHolder(View itemView, List<RecyclerItemsWrapper> items, ObjectWrapper objectWrapper) {
@@ -44,7 +48,7 @@ public class CategoryBlockViewHolder extends BaseItemViewHolder {
 
     private void setupRecycler(LinearLayoutManager linearLayoutManager) {
         rvCategoryBlockItems.setLayoutManager(linearLayoutManager);
-        rvCategoryBlockItems.setAdapter(adapter);
+        rvCategoryBlockItems.setAdapter((RecyclerAdapterImpl)adapter);
     }
 
     @Override
@@ -58,6 +62,7 @@ public class CategoryBlockViewHolder extends BaseItemViewHolder {
                     article.getFeatured_image().getOriginal(),
                     article.getCategory(),
                     article.getTitle(),
+                    article.getSubtitle(),
                     article.getShares(),
                     article.getPublished_at_humans(),
                     categoryBlock.getCategoryColor(),

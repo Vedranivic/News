@@ -8,15 +8,17 @@ public class CategoryItemDataClass {
     private String imageOriginal;
     private String category;
     private String title;
+    private String subtitle;
     private String shares;
     private String publishedDate;
     private String category_color;
     private String articleID;
 
-    public CategoryItemDataClass(String imageOriginal, String category, String title, String shares, String publishedDate, String category_color, String articleID) {
+    public CategoryItemDataClass(String imageOriginal, String category, String title, String subtitle, String shares, String publishedDate, String category_color, String articleID) {
         this.imageOriginal = imageOriginal;
         this.category = category;
         this.title = title;
+        this.subtitle = subtitle;
         this.shares = shares;
         this.publishedDate = publishedDate;
         this.category_color = category_color;
@@ -63,5 +65,9 @@ public class CategoryItemDataClass {
 
     public String getArticleID() {
         return articleID;
+    }
+
+    public String getSubtitle() {
+        return subtitle;
     }
 }

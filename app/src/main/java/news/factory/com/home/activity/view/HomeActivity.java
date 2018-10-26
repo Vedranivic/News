@@ -1,10 +1,15 @@
 package news.factory.com.home.activity.view;
 
 import android.graphics.Color;
-import android.graphics.PorterDuff;
+import android.support.annotation.NonNull;
+import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
+import android.support.v4.view.GravityCompat;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
+import android.support.v4.widget.DrawerLayout;
+import android.view.MenuItem;
+import android.view.SubMenu;
 import android.widget.TextView;
 
 import java.util.List;
@@ -19,9 +24,8 @@ import news.factory.com.common.adapter.HomePagerAdapter;
 import news.factory.com.base.BaseActivity;
 import news.factory.com.home.activity.HomeContract;
 import news.factory.com.model.data_model.Menu;
-import news.factory.com.single.activity.view.SingleActivity;
 
-public class HomeActivity extends BaseActivity implements HomeContract.View {
+public class HomeActivity extends BaseActivity implements HomeContract.View, NavigationView.OnNavigationItemSelectedListener {
 
     private static final String TAG = HomeActivity.class.getSimpleName();
 
@@ -29,6 +33,11 @@ public class HomeActivity extends BaseActivity implements HomeContract.View {
     ViewPager vpHome;
     @BindView(R.id.tabHome)
     TabLayout tabHome;
+    @BindView(R.id.drawerMenu)
+    DrawerLayout drawerMenu;
+    @BindView(R.id.nvMenu)
+    NavigationView navigationView;
+
 
     @Inject
     public HomeContract.Presenter homePresenter;
@@ -43,15 +52,15 @@ public class HomeActivity extends BaseActivity implements HomeContract.View {
         setContentView(R.layout.activity_home);
         ButterKnife.bind(this);
 
+        setupMenuNavigation();
         setupAdapter();
         setupMVP();
         getMenu();
         getBottomMenu();
-        getHomeItems();
     }
 
-    private void getHomeItems() {
-        homePresenter.getHomeItems();
+    private void setupMenuNavigation() {
+        navigationView.setNavigationItemSelectedListener(this);
     }
 
     private void getBottomMenu() {
@@ -63,7 +72,7 @@ public class HomeActivity extends BaseActivity implements HomeContract.View {
     }
 
     private void setupMVP() {
-        //homePresenter.initialize();
+        homePresenter.initialize();
     }
 
     private void setupAdapter() {
@@ -95,6 +104,20 @@ public class HomeActivity extends BaseActivity implements HomeContract.View {
             tabHome.getTabAt(i).setCustomView(R.layout.tab_home);
         }
         selectTab(tabHome.getTabAt(0));
+    }
+
+    @Override
+    public void displayMenu(List<Menu> result) {
+        SubMenu subMenu;
+        android.view.Menu menu = navigationView.getMenu();
+
+        android.view.Menu menuItems = navigationView.getMenu();
+        for(Menu menuItem : result){
+            menuItems.add(menuItem.getTitle());
+            for(Menu submenu : menuItem.getSubmenu_items()) {
+                menuItems.addSubMenu(submenu.getTitle());
+            }
+        }
     }
 
     @Override
@@ -131,5 +154,16 @@ public class HomeActivity extends BaseActivity implements HomeContract.View {
     protected void onDestroy() {
         super.onDestroy();
         homePresenter.dispose();
+    }
+
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        for(Menu menu : bottomMenuItems){
+            if(item.getTitle().equals(menu.getTitle())) {
+                vpHome.setCurrentItem(menu.getPriority()-1);
+                drawerMenu.closeDrawer(GravityCompat.START);
+            }
+        }
+        return true;
     }
 }

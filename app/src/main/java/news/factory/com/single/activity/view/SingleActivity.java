@@ -128,12 +128,14 @@ public class SingleActivity extends BaseActivity implements SingleContract.View 
 
     @OnClick(R.id.shareButton)
     public void onShare(View view){
-        Intent shareIntent = new Intent(android.content.Intent.ACTION_SEND);
-        shareIntent.setType("text/plain");
-        shareIntent.putExtra(Intent.EXTRA_SUBJECT, "Avaz Article");
-        shareIntent.putExtra(Intent.EXTRA_TEXT, articleURL);
-        startActivity(Intent.createChooser(shareIntent,"Share via"));
-        //on successfull share -> update number of shares
+        if(articleURL!=null) {
+            Intent shareIntent = new Intent(android.content.Intent.ACTION_SEND);
+            shareIntent.setType("text/plain");
+            shareIntent.putExtra(Intent.EXTRA_SUBJECT, "Avaz Article");
+            shareIntent.putExtra(Intent.EXTRA_TEXT, articleURL);
+            startActivity(Intent.createChooser(shareIntent, "Share via"));
+            //on successfull share -> update number of shares
+        }
     }
 
 }

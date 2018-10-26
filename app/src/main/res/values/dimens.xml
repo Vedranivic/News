@@ -74,4 +74,5 @@
     <dimen name="rvHomeSortCategoryMarginEnd">8dp</dimen>
     <dimen name="itemSortMarginBottom">10dp</dimen>
     <dimen name="recyclerSortHomePaddingBottom">16dp</dimen>
+    <dimen name="categoryHomeFragmentPaddingTop">24dp</dimen>
 </resources>

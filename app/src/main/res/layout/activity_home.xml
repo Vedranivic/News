@@ -1,34 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v4.widget.DrawerLayout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".home.activity.view.HomeActivity"
+    android:id="@+id/drawerMenu"
+    android:background="@android:color/white"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/white"
-    tools:context=".home.activity.view.HomeActivity">
+    android:fitsSystemWindows="false">
 
-    <android.support.v4.view.ViewPager
-        android:id="@+id/vpHome"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/tabHome"
-        android:layout_marginBottom="@dimen/homeTabLayoutHeight"
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/homeContent"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent">
 
-    <android.support.design.widget.TabLayout
-        android:id="@+id/tabHome"
-        app:tabMode="scrollable"
-        app:tabGravity="fill"
-        android:scaleY="-1"
-        android:foregroundGravity="top"
-        android:maxWidth="@dimen/TabLayoutMaxWidth"
-        android:background="@color/indicatorColor"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:tabIndicatorColor="@android:color/white"
-        app:tabIndicatorHeight="@dimen/homeIndicatorHeight"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/homeTabLayoutHeight"/>
+        <android.support.v4.view.ViewPager
+            android:id="@+id/vpHome"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/tabHome"
+            android:layout_marginBottom="@dimen/homeTabLayoutHeight"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
 
+        <android.support.design.widget.TabLayout
+            android:id="@+id/tabHome"
+            app:tabMode="scrollable"
+            app:tabGravity="fill"
+            android:scaleY="-1"
+            android:foregroundGravity="top"
+            android:maxWidth="@dimen/TabLayoutMaxWidth"
+            android:background="@color/indicatorColor"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:tabIndicatorColor="@android:color/white"
+            app:tabIndicatorHeight="@dimen/homeIndicatorHeight"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/homeTabLayoutHeight"/>
 
-</android.support.constraint.ConstraintLayout>
+    </android.support.constraint.ConstraintLayout>
+
+    <android.support.design.widget.NavigationView
+        android:id="@+id/nvMenu"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:fitsSystemWindows="true"
+        app:headerLayout="@layout/menu_header"
+        android:background="@android:color/white"
+        app:itemTextColor="@color/textTextColor"
+        />
+
+</android.support.v4.widget.DrawerLayout>

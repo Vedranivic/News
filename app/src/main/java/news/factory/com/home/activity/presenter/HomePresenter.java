@@ -29,11 +29,6 @@ public class HomePresenter implements HomeContract.Presenter, InteractorListener
     }
 
     @Override
-    public void getHomeItems() {
-        homeInteractor.getHomeItems(this);
-    }
-
-    @Override
     public void getMenu() {
         homeInteractor.getMenu(this);
     }
@@ -56,15 +51,11 @@ public class HomePresenter implements HomeContract.Presenter, InteractorListener
     @Override
     public void onSuccess(ResultWrapper result) {
         switch (result.getType()){
-            case Constants.HOME_ITEMS_TYPE:
-                Log.d("HOME_PRESENTER",((List<Category>) result.getResult()).get(0).getName());
-                break;
             case Constants.MENU_BOTTOM_TYPE:
-                Log.d("HOME_PRESENTER",((List<Menu>) result.getResult()).get(0).getTitle());
                 homeView.displayBottomMenu((List<Menu>) result.getResult());
                 break;
             case Constants.MENU_TYPE:
-                Log.d("HOME_PRESENTER",((List<Menu>) result.getResult()).get(0).getTitle());
+                homeView.displayMenu((List<Menu>) result.getResult());
                 break;
         }
     }

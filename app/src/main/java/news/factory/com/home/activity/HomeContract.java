@@ -8,12 +8,11 @@ public interface HomeContract {
 
     interface View{
         void displayBottomMenu(List<Menu> result);
-
+        void displayMenu(List<Menu> result);
         void showMore(String categoryName);
     }
 
     interface Presenter{
-        void getHomeItems();
         void getMenu();
         void getBottomMenu();
         void initialize();

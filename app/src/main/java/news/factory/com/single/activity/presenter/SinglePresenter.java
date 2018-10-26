@@ -49,10 +49,6 @@ public class SinglePresenter implements SingleContract.Presenter, InteractorList
     @Override
     public void onFailure() {
         Log.e(TAG, "Failed getting data");
-        //if no response in DRG dummy response -> open default dummyArticle
-        ((SingleActivity)singleView).finish();
-        SingleActivity.openActivityInstance((SingleActivity)singleView, "280146");
-        //articleInteractor.makeCall("280146", Constants.FIRST_PAGE_VALUE, this);
     }
 
     @Override

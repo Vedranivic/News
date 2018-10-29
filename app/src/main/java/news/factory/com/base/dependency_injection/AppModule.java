@@ -9,21 +9,22 @@ import javax.inject.Singleton;
 
 import dagger.Module;
 import dagger.Provides;
+import news.factory.com.App;
 
 
 @Module
 public class AppModule {
 
-    private Application applicationContext;
+    private App applicationContext;
 
-    public AppModule(Application applicationContext) {
+    public AppModule(App applicationContext) {
         this.applicationContext = applicationContext;
     }
 
     @Provides
     @Singleton
     @Named("ApplicationContext")
-    public Application getApplicationContext() {
+    public App getApplicationContext() {
         return applicationContext;
     }
 }

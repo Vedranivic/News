@@ -2,7 +2,8 @@ package news.factory.com.home.activity.di;
 
 import dagger.Module;
 import dagger.Provides;
-import news.factory.com.common.adapter.HomePagerAdapter;
+import news.factory.com.base.BaseInteractor;
+import news.factory.com.base.adapter.HomePagerAdapter;
 import news.factory.com.base.dependency_injection.PerActivityScope;
 import news.factory.com.home.activity.HomeContract;
 import news.factory.com.home.activity.view.HomeActivity;
@@ -16,7 +17,8 @@ public class HomeActivityModule {
 
     @Provides
     @PerActivityScope
-    public HomeContract.View provideHomeView(HomeActivity homeActivity){
+    public HomeContract.View provideHomeView(HomeActivity homeActivity, HomeInteractor homeInteractor){
+        homeActivity.getLifecycle().addObserver(homeInteractor);
         return homeActivity;
     }
 

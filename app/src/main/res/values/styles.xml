@@ -15,6 +15,20 @@
         <item name="android:textStyle">bold</item>
     </style>
 
+    <style name="homeTabStyle">
+        <item name="android:textAppearance">@style/homeTabTextStyle</item>
+    </style>
+
+    <style name="homeTabStyle.Selected" parent="homeTabStyle">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+    <style name="homeTabStyle.Unselected" parent="homeTabStyle">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/unselectedTextTransparent</item>
+    </style>
+
     <style name="homeTabTextStyle">
         <item name="android:textSize">14sp</item>
         <item name="textAllCaps">false</item>

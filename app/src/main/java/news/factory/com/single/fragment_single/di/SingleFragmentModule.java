@@ -6,9 +6,9 @@ import news.factory.com.base.ObjectWrapper;
 import news.factory.com.base.dependency_injection.PerFragmentScope;
 import news.factory.com.model.interactor.ArticleInteractor;
 import news.factory.com.model.interactor.ArticleInteractorImpl;
-import news.factory.com.common.adapter.CategoryPagerAdapter;
-import news.factory.com.common.adapter.RecyclerAdapter;
-import news.factory.com.common.adapter.RecyclerAdapterImpl;
+import news.factory.com.base.adapter.CategoryPagerAdapter;
+import news.factory.com.base.adapter.RecyclerAdapter;
+import news.factory.com.base.adapter.RecyclerAdapterImpl;
 import news.factory.com.single.fragment_single.SingleFragmentContract;
 import news.factory.com.single.fragment_single.presenter.SingleFragmentPresenter;
 import news.factory.com.single.fragment_single.view.SingleFragment;
@@ -18,7 +18,8 @@ public class SingleFragmentModule {
 
     @Provides
     @PerFragmentScope
-    public SingleFragmentContract.View provideSingleFragmentView(SingleFragment singleFragment){
+    public SingleFragmentContract.View provideSingleFragmentView(SingleFragment singleFragment, ArticleInteractor articleInteractor){
+        singleFragment.getLifecycle().addObserver(articleInteractor);
         return singleFragment;
     }
 

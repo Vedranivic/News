@@ -43,11 +43,6 @@ public class HomePresenter implements HomeContract.Presenter, InteractorListener
     }
 
     @Override
-    public void dispose() {
-        homeInteractor.dispose();
-    }
-
-    @Override
     public void onSuccess(ResultWrapper result) {
         switch (result.getType()){
             case Constants.MENU_BOTTOM_TYPE:

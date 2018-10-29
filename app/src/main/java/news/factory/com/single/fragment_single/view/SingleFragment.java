@@ -23,8 +23,8 @@ import news.factory.com.base.Constants;
 import news.factory.com.R;
 
 import news.factory.com.base.RecyclerItemsWrapper;
-import news.factory.com.common.adapter.RecyclerAdapter;
-import news.factory.com.common.adapter.RecyclerAdapterImpl;
+import news.factory.com.base.adapter.RecyclerAdapter;
+import news.factory.com.base.adapter.RecyclerAdapterImpl;
 import news.factory.com.single.fragment_single.SingleFragmentContract;
 
 public class SingleFragment extends BaseFragment implements SingleFragmentContract.View {
@@ -96,12 +96,6 @@ public class SingleFragment extends BaseFragment implements SingleFragmentContra
         else {
             return  "1";
         }
-    }
-
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-        singleFragmentPresenter.dispose();
     }
 
 }

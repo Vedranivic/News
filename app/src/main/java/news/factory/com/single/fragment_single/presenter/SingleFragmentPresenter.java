@@ -16,16 +16,16 @@ import news.factory.com.model.interactor.ArticleInteractor;
 import news.factory.com.model.interactor.InteractorListener;
 import news.factory.com.model.data_model.Content;
 import news.factory.com.model.data_model.News;
-import news.factory.com.common.adapter.RecyclerAdapter;
+import news.factory.com.base.adapter.RecyclerAdapter;
 import news.factory.com.single.fragment_single.SingleFragmentContract;
-import news.factory.com.common.view_holder.category.CategoryDataClass;
-import news.factory.com.common.view_holder.feature.FeatureDataClass;
-import news.factory.com.common.view_holder.image.ImageDataClass;
-import news.factory.com.common.view_holder.indicator.IndicatorDataClass;
-import news.factory.com.common.view_holder.published.PublishedDataClass;
-import news.factory.com.common.view_holder.text.TextDataClass;
-import news.factory.com.common.view_holder.title.TitleDataClass;
-import news.factory.com.common.view_holder.uppertitle.UppertitleDataClass;
+import news.factory.com.base.view_holder.category.CategoryDataClass;
+import news.factory.com.base.view_holder.feature.FeatureDataClass;
+import news.factory.com.base.view_holder.image.ImageDataClass;
+import news.factory.com.base.view_holder.indicator.IndicatorDataClass;
+import news.factory.com.base.view_holder.published.PublishedDataClass;
+import news.factory.com.base.view_holder.text.TextDataClass;
+import news.factory.com.base.view_holder.title.TitleDataClass;
+import news.factory.com.base.view_holder.uppertitle.UppertitleDataClass;
 
 public class SingleFragmentPresenter implements SingleFragmentContract.Presenter, InteractorListener {
 
@@ -70,12 +70,6 @@ public class SingleFragmentPresenter implements SingleFragmentContract.Presenter
     public void onFailure() {
         Log.e(TAG, "Failed getting data");
     }
-
-    @Override
-    public void dispose() {
-        articleInteractor.dispose();
-    }
-
 
     private void getItemList(News news) {
         List<RecyclerItemsWrapper> items = new ArrayList<>();

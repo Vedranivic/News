@@ -6,9 +6,9 @@
 
     <ImageView
         android:id="@+id/ivFeature"
-        android:scaleType="centerCrop"
+        android:scaleType="fitCenter"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="wrap_content" />
 
     <android.support.constraint.ConstraintLayout
         android:paddingTop="32dp"

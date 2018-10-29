@@ -9,16 +9,18 @@ import javax.inject.Inject;
 
 import dagger.Lazy;
 import news.factory.com.R;
-import news.factory.com.common.adapter.RecyclerAdapter;
+import news.factory.com.base.adapter.RecyclerAdapter;
 import news.factory.com.base.Constants;
 import news.factory.com.base.RecyclerItemsWrapper;
 import news.factory.com.base.ResultWrapper;
+import news.factory.com.base.view_holder.category_item.CategoryItemDataClass;
+import news.factory.com.base.view_holder.category_title.CategoryTitleDataClass;
 import news.factory.com.home.fragment_home.HomeFragmentContract;
 import news.factory.com.model.data_model.Category;
+import news.factory.com.model.data_model.News;
 import news.factory.com.model.interactor.HomeInteractor;
 import news.factory.com.model.interactor.InteractorListener;
-import news.factory.com.common.view_holder.category_block.CategoryBlockDataClass;
-import news.factory.com.common.view_holder.top_block.TopBlockDataClass;
+import news.factory.com.base.view_holder.top_block.TopBlockDataClass;
 
 public class HomeFragmentPresenter implements HomeFragmentContract.Presenter, InteractorListener {
 
@@ -68,12 +70,26 @@ public class HomeFragmentPresenter implements HomeFragmentContract.Presenter, In
             ), R.layout.item_top_block
         ));
         for(Category c : result.subList(1,result.size())) {
-            items.add(new RecyclerItemsWrapper(new CategoryBlockDataClass(
-                    c.getCategory_id(),
+            items.add(new RecyclerItemsWrapper(new CategoryTitleDataClass(
                     c.getName(),
-                    c.getColor(),
-                    c.getArticles()
-                ), R.layout.item_category_block
+                    c.getColor()
+                ), R.layout.item_category_title
+            ));
+            for(News article : c.getArticles()){
+                items.add(new RecyclerItemsWrapper(new CategoryItemDataClass(
+                        article.getFeatured_image().getOriginal(),
+                        article.getCategory(),
+                        article.getTitle(),
+                        article.getSubtitle(),
+                        article.getShares(),
+                        article.getPublished_at_humans(),
+                        c.getColor(),
+                        article.getId()
+                    ), R.layout.item_news
+                ));
+            }
+            items.add(new RecyclerItemsWrapper(c.getName()
+                    , R.layout.item_button_block
             ));
         }
         homeFragmentView.displayHomeItems(items);

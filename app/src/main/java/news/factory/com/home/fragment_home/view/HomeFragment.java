@@ -5,6 +5,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,8 +18,8 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import news.factory.com.R;
 import news.factory.com.base.Constants;
-import news.factory.com.common.adapter.RecyclerAdapter;
-import news.factory.com.common.adapter.RecyclerAdapterImpl;
+import news.factory.com.base.adapter.RecyclerAdapter;
+import news.factory.com.base.adapter.RecyclerAdapterImpl;
 import news.factory.com.base.BaseFragment;
 import news.factory.com.base.RecyclerItemsWrapper;
 import news.factory.com.home.activity.HomeContract;
@@ -56,6 +57,7 @@ public class HomeFragment extends BaseFragment implements HomeFragmentContract.V
     private void setupRecycler() {
         rvHome.setLayoutManager(new LinearLayoutManager(getContext()));
         rvHome.setAdapter((RecyclerAdapterImpl)adapter);
+        Log.d("ADAPTER_TAG", adapter.toString());
     }
 
     private void setupMVP() {

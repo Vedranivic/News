@@ -35,20 +35,6 @@ public class ObjectWrapper {
         this.recyclerAdapter = recyclerAdapter;
     }
 
-    public int getType(){
-        if(presenter instanceof SingleFragmentPresenter){
-            return SingleFragmentPresenter.class.hashCode();
-        }
-        else if (presenter instanceof CategoryFragmentPresenter){
-            return CategoryFragmentPresenter.class.hashCode();
-        }
-        else if (presenter instanceof SinglePresenter){
-            return SinglePresenter.class.hashCode();
-        }
-        else
-            return 0;
-    }
-
     public Object getPresenter() {
         return presenter;
     }

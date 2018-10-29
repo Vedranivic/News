@@ -6,11 +6,9 @@ import javax.inject.Inject;
 
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
-import news.factory.com.App;
 import news.factory.com.base.BaseInteractorImpl;
 import news.factory.com.base.Constants;
 import news.factory.com.base.ResultWrapper;
-import news.factory.com.base.networking.APIServiceGenerator;
 import news.factory.com.base.networking.NewsAPI;
 
 
@@ -19,8 +17,7 @@ public class ArticleInteractorImpl extends BaseInteractorImpl implements Article
     private static final String TAG = ArticleInteractorImpl.class.getSimpleName();
 
     @Inject
-    public ArticleInteractorImpl(NewsAPI newsAPI) {
-        super(newsAPI);
+    public ArticleInteractorImpl() {
     }
 
     @SuppressLint("CheckResult")

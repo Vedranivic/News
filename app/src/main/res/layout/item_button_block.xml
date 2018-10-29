@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:elevation="@dimen/itemElevation"
+    android:background="@drawable/block_shape_bottom"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <Button
+        android:id="@+id/bShowMore"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/categoryItemMarginStart"
+        android:layout_marginTop="@dimen/categoryUndelineMarginTop"
+        android:layout_marginEnd="@dimen/categoryItemMarginStart"
+        android:layout_marginBottom="@dimen/buttonShowMoreMarginBottom"
+        android:background="@drawable/button_shape"
+        android:text="@string/buttonShowMoreText"
+        android:textColor="@color/indicatorColor"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</android.support.constraint.ConstraintLayout>

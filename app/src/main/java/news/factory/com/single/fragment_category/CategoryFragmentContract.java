@@ -14,6 +14,5 @@ public interface CategoryFragmentContract {
     interface Presenter{
         void getItemsByCategory(String category);
         void initialize(String id, String page);
-        void dispose();
     }
 }

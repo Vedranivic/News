@@ -51,8 +51,4 @@ public class SinglePresenter implements SingleContract.Presenter, InteractorList
         Log.e(TAG, "Failed getting data");
     }
 
-    @Override
-    public void dispose() {
-        articleInteractor.dispose();
-    }
 }

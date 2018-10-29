@@ -21,8 +21,8 @@ import news.factory.com.R;
 import news.factory.com.base.BaseFragment;
 import news.factory.com.base.Constants;
 import news.factory.com.base.RecyclerItemsWrapper;
-import news.factory.com.common.adapter.RecyclerAdapter;
-import news.factory.com.common.adapter.RecyclerAdapterImpl;
+import news.factory.com.base.adapter.RecyclerAdapter;
+import news.factory.com.base.adapter.RecyclerAdapterImpl;
 import news.factory.com.single.fragment_category.CategoryFragmentContract;
 
 
@@ -104,9 +104,4 @@ public class CategoryFragment extends BaseFragment implements CategoryFragmentCo
         return "";
     }
 
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-        categoryFragmentPresenter.dispose();
-    }
 }

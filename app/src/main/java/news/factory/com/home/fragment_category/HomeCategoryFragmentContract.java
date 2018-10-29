@@ -7,8 +7,6 @@ public interface HomeCategoryFragmentContract {
     }
 
     interface Presenter{
-
         void initialize();
-
     }
 }

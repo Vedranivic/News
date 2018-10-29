@@ -3,7 +3,7 @@ package news.factory.com.base;
 public class Constants {
     //Api constants
     public static final String BASE_URL = "http://api.avaz.ba/api/";
-    public static final String IMAGE_BASE_URL = "http://api.avaz.ba/";
+    public static final String IMAGE_BASE_URL = "http://api.avaz.ba";
     public static final String API_TOKEN = "PTTOKEN";
 
     //String constants

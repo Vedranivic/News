@@ -15,10 +15,11 @@ import javax.inject.Inject;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import news.factory.com.R;
-import news.factory.com.common.adapter.HomeCategoryPagerAdapter;
+import news.factory.com.base.adapter.HomeCategoryPagerAdapter;
 import news.factory.com.base.BaseFragment;
 import news.factory.com.base.Constants;
 import news.factory.com.home.fragment_category.HomeCategoryFragmentContract;
+import news.factory.com.home.fragment_category.presenter.HomeCategoryFragmentPresenter;
 
 public class HomeCategoryFragment extends BaseFragment implements HomeCategoryFragmentContract.View {
 
@@ -27,6 +28,8 @@ public class HomeCategoryFragment extends BaseFragment implements HomeCategoryFr
     @BindView(R.id.vpCategoryHome)
     ViewPager vpCategoryHome;
 
+    @Inject
+    public HomeCategoryFragmentContract.Presenter presenter;
     @Inject
     public HomeCategoryPagerAdapter pagerAdapter;
 
@@ -83,5 +86,4 @@ public class HomeCategoryFragment extends BaseFragment implements HomeCategoryFr
         }
         else return "";
     }
-
 }

@@ -1,5 +1,6 @@
 package news.factory.com.base;
 
+import android.arch.lifecycle.LifecycleOwner;
 import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.support.annotation.Nullable;
@@ -13,10 +14,7 @@ import dagger.android.AndroidInjector;
 import dagger.android.DispatchingAndroidInjector;
 import dagger.android.support.HasSupportFragmentInjector;
 
-public class BaseActivity extends AppCompatActivity implements HasSupportFragmentInjector {
-
-    @Inject
-    public DispatchingAndroidInjector<Fragment> fragmentDispatchingAndroidInjector;
+public class BaseActivity extends AppCompatActivity implements LifecycleOwner {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -24,8 +22,4 @@ public class BaseActivity extends AppCompatActivity implements HasSupportFragmen
         super.onCreate(savedInstanceState);
     }
 
-    @Override
-    public AndroidInjector<Fragment> supportFragmentInjector() {
-        return fragmentDispatchingAndroidInjector;
-    }
 }

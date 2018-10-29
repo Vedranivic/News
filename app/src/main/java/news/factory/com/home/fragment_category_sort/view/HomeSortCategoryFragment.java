@@ -5,6 +5,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,8 +16,8 @@ import javax.inject.Inject;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import news.factory.com.R;
-import news.factory.com.common.adapter.RecyclerAdapter;
-import news.factory.com.common.adapter.RecyclerAdapterImpl;
+import news.factory.com.base.adapter.RecyclerAdapter;
+import news.factory.com.base.adapter.RecyclerAdapterImpl;
 import news.factory.com.base.BaseFragment;
 import news.factory.com.base.Constants;
 import news.factory.com.home.fragment_category_sort.HomeSortCategoryFragmentContract;
@@ -58,6 +59,8 @@ public class HomeSortCategoryFragment extends BaseFragment implements HomeSortCa
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
         rvCategoryItems.setLayoutManager(linearLayoutManager);
         rvCategoryItems.setAdapter((RecyclerAdapterImpl)adapter);
+        Log.d("ADAPTER_TAG", adapter.toString());
+
     }
 
     private void setupMVP() {
@@ -99,12 +102,6 @@ public class HomeSortCategoryFragment extends BaseFragment implements HomeSortCa
             return getArguments().getString(Constants.COLOR_KEY);
         }
         return "";
-    }
-
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-        presenter.dispose();
     }
 
 }

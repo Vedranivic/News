@@ -12,8 +12,7 @@ import news.factory.com.base.networking.NewsAPI;
 public class HomeInteractorImpl extends BaseInteractorImpl implements HomeInteractor {
 
     @Inject
-    public HomeInteractorImpl(NewsAPI newsAPI) {
-        super(newsAPI);
+    public HomeInteractorImpl() {
     }
 
     @SuppressWarnings("unchecked")

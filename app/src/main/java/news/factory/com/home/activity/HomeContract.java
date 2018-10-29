@@ -16,6 +16,5 @@ public interface HomeContract {
         void getMenu();
         void getBottomMenu();
         void initialize();
-        void dispose();
     }
 }

@@ -15,8 +15,7 @@ import news.factory.com.model.data_model.Category;
 public class CategoryInteractorImpl extends BaseInteractorImpl implements CategoryInteractor {
 
     @Inject
-    public CategoryInteractorImpl(NewsAPI newsAPI) {
-        super(newsAPI);
+    public CategoryInteractorImpl() {
     }
 
     @SuppressWarnings("unchecked")

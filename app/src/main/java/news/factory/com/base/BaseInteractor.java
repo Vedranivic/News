@@ -1,6 +1,8 @@
 package news.factory.com.base;
 
 
-public interface BaseInteractor {
+import android.arch.lifecycle.LifecycleObserver;
+
+public interface BaseInteractor extends LifecycleObserver {
     void dispose();
 }

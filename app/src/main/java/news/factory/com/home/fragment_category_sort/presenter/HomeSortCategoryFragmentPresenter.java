@@ -9,7 +9,7 @@ import javax.inject.Inject;
 
 import dagger.Lazy;
 import news.factory.com.R;
-import news.factory.com.common.adapter.RecyclerAdapter;
+import news.factory.com.base.adapter.RecyclerAdapter;
 import news.factory.com.base.RecyclerItemsWrapper;
 import news.factory.com.base.ResultWrapper;
 import news.factory.com.home.fragment_category_sort.HomeSortCategoryFragmentContract;
@@ -18,7 +18,7 @@ import news.factory.com.model.data_model.Category;
 import news.factory.com.model.data_model.News;
 import news.factory.com.model.interactor.CategoryInteractor;
 import news.factory.com.model.interactor.InteractorListener;
-import news.factory.com.common.view_holder.category_item.CategoryItemDataClass;
+import news.factory.com.base.view_holder.category_item.CategoryItemDataClass;
 
 public class HomeSortCategoryFragmentPresenter implements HomeSortCategoryFragmentContract.Presenter, InteractorListener {
 
@@ -37,11 +37,6 @@ public class HomeSortCategoryFragmentPresenter implements HomeSortCategoryFragme
     public HomeSortCategoryFragmentPresenter(HomeSortCategoryFragmentContract.View view, CategoryInteractor categoryInteractor){
         this.view = view;
         this.categoryInteractor = categoryInteractor;
-    }
-
-    @Override
-    public void dispose() {
-        categoryInteractor.dispose();
     }
 
     @Override

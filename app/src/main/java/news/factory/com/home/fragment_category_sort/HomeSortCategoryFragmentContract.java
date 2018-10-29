@@ -7,8 +7,6 @@ public interface HomeSortCategoryFragmentContract {
     }
 
     interface Presenter{
-        void dispose();
-
         void initialize(String id, String page, String color);
 
         void getItemsByCategory(String category);

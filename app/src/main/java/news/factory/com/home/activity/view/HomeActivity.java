@@ -2,6 +2,7 @@ package news.factory.com.home.activity.view;
 
 import android.graphics.Color;
 import android.support.annotation.NonNull;
+import android.support.constraint.ConstraintLayout;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.GravityCompat;
@@ -20,7 +21,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnPageChange;
 import news.factory.com.R;
-import news.factory.com.common.adapter.HomePagerAdapter;
+import news.factory.com.base.adapter.HomePagerAdapter;
 import news.factory.com.base.BaseActivity;
 import news.factory.com.home.activity.HomeContract;
 import news.factory.com.model.data_model.Menu;
@@ -132,28 +133,20 @@ public class HomeActivity extends BaseActivity implements HomeContract.View, Nav
     private void selectTab(TabLayout.Tab tab){
         if(tab.getCustomView()!=null) {
             TextView textView = (TextView) tab.getCustomView().findViewById(android.R.id.text1);
-            textView.setTextColor(Color.WHITE);
-            textView.setTextSize(20);
+            textView.setTextAppearance(this,R.style.homeTabStyle_Selected);
         }
     }
 
     private void unselectTab(TabLayout.Tab tab){
         if(tab.getCustomView()!=null) {
             TextView textView = (TextView) tab.getCustomView().findViewById(android.R.id.text1);
-            textView.setTextColor(getResources().getColor(R.color.unselectedTextTransparent));
-            textView.setTextSize(14);
+            textView.setTextAppearance(this,R.style.homeTabStyle_Unselected);
         }
     }
 
     @OnPageChange(R.id.vpHome)
     public void onPageStateChanged(int position){
         tabHome.setBackgroundColor(Color.parseColor(bottomMenuItems.get(position).getColor()));
-    }
-
-    @Override
-    protected void onDestroy() {
-        homePresenter.dispose();
-        super.onDestroy();
     }
 
     @Override

@@ -6,11 +6,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/newsItem"
     android:paddingTop="@dimen/categoryItemPadding"
+    android:paddingStart="@dimen/categoryItemMarginStart"
+    android:paddingEnd="@dimen/categoryItemMarginStart"
+    android:background="@android:color/white"
     >
 
     <ImageView
         android:id="@+id/ivThumbnail"
         app:layout_constraintStart_toStartOf="parent"
+        android:scaleType="centerCrop"
         android:layout_width="@dimen/ImageThumbnailWidth"
         android:layout_height="@dimen/ImageThumbnailHeight" />
 

@@ -17,7 +17,7 @@ import news.factory.com.base.BaseActivity;
 import news.factory.com.base.Constants;
 import news.factory.com.R;
 import news.factory.com.single.activity.SingleContract;
-import news.factory.com.common.adapter.SinglePagerAdapter;
+import news.factory.com.base.adapter.SinglePagerAdapter;
 
 public class SingleActivity extends BaseActivity implements SingleContract.View {
 
@@ -80,12 +80,6 @@ public class SingleActivity extends BaseActivity implements SingleContract.View 
             return getIntent().getExtras().getString(Constants.ARTICLE_KEY);
         }
         else return null;
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        singlePresenter.dispose();
     }
 
     @OnClick({R.id.bPrevious, R.id.bNext})

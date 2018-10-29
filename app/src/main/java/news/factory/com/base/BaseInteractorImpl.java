@@ -12,20 +12,12 @@ import io.reactivex.observers.DisposableSingleObserver;
 import news.factory.com.base.networking.NewsAPI;
 import news.factory.com.model.interactor.InteractorListener;
 
-public class BaseInteractorImpl implements BaseInteractor /*, LifecycleObserver*/ {
-
-    /*@OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
-    public void onDestroy(){
-
-    }*/
+public class BaseInteractorImpl implements BaseInteractor {
 
     private CompositeDisposable disposable;
 
+    @Inject
     public NewsAPI newsAPI;
-
-    public BaseInteractorImpl(NewsAPI newsAPI) {
-        this.newsAPI = newsAPI;
-    }
 
     public DisposableSingleObserver getObserver(final InteractorListener listener){
         return new DisposableSingleObserver<ResultWrapper>() {
@@ -45,11 +37,16 @@ public class BaseInteractorImpl implements BaseInteractor /*, LifecycleObserver*
     }
 
     public CompositeDisposable getDisposable(){
-        //if(disposable.isDisposed()){
         if(disposable==null || disposable.isDisposed()) {
             disposable = new CompositeDisposable();
         }
         return disposable;
+    }
+
+    @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
+    public void onDestroy(){
+        Log.d("DISPOSE_TAG", "Disposing using LifecycleObserver");
+        dispose();
     }
 
     @Override

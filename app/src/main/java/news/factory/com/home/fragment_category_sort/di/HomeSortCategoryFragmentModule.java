@@ -2,8 +2,8 @@ package news.factory.com.home.fragment_category_sort.di;
 
 import dagger.Module;
 import dagger.Provides;
-import news.factory.com.common.adapter.RecyclerAdapter;
-import news.factory.com.common.adapter.RecyclerAdapterImpl;
+import news.factory.com.base.adapter.RecyclerAdapter;
+import news.factory.com.base.adapter.RecyclerAdapterImpl;
 import news.factory.com.base.ObjectWrapper;
 import news.factory.com.base.dependency_injection.PerFragmentScope;
 import news.factory.com.home.fragment_category_sort.HomeSortCategoryFragmentContract;
@@ -17,7 +17,8 @@ public class HomeSortCategoryFragmentModule {
 
     @Provides
     @PerFragmentScope
-    public HomeSortCategoryFragmentContract.View provideCategoryFragmentView(HomeSortCategoryFragment homeSortCategoryFragment){
+    public HomeSortCategoryFragmentContract.View provideCategoryFragmentView(HomeSortCategoryFragment homeSortCategoryFragment, CategoryInteractor categoryInteractor){
+        homeSortCategoryFragment.getLifecycle().addObserver(categoryInteractor);
         return homeSortCategoryFragment;
     }
 

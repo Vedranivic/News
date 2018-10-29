@@ -13,6 +13,7 @@ import javax.inject.Singleton;
 
 import dagger.Module;
 import dagger.Provides;
+import news.factory.com.App;
 import news.factory.com.base.Constants;
 import news.factory.com.base.networking.NewsAPI;
 import okhttp3.HttpUrl;
@@ -68,7 +69,7 @@ public class ServiceModule {
 
     @Provides
     @Singleton
-    public DRGInterceptor provideDRGInterceptor(@Named("ApplicationContext") Application applicationContext){
+    public DRGInterceptor provideDRGInterceptor(@Named("ApplicationContext") App applicationContext){
         return new DRGInterceptor(applicationContext, ConstKt.MEDIATYPE_JSON);
     }
 }

@@ -10,6 +10,5 @@ public interface SingleContract {
     interface Presenter{
         void getArticle();
         void initialize(String articleID);
-        void dispose();
     }
 }

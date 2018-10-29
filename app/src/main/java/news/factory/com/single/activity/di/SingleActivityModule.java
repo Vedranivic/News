@@ -9,14 +9,15 @@ import news.factory.com.model.interactor.ArticleInteractorImpl;
 import news.factory.com.single.activity.SingleContract;
 import news.factory.com.single.activity.presenter.SinglePresenter;
 import news.factory.com.single.activity.view.SingleActivity;
-import news.factory.com.common.adapter.SinglePagerAdapter;
+import news.factory.com.base.adapter.SinglePagerAdapter;
 
 @Module
 public class SingleActivityModule {
 
     @Provides
     @PerActivityScope
-    public SingleContract.View provideSingleView(SingleActivity singleActivity){
+    public SingleContract.View provideSingleView(SingleActivity singleActivity, ArticleInteractor articleInteractor){
+        singleActivity.getLifecycle().addObserver(articleInteractor);
         return singleActivity;
     }
 

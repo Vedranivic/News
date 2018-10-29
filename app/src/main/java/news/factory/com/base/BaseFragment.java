@@ -1,5 +1,6 @@
 package news.factory.com.base;
 
+import android.arch.lifecycle.LifecycleOwner;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -11,7 +12,7 @@ import android.view.ViewGroup;
 import butterknife.Unbinder;
 import dagger.android.support.AndroidSupportInjection;
 
-public class BaseFragment extends Fragment {
+public class BaseFragment extends Fragment implements LifecycleOwner {
 
     public Unbinder unbinder;
 

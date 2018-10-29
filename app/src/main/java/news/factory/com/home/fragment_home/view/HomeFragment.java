@@ -73,9 +73,4 @@ public class HomeFragment extends BaseFragment implements HomeFragmentContract.V
         adapter.setItems(items);
     }
 
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-        homeFragmentPresenter.dispose();
-    }
 }

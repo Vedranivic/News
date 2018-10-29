@@ -48,10 +48,6 @@ public class HomeFragmentPresenter implements HomeFragmentContract.Presenter, In
         homeInteractor.getHomeItems(this);
     }
 
-    @Override
-    public void dispose() {
-        homeInteractor.dispose();
-    }
 
     @SuppressWarnings("unchecked")
     @Override

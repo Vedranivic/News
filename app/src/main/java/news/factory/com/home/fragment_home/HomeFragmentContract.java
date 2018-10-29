@@ -13,6 +13,5 @@ public interface HomeFragmentContract {
     interface Presenter{
         void initialize();
         void getHomeItems();
-        void dispose();
     }
 }

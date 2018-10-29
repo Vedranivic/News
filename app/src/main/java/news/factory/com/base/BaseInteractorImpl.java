@@ -43,15 +43,9 @@ public class BaseInteractorImpl implements BaseInteractor {
         return disposable;
     }
 
-    @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
+    @Override
     public void onDestroy(){
         Log.d("DISPOSE_TAG", "Disposing using LifecycleObserver");
-        dispose();
-    }
-
-    @Override
-    public void dispose() {
         disposable.dispose();
     }
-
 }

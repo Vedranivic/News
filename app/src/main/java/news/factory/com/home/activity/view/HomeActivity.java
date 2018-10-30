@@ -21,10 +21,12 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnPageChange;
 import news.factory.com.R;
+import news.factory.com.base.Constants;
 import news.factory.com.base.adapter.HomePagerAdapter;
 import news.factory.com.base.BaseActivity;
 import news.factory.com.home.activity.HomeContract;
 import news.factory.com.model.data_model.Menu;
+import news.factory.com.single.activity.view.SingleActivity;
 
 public class HomeActivity extends BaseActivity implements HomeContract.View, NavigationView.OnNavigationItemSelectedListener {
 
@@ -58,6 +60,15 @@ public class HomeActivity extends BaseActivity implements HomeContract.View, Nav
         setupMVP();
         getMenu();
         getBottomMenu();
+        notificationLaunch();
+    }
+
+    private void notificationLaunch() {
+        if(getIntent().hasExtra(Constants.ARTICLE_KEY)){
+            SingleActivity.openActivityInstance(
+                    this,
+                    getIntent().getExtras().getString(Constants.ARTICLE_KEY));
+        }
     }
 
     private void setupMenuNavigation() {

@@ -89,6 +89,15 @@ public class HomeFragmentPresenter implements HomeFragmentContract.Presenter, In
             ));
         }
         homeFragmentView.displayHomeItems(items);
+
+        /*AtomicInteger msgId = new AtomicInteger();
+        FirebaseMessaging.getInstance().send(
+                new RemoteMessage.Builder("16731438207" + "@gcm.googleapis.com")
+                .setMessageId(Integer.toString(msgId.incrementAndGet()))
+                .addData("title","Avaz News")
+                .addData("message",result.get(0).getArticles().get(0).getTitle())
+                .build()
+        );*/
     }
 
     @Override

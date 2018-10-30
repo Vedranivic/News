@@ -9,6 +9,7 @@ import javax.inject.Inject;
 
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.observers.DisposableSingleObserver;
+import io.realm.Realm;
 import news.factory.com.base.networking.NewsAPI;
 import news.factory.com.model.interactor.InteractorListener;
 
@@ -18,6 +19,8 @@ public class BaseInteractorImpl implements BaseInteractor {
 
     @Inject
     public NewsAPI newsAPI;
+    @Inject
+    public Realm realm;
 
     public DisposableSingleObserver getObserver(final InteractorListener listener){
         return new DisposableSingleObserver<ResultWrapper>() {

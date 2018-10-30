@@ -21,6 +21,8 @@ import javax.inject.Inject;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnPageChange;
+import io.realm.Realm;
+import io.realm.RealmResults;
 import news.factory.com.R;
 import news.factory.com.base.Constants;
 import news.factory.com.base.adapter.HomePagerAdapter;
@@ -69,7 +71,6 @@ public class HomeActivity extends BaseActivity implements HomeContract.View, Nav
             SingleActivity.openActivityInstance(
                     this,
                     getIntent().getExtras().getString(Constants.ARTICLE_KEY));
-            Log.d(TAG,"Inside");
             getIntent().removeExtra(Constants.ARTICLE_KEY);
         }
     }

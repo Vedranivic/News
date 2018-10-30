@@ -47,9 +47,12 @@ public class HomePresenter implements HomeContract.Presenter, InteractorListener
         switch (result.getType()){
             case Constants.MENU_BOTTOM_TYPE:
                 homeView.displayBottomMenu((List<Menu>) result.getResult());
+                //homeInteractor.writeToDatabase((List<Menu>)result.getResult());
                 break;
             case Constants.MENU_TYPE:
                 homeView.displayMenu((List<Menu>) result.getResult());
+                homeInteractor.writeToDatabase((List<Menu>)result.getResult());
+                homeInteractor.loadFromDatabase();
                 break;
         }
     }

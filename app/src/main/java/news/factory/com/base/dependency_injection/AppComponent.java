@@ -11,6 +11,7 @@ import news.factory.com.App;
 @Component(modules = {
         AppModule.class,
         NetworkModule.class,
+        DatabaseModule.class,
         ActivityModule.class,
         AndroidInjectionModule.class,
         FragmentModule.class,

@@ -3,6 +3,8 @@ package news.factory.com.model.data_model;
 import java.util.ArrayList;
 import java.util.List;
 
+import io.realm.RealmObject;
+
 
 public class News
 {

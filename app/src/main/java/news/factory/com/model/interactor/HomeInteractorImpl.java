@@ -1,13 +1,22 @@
 package news.factory.com.model.interactor;
 
+import android.util.Log;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.inject.Inject;
 
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
+import io.realm.Realm;
+import io.realm.RealmList;
+import io.realm.RealmResults;
 import news.factory.com.base.BaseInteractorImpl;
 import news.factory.com.base.Constants;
 import news.factory.com.base.ResultWrapper;
 import news.factory.com.base.networking.NewsAPI;
+import news.factory.com.model.data_model.Menu;
 
 public class HomeInteractorImpl extends BaseInteractorImpl implements HomeInteractor {
 
@@ -46,5 +55,27 @@ public class HomeInteractorImpl extends BaseInteractorImpl implements HomeIntera
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeWith(getObserver(listener))
         );
+    }
+
+    @Override
+    public void writeToDatabase(List<Menu> menuList) {
+        realm.executeTransactionAsync(new Realm.Transaction() {
+            @Override
+            public void execute(Realm realm) {
+                realm.insertOrUpdate(menuList);
+                Log.d("MYTAG_SIZE",String.valueOf(menuList.size()));
+                //realm.insertOrUpdate(menuList);
+            }
+        });
+    }
+
+    @Override
+    public void loadFromDatabase() {
+        RealmResults<Menu> menuList = realm.where(Menu.class).equalTo("parent_id","0").findAll();
+        realm.beginTransaction();
+        for(Menu menu : menuList){
+            Log.d("MYTAG","TITLE:" + menu.getTitle());
+        }
+        realm.cancelTransaction();
     }
 }

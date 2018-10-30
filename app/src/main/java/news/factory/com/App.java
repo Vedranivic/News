@@ -40,7 +40,6 @@ public class App extends Application implements HasActivityInjector, HasSupportF
                 .appModule(new AppModule(this))
                 .build();
         appComponent.inject(this);
-
     }
 
     public AppComponent getAppComponent(){

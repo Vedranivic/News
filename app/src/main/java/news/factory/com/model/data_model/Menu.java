@@ -2,7 +2,10 @@ package news.factory.com.model.data_model;
 
 import java.util.List;
 
-public class Menu {
+import io.realm.RealmList;
+import io.realm.RealmObject;
+
+public class Menu extends RealmObject {
 
     private String id;
     private String url;
@@ -10,7 +13,7 @@ public class Menu {
     private String color;
     private String type;
     private int priority;
-    private List<Menu> submenu_items;
+    private RealmList<Menu> submenu_items;
     private String icon;
     private String category_id;
     private String parent_id;

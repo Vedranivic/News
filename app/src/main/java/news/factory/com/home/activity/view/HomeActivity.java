@@ -68,6 +68,7 @@ public class HomeActivity extends BaseActivity implements HomeContract.View, Nav
             SingleActivity.openActivityInstance(
                     this,
                     getIntent().getExtras().getString(Constants.ARTICLE_KEY));
+            getIntent().removeExtra(Constants.ARTICLE_KEY);
         }
     }
 

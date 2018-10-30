@@ -10,10 +10,11 @@ import news.factory.com.App;
 @Singleton
 @Component(modules = {
         AppModule.class,
-        ServiceModule.class,
+        NetworkModule.class,
         ActivityModule.class,
         AndroidInjectionModule.class,
-        FragmentModule.class
+        FragmentModule.class,
+        ServiceModule.class
 })
 public interface AppComponent {
 

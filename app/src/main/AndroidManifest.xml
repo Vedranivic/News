@@ -32,7 +32,7 @@
         <activity android:name=".single.activity.view.SingleActivity"
             android:theme="@style/Theme.NoActionBar.NoTitle.TransparentStatusBar"
             />
-        <service android:name=".base.networking.MessagingService">
+        <service android:name=".messaging.MessagingService">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>

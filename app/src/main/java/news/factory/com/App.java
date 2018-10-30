@@ -2,10 +2,9 @@ package news.factory.com;
 
 import android.app.Activity;
 import android.app.Application;
+import android.app.Service;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 
-import com.google.firebase.iid.FirebaseInstanceId;
 import com.maradroid.dummyresponsegenerator.base.interactor.InteractorImpl;
 import com.maradroid.dummyresponsegenerator.utils.SharedPerfRepo;
 
@@ -14,18 +13,20 @@ import javax.inject.Inject;
 import dagger.android.AndroidInjector;
 import dagger.android.DispatchingAndroidInjector;
 import dagger.android.HasActivityInjector;
+import dagger.android.HasServiceInjector;
 import dagger.android.support.HasSupportFragmentInjector;
 import news.factory.com.base.dependency_injection.AppComponent;
 import news.factory.com.base.dependency_injection.AppModule;
 import news.factory.com.base.dependency_injection.DaggerAppComponent;
-import news.factory.com.base.networking.MessagingService;
 
-public class App extends Application implements HasActivityInjector, HasSupportFragmentInjector {
+public class App extends Application implements HasActivityInjector, HasSupportFragmentInjector, HasServiceInjector {
 
     @Inject
     public DispatchingAndroidInjector<Activity> activityDispatchingAndroidInjector;
     @Inject
     public DispatchingAndroidInjector<Fragment> fragmentDispatchingAndroidInjector;
+    @Inject
+    public DispatchingAndroidInjector<Service> serviceDispatchingAndroidInjector;
 
     private AppComponent appComponent;
 
@@ -54,5 +55,10 @@ public class App extends Application implements HasActivityInjector, HasSupportF
     @Override
     public AndroidInjector<Fragment> supportFragmentInjector() {
         return fragmentDispatchingAndroidInjector;
+    }
+
+    @Override
+    public AndroidInjector<Service> serviceInjector() {
+        return serviceDispatchingAndroidInjector;
     }
 }

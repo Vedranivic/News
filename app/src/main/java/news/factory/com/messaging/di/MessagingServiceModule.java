@@ -10,7 +10,6 @@ import android.media.RingtoneManager;
 import dagger.Module;
 import dagger.Provides;
 import news.factory.com.R;
-import news.factory.com.base.Constants;
 import news.factory.com.base.dependency_injection.PerServiceScope;
 import news.factory.com.messaging.MessagingService;
 import news.factory.com.single.activity.view.SingleActivity;

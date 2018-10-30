@@ -9,6 +9,7 @@ import android.support.v4.view.GravityCompat;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.SubMenu;
 import android.widget.TextView;
@@ -68,6 +69,7 @@ public class HomeActivity extends BaseActivity implements HomeContract.View, Nav
             SingleActivity.openActivityInstance(
                     this,
                     getIntent().getExtras().getString(Constants.ARTICLE_KEY));
+            Log.d(TAG,"Inside");
             getIntent().removeExtra(Constants.ARTICLE_KEY);
         }
     }

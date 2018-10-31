@@ -64,7 +64,7 @@ public class HomeSortCategoryFragment extends BaseFragment implements HomeSortCa
     }
 
     private void setupMVP() {
-        presenter.initialize(getID(), getPage(), getColor());
+        presenter.initialize(getID(), getPage(), getColor(), isNetworkConnected());
     }
 
     private void getItems() {

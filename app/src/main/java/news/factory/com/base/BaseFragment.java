@@ -1,6 +1,9 @@
 package news.factory.com.base;
 
 import android.arch.lifecycle.LifecycleOwner;
+import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -28,5 +31,12 @@ public class BaseFragment extends Fragment implements LifecycleOwner {
         if(unbinder!=null) {
             unbinder.unbind();
         }
+    }
+
+    public Boolean isNetworkConnected() {
+        ConnectivityManager connectivityManager =
+                (ConnectivityManager) getActivity().getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+        return activeNetworkInfo != null && activeNetworkInfo.isConnected();
     }
 }

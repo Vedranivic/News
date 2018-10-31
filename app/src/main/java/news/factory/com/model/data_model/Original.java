@@ -1,6 +1,8 @@
 package news.factory.com.model.data_model;
 
-public class Original
+import io.realm.RealmObject;
+
+public class Original extends RealmObject
 {
     private String height;
 

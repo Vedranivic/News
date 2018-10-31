@@ -2,7 +2,9 @@ package news.factory.com.model.data_model;
 
 import com.google.gson.annotations.SerializedName;
 
-public class FeaturedImage
+import io.realm.RealmObject;
+
+public class FeaturedImage extends RealmObject
 {
     private String slider;
 

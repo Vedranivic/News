@@ -29,6 +29,7 @@ public class HomeSortCategoryFragmentPresenter implements HomeSortCategoryFragme
     private String id;
     private String page;
     private String color;
+    private Boolean isNetworkConnected;
 
     @Inject
     public Lazy<RecyclerAdapter> adapter;
@@ -40,20 +41,27 @@ public class HomeSortCategoryFragmentPresenter implements HomeSortCategoryFragme
     }
 
     @Override
-    public void initialize(String id, String page, String color) {
+    public void initialize(String id, String page, String color, Boolean isNetworkConnected) {
         this.id = id;
         this.page = page;
         this.color = color;
+        this.isNetworkConnected = isNetworkConnected;
     }
 
     @Override
     public void getItemsByCategory(String category) {
-        categoryInteractor.makeCall(category,id,page,this);
+        if(isNetworkConnected) {
+            categoryInteractor.makeCall(category, id, page, this);
+        }
+        else {
+            categoryInteractor.makeCallFromDatabase(category,id,page,this);
+        }
     }
 
     @Override
     public void onSuccess(ResultWrapper result) {
         getItemsList((Category) result.getResult());
+        categoryInteractor.writeToDatabase(result);
     }
 
     private void getItemsList(Category result) {

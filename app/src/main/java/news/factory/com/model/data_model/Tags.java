@@ -1,6 +1,8 @@
 package news.factory.com.model.data_model;
 
-public class Tags
+import io.realm.RealmObject;
+
+public class Tags extends RealmObject
 {
     private String id;
 

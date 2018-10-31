@@ -1,6 +1,8 @@
 package news.factory.com.model.data_model;
 
-public class CreatedAt
+import io.realm.RealmObject;
+
+public class CreatedAt extends RealmObject
 {
     private String timezone;
 

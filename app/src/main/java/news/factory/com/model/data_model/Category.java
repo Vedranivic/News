@@ -2,7 +2,12 @@ package news.factory.com.model.data_model;
 
 import java.util.List;
 
-public class Category {
+import io.realm.RealmList;
+import io.realm.RealmObject;
+import io.realm.annotations.PrimaryKey;
+
+public class Category extends RealmObject {
+
     private String id;
     private String name;
     private String title;
@@ -11,6 +16,7 @@ public class Category {
     private String slug;
     private String url;
     private String icon;
+    @PrimaryKey
     private String category_id;
     private String template;
     private String breadcrumbs;
@@ -26,11 +32,7 @@ public class Category {
     private String widget;
     private int article_selection;
 
-    private List<News> articles;
-
-    public void setArticles(List<News> articles) {
-        this.articles = articles;
-    }
+    private RealmList<News> articles;
 
     public String getId() {
         return id;
@@ -120,7 +122,7 @@ public class Category {
         return article_selection;
     }
 
-    public List<News> getArticles() {
+    public RealmList<News> getArticles() {
         return articles;
     }
 }

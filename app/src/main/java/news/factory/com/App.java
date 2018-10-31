@@ -3,6 +3,9 @@ package news.factory.com;
 import android.app.Activity;
 import android.app.Application;
 import android.app.Service;
+import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.support.v4.app.Fragment;
 
 import com.maradroid.dummyresponsegenerator.base.interactor.InteractorImpl;
@@ -60,4 +63,5 @@ public class App extends Application implements HasActivityInjector, HasSupportF
     public AndroidInjector<Service> serviceInjector() {
         return serviceDispatchingAndroidInjector;
     }
+
 }

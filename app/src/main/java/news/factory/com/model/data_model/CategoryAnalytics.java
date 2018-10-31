@@ -1,6 +1,8 @@
 package news.factory.com.model.data_model;
 
-public class CategoryAnalytics
+import io.realm.RealmObject;
+
+public class CategoryAnalytics extends RealmObject
 {
     private String dotmetrics;
 

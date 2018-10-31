@@ -61,7 +61,7 @@ public class HomeFragment extends BaseFragment implements HomeFragmentContract.V
     }
 
     private void setupMVP() {
-        homeFragmentPresenter.initialize();
+        homeFragmentPresenter.initialize(isNetworkConnected());
     }
 
     private void getHomeItems() {

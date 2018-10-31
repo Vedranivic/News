@@ -1,6 +1,8 @@
 package news.factory.com.model.data_model;
 
-public class Image
+import io.realm.RealmObject;
+
+public class Image extends RealmObject
 {
     private String xxl;
 

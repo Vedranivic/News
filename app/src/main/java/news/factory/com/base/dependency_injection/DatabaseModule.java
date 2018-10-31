@@ -8,6 +8,7 @@ import javax.inject.Singleton;
 import dagger.Module;
 import dagger.Provides;
 import io.realm.Realm;
+import io.realm.RealmConfiguration;
 import news.factory.com.App;
 
 @Module(includes = AppModule.class)
@@ -17,7 +18,11 @@ public class DatabaseModule {
     @Singleton
     public Realm provideRealm(@Named("ApplicationContext") App applicationContext){
         Realm.init(applicationContext);
-        return Realm.getDefaultInstance();
+        RealmConfiguration config = new RealmConfiguration
+                .Builder()
+                .deleteRealmIfMigrationNeeded()
+                .build();
+        return Realm.getInstance(config);
     }
 
 }

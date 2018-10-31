@@ -7,7 +7,7 @@ public interface HomeSortCategoryFragmentContract {
     }
 
     interface Presenter{
-        void initialize(String id, String page, String color);
+        void initialize(String id, String page, String color, Boolean isNetworkConnected);
 
         void getItemsByCategory(String category);
     }

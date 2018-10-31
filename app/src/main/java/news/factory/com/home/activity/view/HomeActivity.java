@@ -1,6 +1,10 @@
 package news.factory.com.home.activity.view;
 
+import android.app.AlertDialog;
+import android.content.Context;
 import android.graphics.Color;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.support.annotation.NonNull;
 import android.support.constraint.ConstraintLayout;
 import android.support.design.widget.NavigationView;
@@ -101,7 +105,7 @@ public class HomeActivity extends BaseActivity implements HomeContract.View, Nav
     }
 
     private void setupMVP() {
-        homePresenter.initialize();
+        homePresenter.initialize(isNetworkConnected());
     }
 
     private void getMenu() {
@@ -124,9 +128,6 @@ public class HomeActivity extends BaseActivity implements HomeContract.View, Nav
 
     @Override
     public void displayMenu(List<Menu> result) {
-        SubMenu subMenu;
-        android.view.Menu menu = navigationView.getMenu();
-
         android.view.Menu menuItems = navigationView.getMenu();
         for(Menu menuItem : result){
             menuItems.add(menuItem.getTitle());
@@ -143,6 +144,14 @@ public class HomeActivity extends BaseActivity implements HomeContract.View, Nav
                 vpHome.setCurrentItem(menu.getPriority()-1);
             }
         }
+    }
+
+    @Override
+    public void displayErrorMessage(String errorMessage) {
+        new AlertDialog.Builder(this)
+                .setTitle("Error")
+                .setMessage(errorMessage)
+                .create().show();
     }
 
     private void selectTab(TabLayout.Tab tab){
@@ -174,4 +183,5 @@ public class HomeActivity extends BaseActivity implements HomeContract.View, Nav
         }
         return true;
     }
+
 }

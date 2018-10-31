@@ -17,6 +17,7 @@ import news.factory.com.base.view_holder.category_item.CategoryItemDataClass;
 import news.factory.com.base.view_holder.category_title.CategoryTitleDataClass;
 import news.factory.com.home.fragment_home.HomeFragmentContract;
 import news.factory.com.model.data_model.Category;
+import news.factory.com.model.data_model.HomeItemsList;
 import news.factory.com.model.data_model.News;
 import news.factory.com.model.interactor.HomeInteractor;
 import news.factory.com.model.interactor.InteractorListener;
@@ -28,6 +29,7 @@ public class HomeFragmentPresenter implements HomeFragmentContract.Presenter, In
 
     private HomeInteractor homeInteractor;
     private HomeFragmentContract.View homeFragmentView;
+    private Boolean isNetworkConnected;
 
     @Inject
     public Lazy<RecyclerAdapter> adapter;
@@ -39,13 +41,19 @@ public class HomeFragmentPresenter implements HomeFragmentContract.Presenter, In
     }
 
     @Override
-    public void initialize() {
-
+    public void initialize(Boolean isNetworkConnected) {
+        this.isNetworkConnected = isNetworkConnected;
     }
 
     @Override
     public void getHomeItems() {
-        homeInteractor.getHomeItems(this);
+        Log.d(TAG, "Connected to network: " + String.valueOf(isNetworkConnected.booleanValue()));
+        if(isNetworkConnected) {
+            homeInteractor.getHomeItems(this);
+        }
+        else {
+            homeInteractor.getHomeItemsFromDataBase(this);
+        }
     }
 
 
@@ -55,6 +63,12 @@ public class HomeFragmentPresenter implements HomeFragmentContract.Presenter, In
         switch (result.getType()) {
             case Constants.HOME_ITEMS_TYPE:
                 getItemList((List<Category>)result.getResult());
+                homeInteractor.writeToDatabase(result);
+                break;
+            case Constants.HOME_ITEMS_DB_TYPE:
+                getItemList(((HomeItemsList)result.getResult()).getItemList());
+                Log.d(TAG, "HomeItems Loaded from database");
+                break;
         }
     }
 

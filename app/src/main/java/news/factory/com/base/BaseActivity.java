@@ -1,6 +1,9 @@
 package news.factory.com.base;
 
 import android.arch.lifecycle.LifecycleOwner;
+import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.support.annotation.Nullable;
@@ -20,6 +23,12 @@ public class BaseActivity extends AppCompatActivity implements LifecycleOwner {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         AndroidInjection.inject(this);
         super.onCreate(savedInstanceState);
+    }
+
+    public Boolean isNetworkConnected() {
+        ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+        return activeNetworkInfo != null && activeNetworkInfo.isConnected();
     }
 
 }

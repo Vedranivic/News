@@ -1,6 +1,8 @@
 package news.factory.com.model.data_model;
 
-public class Content
+import io.realm.RealmObject;
+
+public class Content extends RealmObject
 {
     private ImageWithSize image_with_size;
 

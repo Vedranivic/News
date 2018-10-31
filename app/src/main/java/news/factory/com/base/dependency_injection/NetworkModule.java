@@ -2,6 +2,7 @@ package news.factory.com.base.dependency_injection;
 
 import android.app.Application;
 import android.content.Context;
+import android.net.ConnectivityManager;
 
 import com.maradroid.dummyresponsegenerator.base.DRGInterceptor;
 import com.maradroid.dummyresponsegenerator.utils.ConstKt;
@@ -72,4 +73,5 @@ public class NetworkModule {
     public DRGInterceptor provideDRGInterceptor(@Named("ApplicationContext") App applicationContext){
         return new DRGInterceptor(applicationContext, ConstKt.MEDIATYPE_JSON);
     }
+
 }

@@ -24,7 +24,9 @@ public class Constants {
     public static final int CATEGORIES_TYPE = 222;
     public static final int HOME_ITEMS_TYPE = 333;
     public static final int MENU_TYPE = 444;
-    public static final int MENU_BOTTOM_TYPE = 555;
-
+    public static final int BOTTOM_MENU_TYPE = 555;
+    public static final int MENU_DB_TYPE = 666;
+    public static final int BOTTOM_MENU_DB_TYPE = 777;
+    public static final int HOME_ITEMS_DB_TYPE = 888;
 
 }

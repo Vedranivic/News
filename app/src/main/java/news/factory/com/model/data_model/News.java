@@ -3,10 +3,11 @@ package news.factory.com.model.data_model;
 import java.util.ArrayList;
 import java.util.List;
 
+import io.realm.RealmList;
 import io.realm.RealmObject;
 
 
-public class News
+public class News extends RealmObject
 {
     private String pages_no;
 
@@ -34,7 +35,7 @@ public class News
 
     private String category_color;
 
-    private List<Content> content;
+    private RealmList<Content> content;
 
     private String shares;
 
@@ -76,7 +77,7 @@ public class News
 
     private String urlm;
 
-    private List<Tags> tags;
+    private RealmList<Tags> tags;
 
     private String article_edition;
 
@@ -235,11 +236,6 @@ public class News
     public List<Content> getContent ()
     {
         return content;
-    }
-
-    public void setContent (List<Content> content)
-    {
-        this.content = content;
     }
 
     public String getShares ()
@@ -445,11 +441,6 @@ public class News
     public List<Tags> getTags ()
     {
         return tags;
-    }
-
-    public void setTags (List<Tags> tags)
-    {
-        this.tags = tags;
     }
 
     public String getArticle_edition ()

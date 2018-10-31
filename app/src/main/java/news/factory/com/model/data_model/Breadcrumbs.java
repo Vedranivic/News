@@ -1,6 +1,8 @@
 package news.factory.com.model.data_model;
 
-public class Breadcrumbs
+import io.realm.RealmObject;
+
+public class Breadcrumbs extends RealmObject
 {
     private String category;
 

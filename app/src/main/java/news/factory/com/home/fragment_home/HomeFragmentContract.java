@@ -11,7 +11,7 @@ public interface HomeFragmentContract {
     }
 
     interface Presenter{
-        void initialize();
+        void initialize(Boolean isNetworkConnected);
         void getHomeItems();
     }
 }

@@ -1,6 +1,8 @@
 package news.factory.com.model.data_model;
 
-public class Xl
+import io.realm.RealmObject;
+
+public class Xl extends RealmObject
 {
     private String height;
 

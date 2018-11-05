@@ -8,6 +8,7 @@ import javax.inject.Inject;
 
 import io.reactivex.Single;
 import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.functions.Function;
 import io.reactivex.schedulers.Schedulers;
 import io.realm.Realm;
 import news.factory.com.base.BaseInteractorImpl;
@@ -50,7 +51,10 @@ public class HomeInteractorImpl extends BaseInteractorImpl implements HomeIntera
     @Override
     public void getHomeItems(InteractorListener listener) {
         getDisposable().add(newsAPI.getIndex()
-                .map(homeItems -> new ResultWrapper(homeItems, Constants.HOME_ITEMS_TYPE))
+                .map(homeItems -> {
+                    for(Category c : homeItems) c.setCompoundID();
+                    return new ResultWrapper(homeItems, Constants.HOME_ITEMS_TYPE);
+                })
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeWith(getObserver(listener))

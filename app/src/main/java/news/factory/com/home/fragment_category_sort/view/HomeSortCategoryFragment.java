@@ -59,8 +59,6 @@ public class HomeSortCategoryFragment extends BaseFragment implements HomeSortCa
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
         rvCategoryItems.setLayoutManager(linearLayoutManager);
         rvCategoryItems.setAdapter((RecyclerAdapterImpl)adapter);
-        Log.d("ADAPTER_TAG", adapter.toString());
-
     }
 
     private void setupMVP() {

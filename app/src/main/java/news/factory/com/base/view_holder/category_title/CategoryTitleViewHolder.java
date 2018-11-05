@@ -5,6 +5,7 @@ import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
+import java.text.ParseException;
 import java.util.List;
 
 import butterknife.BindView;
@@ -30,7 +31,12 @@ public class CategoryTitleViewHolder extends BaseItemViewHolder {
         if(items.get(position).getViewType() == R.layout.item_category_title) {
             CategoryTitleDataClass item = (CategoryTitleDataClass) items.get(position).getItem();
             tvCategoryName.setText(item.getTitle());
-            categoryUnderline.setBackgroundColor(Color.parseColor(item.getColor()));
+            try {
+                categoryUnderline.setBackgroundColor(Color.parseColor(item.getColor()));
+            }
+            catch (NullPointerException npe){
+                categoryUnderline.setBackgroundColor(Color.parseColor("#000000"));
+            }
         }
     }
 }

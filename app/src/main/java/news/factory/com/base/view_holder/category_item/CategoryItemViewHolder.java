@@ -55,7 +55,12 @@ public class CategoryItemViewHolder extends BaseItemViewHolder {
         CategoryItemDataClass article = (CategoryItemDataClass) items.get(position).getItem();
         articleID = article.getArticleID();
         tvCategory.setText(article.getCategory());
-        tvCategory.getBackground().setColorFilter(Color.parseColor(article.getCategory_color()), PorterDuff.Mode.ADD);
+        try {
+            tvCategory.getBackground().setColorFilter(Color.parseColor(article.getCategory_color()), PorterDuff.Mode.ADD);
+        }
+        catch (NullPointerException npe){
+            tvCategory.getBackground().setColorFilter(Color.parseColor("#000000"), PorterDuff.Mode.ADD);
+        }
         tvTitle.setText(article.getTitle());
         tvShares.setText(article.getShares());
         tvPublishedBefore.setText(article.getPublishedBefore());

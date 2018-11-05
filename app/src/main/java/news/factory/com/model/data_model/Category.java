@@ -8,6 +8,8 @@ import io.realm.annotations.PrimaryKey;
 
 public class Category extends RealmObject {
 
+    @PrimaryKey
+    private String compoundID;
     private String id;
     private String name;
     private String title;
@@ -16,7 +18,6 @@ public class Category extends RealmObject {
     private String slug;
     private String url;
     private String icon;
-    @PrimaryKey
     private String category_id;
     private String template;
     private String breadcrumbs;
@@ -124,5 +125,9 @@ public class Category extends RealmObject {
 
     public RealmList<News> getArticles() {
         return articles;
+    }
+
+    public void setCompoundID() {
+        this.compoundID = this.category_id + this.name;
     }
 }

@@ -8,8 +8,10 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.support.v4.app.Fragment;
 
+import com.facebook.stetho.Stetho;
 import com.maradroid.dummyresponsegenerator.base.interactor.InteractorImpl;
 import com.maradroid.dummyresponsegenerator.utils.SharedPerfRepo;
+import com.uphyca.stetho_realm.RealmInspectorModulesProvider;
 
 import javax.inject.Inject;
 
@@ -43,6 +45,13 @@ public class App extends Application implements HasActivityInjector, HasSupportF
                 .appModule(new AppModule(this))
                 .build();
         appComponent.inject(this);
+
+        //Debugging Realm database (remove for release version)
+        Stetho.initialize(
+                Stetho.newInitializerBuilder(this)
+                        .enableDumpapp(Stetho.defaultDumperPluginsProvider(this))
+                        .enableWebKitInspector(RealmInspectorModulesProvider.builder(this).build())
+                        .build());
     }
 
     public AppComponent getAppComponent(){
